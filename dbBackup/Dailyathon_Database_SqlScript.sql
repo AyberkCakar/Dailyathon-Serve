@@ -221,7 +221,7 @@ CREATE TABLE `tblsurveyuser` (
 
 CREATE TABLE `tbltag` (
   `TagID` int(11) NOT NULL,
-  `TagName` int(11) DEFAULT NULL,
+  `TagName` varchar(30) DEFAULT NULL,
   `CategoryID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
@@ -349,7 +349,6 @@ ALTER TABLE `tblsurveyuser`
 --
 ALTER TABLE `tbltag`
   ADD PRIMARY KEY (`TagID`),
-  ADD UNIQUE KEY `CategoryID` (`CategoryID`),
   ADD UNIQUE KEY `TagID` (`TagID`);
 
 --
