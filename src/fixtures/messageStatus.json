@@ -1,0 +1,62 @@
+{
+  "userMessage": {
+    "login": {
+      "Not_Found": {
+        "status": 404,
+        "message": "There is no such user !"
+      },
+      "Bad_Request": {
+        "status": 400,
+        "message": "The entry type is not correct."
+      }
+    },
+    "signUp": {
+      "Ok": {
+        "status": 200,
+        "message": "User registration has taken place."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "Error while registering user !"
+      },
+      "Conflict": {
+        "status": 409,
+        "message": "There is such user."
+      }
+    },
+    "findUserEmail": {
+      "Not_Found": {
+        "status": 404,
+        "message": "There is no such user !"
+      }
+    },
+    "delete": {
+      "Ok": {
+        "status": 200,
+        "message": "User deletion has occurred."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred during user deletion !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    }
+  },
+  "validateMessage": {
+    "status": 417,
+    "message": "Must have correct data entry."
+  },
+  "tokenMessage": {
+    "Token_Invalid": {
+      "status": 407,
+      "message": "Failed to authentication token."
+    },
+    "Token_Null": {
+      "status": 417,
+      "message": "No token provided."
+    }
+  }
+}
