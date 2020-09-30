@@ -1,8 +1,14 @@
 {
   "name": "dailyathon-serve",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "./build/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./build/app.js -p $PORT",
+    "start:dev": "nodemon src/app.js "
+  },
+  "type": "module"
+  ,
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -18,8 +24,5 @@
   "devDependencies": {
     "nodemon": "^2.0.4",
     "standard-version": "^9.0.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
