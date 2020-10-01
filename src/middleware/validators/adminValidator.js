@@ -5,8 +5,8 @@ module.exports = {
     login: async (req, res, next) => {
         try {
             await joi.object({
-                UserEmail: joi.string().email().required(),
-                UserPassword: joi.string().max(99).required()
+                Username: joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                Password: joi.string().max(99).required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
@@ -17,13 +17,8 @@ module.exports = {
     signUp: async (req, res, next) => {
         try {
             await joi.object({
-                UserName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                UserSurname:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                UserEmail: joi.string().email().required(),
-                UserPassword: joi.string().max(99).required(),
-                UserDate: joi.date().required(),
-                UserProfession: joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                UserCity: joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı]+$')).required(),
+                Username: joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                Password: joi.string().max(99).required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
@@ -31,10 +26,10 @@ module.exports = {
         }
     },
 
-    deleteMyAccount: async (req, res, next) => {
+    findAdminUsername: async (req, res, next) => {
         try {
             await joi.object({
-                UserEmail: joi.string().email().required(),
+                Username: joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
             }).validateAsync(req.body);
             next();
         } catch (error) {
