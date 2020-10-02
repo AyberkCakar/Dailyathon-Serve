@@ -1,26 +1,23 @@
 {
-  "name": "dailyathon-serve",
-  "version": "1.1.0",
-  "main": "./build/app.js",
+  "name": "api-document-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "start:dev": "nodemon src/app.js",
-    "release": "standard-version"
+    "start": "node app.js -p $PORT",
+    "start:dev": "nodemon app.js",
+    "deploy": "node app.js -p $PORT"
   },
+  "author": "Ayberk Çakar",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "joi": "^17.2.1",
-    "jsonwebtoken": "^8.5.1",
-    "multer": "^1.4.2",
-    "mysql": "^2.18.1",
     "path": "^0.12.7",
-    "request": "^2.88.2",
-    "require-directory": "^2.1.1"
+    "twig": "^1.15.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
-    "standard-version": "^9.0.0"
+    "nodemon": "^2.0.2"
   }
 }
