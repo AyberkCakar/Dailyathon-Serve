@@ -1,5 +1,5 @@
 const { mysqlDataContext } = require('../dataContexts');
-import { userMessage } from '../../fixtures/messageStatus.json';
+const { userMessage }  = require('../../fixtures/messageStatus.json');
 
 module.exports = {
     login: (data) => {
@@ -19,7 +19,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('CALL UserSignUp(?,?,?,?,?,?,?)', [data.UserName, data.UserSurname, data.UserEmail, data.UserPassword, data.UserDate, data.UserProfession, data.UserCity], (error, result) => {
                 if (!error)
-                    if (result[0][0]?.UserID != null)
+                    if (result[0][0] != null)
                         resolve(userMessage.signUp.Ok);
                     else
                         reject(userMessage.signUp.Internal_Server_Error);

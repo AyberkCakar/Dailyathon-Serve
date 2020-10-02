@@ -1,5 +1,5 @@
 const { mysqlDataContext } = require('../dataContexts');
-import { adminMessage } from '../../fixtures/messageStatus.json';
+const { adminMessage } = require ('../../fixtures/messageStatus.json');
 
 module.exports = {
     login: (data) => {
@@ -19,7 +19,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('CALL AdminSignUp(?,?,?,?,?,?,?)', [data.Username, data.Password], (error, result) => {
                 if (!error)
-                    if (result[0][0]?.AdminID != null)
+                    if (result[0][0]  != null)
                         resolve(userMessage.signUp.Ok);
                     else
                         reject(adminMessage.signUp.Internal_Server_Error);

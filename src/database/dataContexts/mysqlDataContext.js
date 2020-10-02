@@ -1,4 +1,4 @@
-import mysql from 'mysql'
+const mysql = require('mysql');
 
 module.exports = mysql.createPool({
     host: process.env.DB_HOST,

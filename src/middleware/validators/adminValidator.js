@@ -1,5 +1,5 @@
-import { validateMessage } from '../../fixtures/messageStatus.json';
-import joi from 'joi';
+const { validateMessage } = require('../../fixtures/messageStatus.json');
+const joi = require('joi');
 
 module.exports = {
     login: async (req, res, next) => {
