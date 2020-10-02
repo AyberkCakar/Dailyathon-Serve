@@ -3,7 +3,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import routers from './serve'
 
-const PORT = process.env.PORT || 4100;
+const PORT = process.env.PORT || 3300;
 const app = express();
 
 app.use(cors());
