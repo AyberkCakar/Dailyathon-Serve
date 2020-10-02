@@ -1,14 +1,16 @@
-import express from 'express'
-import jwt from 'jsonwebtoken'
-import { verifyToken, authValidator ,adminValidator} from '../middleware/index'
-import dbFactory from '../database'
-import { userMessage } from '../fixtures/messageStatus.json'
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const { verifyToken,validators } = require('../middleware');
+const dbFactory = require('../database');
+const { userMessage } = require('../fixtures/messageStatus.json');
 
 const router = express();
 const userTransactions = dbFactory('userTransactions');
 const adminTransactions = dbFactory('adminTransactions');
 
-router.post('/login/:loginType', authValidator.login,adminValidator.login, async (req, res) => {
+const authValidator = validators.authValidator;
+
+router.post('/login/:loginType', authValidator.login, async (req, res) => {
     try {
         let result, payload;
         switch (req.params.loginType) {
