@@ -37,11 +37,11 @@ CREATE PROCEDURE `AdminSignUp` (IN `Username` VARCHAR(30), IN `Password` VARCHAR
 	COMMIT;
 END$$
 
-CREATE PROCEDURE `UserLogin` (IN `Email` VARCHAR(40), IN `Password` VARCHAR(99))  BEGIN
+CREATE  PROCEDURE `UserLogin` (IN `Email` VARCHAR(40), IN `Password` VARCHAR(99))  BEGIN
     select * from tbluser WHERE UserMail=Email and UserPassword = Password;
 END$$
 
-CREATE PROCEDURE `UserSignUp` (IN `UserName` VARCHAR(30), IN `UserSurname` VARCHAR(20), IN `UserMail` VARCHAR(40), IN `UserPassword` VARCHAR(99), IN `UserDate` DATE, IN `UserProfession` VARCHAR(30), IN `UserCity` VARCHAR(15))  BEGIN
+CREATE  PROCEDURE `UserSignUp` (IN `UserName` VARCHAR(30), IN `UserSurname` VARCHAR(20), IN `UserMail` VARCHAR(40), IN `UserPassword` VARCHAR(99), IN `UserDate` DATE, IN `UserProfession` VARCHAR(30), IN `UserCity` VARCHAR(15))  BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         GET DIAGNOSTICS CONDITION 1
@@ -66,9 +66,9 @@ DELIMITER ;
 
 CREATE TABLE `tbladmin` (
   `AdminID` int(11) NOT NULL,
-  `AdminUsername` varchar(30) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `AdminPassword` varchar(99) COLLATE utf8_turkish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+  `AdminUsername` varchar(30) DEFAULT NULL,
+  `AdminPassword` varchar(99) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -78,10 +78,11 @@ CREATE TABLE `tbladmin` (
 
 CREATE TABLE `tblannouncement` (
   `AnnouncementID` int(11) NOT NULL,
-  `AnnouncementContent` text COLLATE utf8_turkish_ci,
+  `AnnouncementContent` text,
   `AnnouncementStartDate` date DEFAULT NULL,
-  `AnnouncementDueDate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+  `AnnouncementDueDate` date DEFAULT NULL,
+  `AnnouncementUrl` varchar(500)  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,7 @@ CREATE TABLE `tblannouncementuser` (
   `AnnouncementUserID` int(11) NOT NULL,
   `AnnouncementID` int(11) NOT NULL,
   `UserID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -103,8 +104,8 @@ CREATE TABLE `tblannouncementuser` (
 
 CREATE TABLE `tblcategory` (
   `CategoryID` int(11) NOT NULL,
-  `CategoryName` varchar(30) COLLATE utf8_turkish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+  `CategoryName` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -114,18 +115,19 @@ CREATE TABLE `tblcategory` (
 
 CREATE TABLE `tblentertainment` (
   `EntertainmentID` int(11) NOT NULL,
-  `EntertainmentName` varchar(50) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `EntertainmentContent` text COLLATE utf8_turkish_ci,
+  `EntertainmentName` varchar(50)DEFAULT NULL,
+  `EntertainmentContent` text ,
   `EntertainmentStartDate` date NOT NULL,
   `EntertainmentDueDate` date NOT NULL,
   `EntertainmentisFree` tinyint(1) NOT NULL,
-  `EntertainmentPosterUrl` varchar(500) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `EntertainmentTicketUrl` varchar(500) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `EntertainmentCity` varchar(20) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `EntertainmentDistrict` varchar(30) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `EntertainmentVenue` varchar(200) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `EntertainmentCategoryID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+  `EntertainmentPosterUrl` varchar(500) DEFAULT NULL,
+  `EntertainmentTicketUrl` varchar(500) DEFAULT NULL,
+  `EntertainmentCity` varchar(20) DEFAULT NULL,
+  `EntertainmentDistrict` varchar(30) DEFAULT NULL,
+  `EntertainmentVenue` varchar(200) DEFAULT NULL,
+  `EntertainmentCategoryID` int(11) NOT NULL,
+  `EntertainmentPerformer` varchar(50)  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
 -- --------------------------------------------------------
 
@@ -135,8 +137,8 @@ CREATE TABLE `tblentertainment` (
 
 CREATE TABLE `tblentertainmentcategory` (
   `EntertainmentCategoryID` int(11) NOT NULL,
-  `EntertainmentCategoryName` varchar(50) COLLATE utf8_turkish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+  `EntertainmentCategoryName` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -146,10 +148,22 @@ CREATE TABLE `tblentertainmentcategory` (
 
 CREATE TABLE `tblleague` (
   `LeagueID` int(11) NOT NULL,
-  `LeagueName` varchar(50) COLLATE utf32_turkish_ci NOT NULL,
-  `LeagueTableName` varchar(50) COLLATE utf32_turkish_ci NOT NULL,
+  `LeagueName` varchar(50) NOT NULL,
+  `LeagueTableName` varchar(50) NOT NULL,
   `SportID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `tblleaugeuser`
+--
+
+CREATE TABLE `tblleaugeuser` (
+  `LeaugeuserID` int(11) NOT NULL,
+  `LeagueID` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -159,11 +173,11 @@ CREATE TABLE `tblleague` (
 
 CREATE TABLE `tblnews` (
   `NewsID` int(11) NOT NULL,
-  `NewsTitle` varchar(50) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `NewsDescription` text COLLATE utf8_turkish_ci,
-  `NewsImage` varchar(500) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `NewsTitle` varchar(50) DEFAULT NULL,
+  `NewsDescription` text,
+  `NewsImage` varchar(500) DEFAULT NULL,
   `NewsCategoryID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -173,8 +187,8 @@ CREATE TABLE `tblnews` (
 
 CREATE TABLE `tblnewscategory` (
   `NewsCategoryID` int(11) NOT NULL,
-  `NewsCategoryName` varchar(30) COLLATE utf32_turkish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+  `NewsCategoryName` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -184,8 +198,8 @@ CREATE TABLE `tblnewscategory` (
 
 CREATE TABLE `tblsport` (
   `SportID` int(11) NOT NULL,
-  `SportName` varchar(50) COLLATE utf32_turkish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+  `SportName` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -195,11 +209,11 @@ CREATE TABLE `tblsport` (
 
 CREATE TABLE `tblsurveylist` (
   `SurveyListID` int(11) NOT NULL,
-  `SurveyName` varchar(50) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `SurveyTableName` varchar(30) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `SurveyName` varchar(50) DEFAULT NULL,
+  `SurveyTableName` varchar(30) DEFAULT NULL,
   `SurveyStartDate` date NOT NULL,
   `SurveyDueDate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -209,9 +223,9 @@ CREATE TABLE `tblsurveylist` (
 
 CREATE TABLE `tblsurveyuser` (
   `SurveyUserID` int(11) NOT NULL,
-  `SurveyID` int(11) NOT NULL,
+  `SurveyListID` int(11) NOT NULL,
   `UserID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -223,7 +237,7 @@ CREATE TABLE `tbltag` (
   `TagID` int(11) NOT NULL,
   `TagName` varchar(30) DEFAULT NULL,
   `CategoryID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -235,7 +249,7 @@ CREATE TABLE `tbltaguser` (
   `TagUserID` int(11) NOT NULL,
   `TagID` int(11) NOT NULL,
   `UserID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -245,14 +259,14 @@ CREATE TABLE `tbltaguser` (
 
 CREATE TABLE `tbluser` (
   `UserID` int(11) NOT NULL,
-  `UserName` varchar(30) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `UserSurname` varchar(20) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `UserMail` varchar(40) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `UserPassword` varchar(99) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `UserName` varchar(30) DEFAULT NULL,
+  `UserSurname` varchar(20) DEFAULT NULL,
+  `UserMail` varchar(40) DEFAULT NULL,
+  `UserPassword` varchar(99) DEFAULT NULL,
   `UserDate` date DEFAULT NULL,
-  `UserProfession` varchar(30) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `UserCity` varchar(15) COLLATE utf8_turkish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+  `UserProfession` varchar(30) DEFAULT NULL,
+  `UserCity` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -308,6 +322,12 @@ ALTER TABLE `tblleague`
   ADD PRIMARY KEY (`LeagueID`),
   ADD UNIQUE KEY `SportID` (`SportID`),
   ADD UNIQUE KEY `LeagueID` (`LeagueID`);
+
+--
+-- Tablo için indeksler `tblleaugeuser`
+--
+ALTER TABLE `tblleaugeuser`
+  ADD PRIMARY KEY (`LeaugeuserID`);
 
 --
 -- Tablo için indeksler `tblnews`
@@ -373,7 +393,7 @@ ALTER TABLE `tbluser`
 -- Tablo için AUTO_INCREMENT değeri `tbladmin`
 --
 ALTER TABLE `tbladmin`
-  MODIFY `AdminID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `AdminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tblannouncement`
@@ -391,7 +411,7 @@ ALTER TABLE `tblannouncementuser`
 -- Tablo için AUTO_INCREMENT değeri `tblcategory`
 --
 ALTER TABLE `tblcategory`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tblentertainment`
@@ -412,6 +432,12 @@ ALTER TABLE `tblleague`
   MODIFY `LeagueID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- Tablo için AUTO_INCREMENT değeri `tblleaugeuser`
+--
+ALTER TABLE `tblleaugeuser`
+  MODIFY `LeaugeuserID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `tblnews`
 --
 ALTER TABLE `tblnews`
@@ -427,37 +453,37 @@ ALTER TABLE `tblnewscategory`
 -- Tablo için AUTO_INCREMENT değeri `tblsport`
 --
 ALTER TABLE `tblsport`
-  MODIFY `SportID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SportID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tblsurveylist`
 --
 ALTER TABLE `tblsurveylist`
-  MODIFY `SurveyListID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SurveyListID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tblsurveyuser`
 --
 ALTER TABLE `tblsurveyuser`
-  MODIFY `SurveyUserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SurveyUserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tbltag`
 --
 ALTER TABLE `tbltag`
-  MODIFY `TagID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TagID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tbltaguser`
 --
 ALTER TABLE `tbltaguser`
-  MODIFY `TagUserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TagUserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
