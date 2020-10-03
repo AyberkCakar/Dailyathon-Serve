@@ -16,11 +16,11 @@ router.post('/login/:loginType', authValidator.login, async (req, res) => {
         switch (req.params.loginType) {
             case 'user':
                 result = await userTransactions.login(req.body);
-                payload = { UserEmail: result.UserEmail};
+                payload = { UserID: result.UserID};
                 break;
             case 'admin':
                 result = await adminTransactions.login(req.body);
-                payload = { Username: result.Username };
+                payload = { AdminID: result.AdminID };
                 break;
             default:
                 res.status(userMessage.login.Bad_Request.status).json({message: userMessage.login.Bad_Request.message});
@@ -33,9 +33,20 @@ router.post('/login/:loginType', authValidator.login, async (req, res) => {
     }
 });
 
-router.post('/sign-up', authValidator.signUp, async (req, res) => {
+router.post('/sign-up/:signupTpye', authValidator.signUp, async (req, res) => {
     try {
-        const result = await userTransactions.signup(req.body);
+        let result;
+        switch (req.params.signupTpye) {
+            case 'user':
+                result = await userTransactions.signup(req.body);
+                break;
+            case 'admin':
+                result = await adminTransactions.signup(req.body);
+                break;
+            default:
+                res.status(userMessage.login.Bad_Request.status).json({message: userMessage.login.Bad_Request.message});
+                return;
+        }
         res.json({ message: result.message });
     } catch (err) {
         res.status(err.status).json({ message: err.message });
