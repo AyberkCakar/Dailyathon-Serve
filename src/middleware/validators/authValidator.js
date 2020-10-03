@@ -4,7 +4,8 @@ const joi = require('joi');
 module.exports = {
     login: async (req, res, next) => {
         try {
-            switch (req.params.loginTpye) {
+            const Type = req.params;
+            switch (Type.loginType) {
                 case 'user':
                     await joi.object({
                         UserEmail: joi.string().email().required(),
@@ -18,7 +19,7 @@ module.exports = {
                     }).validateAsync(req.body);
                     break;
                 default:
-                    res.status(userMessage.signUp.Internal_Server_Error.status).json({message: userMessage.signUp.Internal_Server_Error.message});
+                    res.status(userMessage.login.Internal_Server_Error.status).json({message: userMessage.login.Internal_Server_Error.message});
                     return;
             }
             next();
@@ -29,7 +30,8 @@ module.exports = {
 
     signUp: async (req, res, next) => {
         try {
-            switch (req.params.signupType) {
+            const Type = req.params;
+            switch (Type.signupType) {
                 case 'user':
                     await joi.object({
                         UserName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
