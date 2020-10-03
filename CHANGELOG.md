@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.1.0...v1.2.0) (2020-10-03)
+
+
+### Features
+
+* added announcement list router ([1bbb099](https://github.com/AyberkCakar/Dailyathon-Serve/commit/1bbb099476592c46f206adc334ee8fbd369c776c))
+* added User Announcement List router ([76d13a3](https://github.com/AyberkCakar/Dailyathon-Serve/commit/76d13a3667b73adf421c1b6c5fb3b9147fe1f261))
+* added User Survey List router ([1030522](https://github.com/AyberkCakar/Dailyathon-Serve/commit/1030522b9f2f6218d6e1aba100434600e2c9f855))
+
+
+### Bug Fixes
+
+* delete babel package ([69be0bf](https://github.com/AyberkCakar/Dailyathon-Serve/commit/69be0bfb677c5471a096df79a7301b19de938d5a))
+* fix auth routing operations ([1c2234e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/1c2234e31157813626ad327f0804e283bfc696ed))
+* fix authValidator bug ([66474f9](https://github.com/AyberkCakar/Dailyathon-Serve/commit/66474f9dd73740c5f0d6846f4cfd34047efa38f9))
+* fix heroku deploy ([6f73570](https://github.com/AyberkCakar/Dailyathon-Serve/commit/6f73570cb93e24c39ee3cc16d6050c5694774e2d))
+* fix heroku deploy ([561388c](https://github.com/AyberkCakar/Dailyathon-Serve/commit/561388cf273fb1c49b68600086c4b0daab0e8b50))
+* fix package.json ([fbecc25](https://github.com/AyberkCakar/Dailyathon-Serve/commit/fbecc2509083051d124236de74073e352d23ad8f))
+* update Database SqlScript ([65aa912](https://github.com/AyberkCakar/Dailyathon-Serve/commit/65aa91296d8917d5ec12b936dbb8f2686be04f21))
+
 ## 1.1.0 (2020-10-01)
 
 
