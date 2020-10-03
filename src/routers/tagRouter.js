@@ -23,4 +23,13 @@ router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
         res.status(error.status).json({ message: error.message });
     }
 });
+
+router.delete('/category', verifyToken, tagValidator.delete, async (req, res) => {
+    try {
+        const response = await tagTransactions.delete(req.body.TagID);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 module.exports = router;
