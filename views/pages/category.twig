@@ -1,0 +1,124 @@
+<div class="content-page tabcontent" id="tabCategory">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>Category Transacsions</h1>
+            <p>The user performs category operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">category</url>
+
+Result Example:
+{
+    "result": {
+        "CategoryID": 1,
+        "CategoryName": "Haber"
+    },
+    {
+        "CategoryID": 2,
+        "CategoryName": "Eğlence"
+    }
+}
+        </code></pre>
+            <p>For the Category List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">category</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">category</url>
+{
+    "CategoryName": Spor,
+}
+Result Example:
+{
+    "message": "Category added."
+}
+        </code></pre>
+            <p>For the Category Insert, you need to make a Post call to the URL below :
+                <br>
+                <code class="higlighted" id="path">category</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>CategoryName</td>
+                    <td>String</td>
+                    <th></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">category</url>
+{
+    "CategoryID": 2,
+}
+Result Example:
+{
+    "message": "Category deletion has occurred."
+}
+        </code></pre>
+            <p>For the Category Delete, you need to make a Delete call to the URL below :
+                <br>
+                <code class="higlighted" id="path">category</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>CategoryID</td>
+                    <td>Int</td>
+                    <th></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="content-code"></div>
+</div>

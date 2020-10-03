@@ -1,0 +1,163 @@
+<div class="content-page tabcontent" id="tabTag">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>Tag Transacsions</h1>
+            <p>The user performs tag operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">tag</url>
+
+Result Example:
+{
+    "result": {
+        "TagID": 4,
+        "TagName": "Teknoloji",
+        "CategoryID": 1
+    }
+}
+        </code></pre>
+            <p>For the Tag List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">tag</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Category Tag List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">category-tag</url>
+
+Result Example:
+{
+    "result": {
+        "TagID": 4,
+        "TagName": "Teknoloji",
+        "CategoryName": "Haber"
+    }
+}
+        </code></pre>
+            <p>For the Category Tag List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">category-tag</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">tag</url>
+{
+    "TagName": "Teknoloji",
+    "CategoryID": 1
+}
+Result Example:
+{
+    "message": "Tag added."
+}
+        </code></pre>
+            <p>For the Tag Insert, you need to make a Post call to the URL below :
+                <br>
+                <code class="higlighted" id="path">tag</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>TagName</td>
+                    <td>String</td>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>CategoryID</td>
+                    <td>Int</td>
+                    <th></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">category</url>
+{
+    "TagID": 2,
+}
+Result Example:
+{
+    "message": "Tag deletion has occurred."
+}
+        </code></pre>
+            <p>For the Tag Delete, you need to make a Delete call to the URL below :
+                <br>
+                <code class="higlighted" id="path">tag</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>TagID</td>
+                    <td>Int</td>
+                    <th></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="content-code"></div>
+</div>

@@ -3,9 +3,9 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>API - Documentation</title>
+		<title>Dailyathon API - Documentation</title>
 		<meta name="description" content="">
-		<meta name="author" content="İsmet Kizgin">
+		<meta name="author" content="Ayberk Çakar">
 		<meta http-equiv="cleartype" content="on">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +27,7 @@
 		<script>
 			let path = window.location;
 			let item = document.querySelectorAll("#path");
+			console.log(item.length);
 			for (let i = 0; i < item.length; i++) {
 				item[i].innerHTML = path + item[i].innerHTML;
 			}

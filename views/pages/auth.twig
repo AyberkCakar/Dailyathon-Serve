@@ -6,47 +6,123 @@
 			<p>The user performs the login, sign up and account delete operations with the following examples.</p>
 		</div>
 		<div class="overflow-hidden content-section">
-			<h2>Login</h2>
-			<pre><code>
+			<h2>User Login</h2>
+			<pre><code class="json">
 #Request Example
-POST <url id="path">login</url>
+
+POST <url id="path">login/user</url>
 {
-    "UserIdentityNo": 1234569902,
+    "UserEmail": dailyathon@gmail.com,
     "UserPassword": "testpassword"
 }
         
 Result Example:
 {
     "result": {
-        "UserID": 23,
-        "UserFirstName": "Ailem",
-        "UserLastName": "Güvende",
-        "UserIdentityNo": 12345678901
-        "UserEmail": "info@ailemguvende.com",
-        "UserPhone": "0(555) 555 55 55",
-        "UserStatusName": "User"
+        "UserID": 1,
+        "UserName": "Dailyathon",
+        "UserSurname": "Dailyathon",
+        "UserMail": "dailyathon@gmail.com",
+        "UserPassword": "password",
+        "UserDate": "1236-01-03T00:00:00.000Z",
+        "UserProfession": "Yazılım Mühendisi",
+        "UserCity": "İzmir"
     },
     "token": "secretToken"
 }
         </code></pre>
 			<p>For the user login, you need to make a POST call to the URL below :
 				<br>
-				<code class="higlighted" id="path">login</code>
+				<code class="higlighted" id="path">login/user</code>
 			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>UserEmail</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>UserPassword</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="overflow-hidden content-section">
-			<h2>Sign Up</h2>
+			<h2>Admin Login</h2>
+			<pre><code class="json">
+    #Request Example
+
+    POST <url id="path">login/user</url>
+    {
+        "Username": admin,
+        "Password": "password"
+    }
+
+    Result Example:
+    {
+        "result": {
+            "AdminID": 1,
+            "AdminUsername": "admin",
+            "AdminPassword": "password"
+        },
+        "token": "secretToken"
+    }
+            </code></pre>
+			<p> For the user login, you need to make a POST call to the URL below :
+				<br>
+				<code class="higlighted" id="path">login/admin</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>Username</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="overflow-hidden content-section">
+			<h2>User Sign Up</h2>
 			<pre><code>
 #Request Example
-POST <url id="path">sign-up</url>
+POST <url id="path">sign-up/user</url>
 {
-    "UserFirstName": "Ailem",
-    "UserLastName": "Güvende",
-    "UserIdentityNo": 12345678901,
-    "UserEmail": "info@ailemguvende.com",
-    "UserPhone": "0(555) 555 55 55",
-    "UserPassword": "testpasword",
-    "UserStatusID": 2
+    "UserName": "Dailyathon",
+ 	"UserSurname": "Dailyathon",
+    "UserMail": "dailyathon@gmail.com",
+    "UserPassword": "password",
+    "UserDate": "1236-01-03T00:00:00.000Z",
+    "UserProfession": "Yazılım Mühendisi",
+    "UserCity": "İzmir"
 }
         
 Reusult Example:
@@ -56,8 +132,102 @@ Reusult Example:
         </code></pre>
 			<p>For the sign up transaction, you need to make a POST call to the URL below :
 				<br>
-				<code class="higlighted" id="path">sign-up</code>
+				<code class="higlighted" id="path">sign-up/user</code>
 			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>UserName</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>UserSurname</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>UserMail</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr><tr>
+					<td>UserPassword</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr><tr>
+					<td>UserDate</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr><tr>
+					<td>UserProfession</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr><tr>
+					<td>UserCity</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="overflow-hidden content-section">
+			<h2>Admin Sign Up</h2>
+			<pre><code>
+#Request Example
+POST <url id="path">sign-up/admin</url>
+{
+    "Username": "Dailyathon",
+	"Password": "Dailyathon"
+}
+
+Reusult Example:
+{
+    "message": "Admin registration has taken place."
+}
+        </code></pre>
+			<p>For the sign up transaction, you need to make a POST call to the URL below :
+				<br>
+				<code class="higlighted" id="path">sign-up/user</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>UserName</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="overflow-hidden content-section">
 			<h2>Delete My Account</h2>
@@ -65,7 +235,7 @@ Reusult Example:
 #Request Example
 DELETE <url id="path">delete-my-account</url>
 {
-    "UserIdentityNo": 12345678901
+    "UserEmail": "dailyathon@gmail.com"
 }
         
 Reusult Example:
@@ -77,6 +247,24 @@ Reusult Example:
 				<br>
 				<code class="higlighted" id="path">delete-my-account</code>
 			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>UserEmail</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 	<div class="content-code"></div>
