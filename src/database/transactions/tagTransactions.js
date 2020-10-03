@@ -15,6 +15,19 @@ module.exports = {
             });
         });
     },
+    categoryTagList: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT T.TagID,T.TagName,C.CategoryName FROM tbltag T inner join tblcategory C on T.CategoryID = C.CategoryID ORDER BY T.TagID ASC', (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( TagMessage.categoryTagList.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblTag SET ?)', [data], (error, result) => {

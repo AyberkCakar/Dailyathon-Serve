@@ -14,6 +14,14 @@ router.get('/tag', async (req, res) => {
         res.status(error.status).json({ message: error.message });
     }
 });
+router.get('/category-tag', async (req, res) => {
+    try {
+        const response = await tagTransactions.categoryTagList();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 
 router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
     try {
