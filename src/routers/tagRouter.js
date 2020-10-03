@@ -32,7 +32,7 @@ router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
     }
 });
 
-router.delete('/category', verifyToken, tagValidator.delete, async (req, res) => {
+router.delete('/tag', verifyToken, tagValidator.delete, async (req, res) => {
     try {
         const response = await tagTransactions.delete(req.body.TagID);
         res.json({message:response.message});
