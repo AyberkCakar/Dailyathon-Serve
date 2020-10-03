@@ -15,4 +15,12 @@ router.get('/tag', async (req, res) => {
     }
 });
 
+router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
+    try {
+        const response = await tagTransactions.insert(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 module.exports = router;
