@@ -8,6 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routers.authRouter);
 app.use(routers.surveyRouter);
+app.use(routers.announcementRouter);
 
 app.get('/', function (req, res) {
     res.json('Dailyathon Serve Project');
