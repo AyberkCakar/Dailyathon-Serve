@@ -7,6 +7,7 @@ const routers = require('./routers');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routers.authRouter);
+app.use(routers.surveyRouter);
 
 app.get('/', function (req, res) {
     res.json('Dailyathon Serve Project');
