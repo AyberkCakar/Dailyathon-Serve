@@ -6,6 +6,15 @@ const router = express();
 const announcementTransactions = dbFactory('announcementTransactions');
 const announcementValidator = validators.announcementValidator;
 
+router.get('/announcement', async (req, res) => {
+    try {
+        const response = await announcementTransactions.list();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.get('/announcementUserList',verifyToken,announcementValidator.announcementUserList, async (req, res) => {
     try {
         const response = await announcementTransactions.announcementUserList(req.body.UserID);
