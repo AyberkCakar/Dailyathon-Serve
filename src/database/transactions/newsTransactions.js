@@ -31,6 +31,19 @@ module.exports = {
             });
         });
     },
+    userNewsList: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL UserNews(?)',[data.UserID], (error, result) => {
+                if (!error)
+                    if (result[0] != null)
+                        resolve(result[0]);
+                    else
+                        reject( newsMessage.userNewsList.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblNews SET ?', [data], (error, result) => {
