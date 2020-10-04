@@ -32,4 +32,13 @@ router.get('/tag-entertainment',verifyToken,entertainmentValidator.tagEntertainm
         res.status(error.status).json({ message: error.message });
     }
 });
+
+router.post('/entertainment', verifyToken,entertainmentValidator.add, async (req, res) => {
+    try {
+        const response = await entertainmentTransactions.insert(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 module.exports = router;
