@@ -226,6 +226,12 @@
         "message": "No content available !"
       }
     },
+    "userNewsList":{
+      "Not_Found": {
+        "status": 404,
+        "message": "Selected tag not found !"
+      }
+    },
     "insert": {
       "Ok": {
         "status": 200,
