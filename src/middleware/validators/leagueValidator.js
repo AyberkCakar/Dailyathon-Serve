@@ -5,7 +5,7 @@ module.exports = {
     userLeagueList: async (req, res, next) => {
         try {
             await joi.object({
-                LeagueName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                UserID:joi.number().min(1).max(99999999999).required()
             }).validateAsync(req.body);
             next();
         } catch (error) {

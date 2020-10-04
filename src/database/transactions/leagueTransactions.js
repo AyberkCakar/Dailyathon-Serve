@@ -17,14 +17,19 @@ module.exports = {
     },
     userLeagueList: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL UserLeague (?)',[data.LeagueName], (error, result) => {
-                if (!error)
-                    if (result[0] != null)
-                        resolve(result[0]);
-                    else
-                        reject( leagueMessage.userLeagueList.Not_Found );
-                else
-                    reject({ status: 500, message: error.message });
+            const res = [];
+            mysqlDataContext.query('CALL LeagueTableName(?)',[data.UserID], (error, result) => {
+                const tableName = result[0];
+                tableName.forEach(function (item) {
+
+                    mysqlDataContext.query('SELECT * FROM ?? WHERE LeagueID IN (SELECT LeagueID  FROM tblLeague where LeagueName in ' +
+                        '          (SELECT TagName FROM tblTag WHERE TagID  IN' +
+                        '          (SELECT TagID FROM tblTagUser WHERE UserID = ?)' +
+                        '          and CategoryID = (SELECT CategoryID from tblCategory where CategoryName="Lig" )));',[item.LeagueTableName,data.UserID], (error, result) => {
+                        res.push(result);
+                        resolve(res);
+                    });
+                });
             });
         });
     },
