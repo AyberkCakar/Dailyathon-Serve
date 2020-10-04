@@ -15,4 +15,13 @@ router.get('/league', async (req, res) => {
     }
 });
 
+router.post('/league', verifyToken,leagueValidator.add, async (req, res) => {
+    try {
+        const response = await leagueTransactions.insert(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
