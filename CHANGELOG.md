@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.3.0...v1.4.0) (2020-10-04)
+
+
+### Features
+
+* added city entertainment list router ([c46422b](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c46422b5eec09adb0dc53679f4cfd1750d629e2d))
+* added entertainment delete router ([e5f52dd](https://github.com/AyberkCakar/Dailyathon-Serve/commit/e5f52dd769a20d907bb828312b80d6e2fcf9866f))
+* added entertainment insert router ([b82811f](https://github.com/AyberkCakar/Dailyathon-Serve/commit/b82811f05b315716f9715f01f26888215b4cc5aa))
+* added entertainment list router ([73b56ef](https://github.com/AyberkCakar/Dailyathon-Serve/commit/73b56eff7923fab5b0a6f3cf02e2f30fe43e921d))
+* added news add router ([0fa10b1](https://github.com/AyberkCakar/Dailyathon-Serve/commit/0fa10b153ef92afc5c995c60d299f628d6010803))
+* added news category list router ([229fc59](https://github.com/AyberkCakar/Dailyathon-Serve/commit/229fc5966ed8e613a9743f08e0f784e3b9b4cd66))
+* added news delete router ([5282767](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5282767f808a6423df0134bffd404adcf09b4c23))
+* added news list router ([82c9419](https://github.com/AyberkCakar/Dailyathon-Serve/commit/82c94195ac3b6c2ce5a8aa0431c83484ad4afd7c))
+* added readme ([36199fe](https://github.com/AyberkCakar/Dailyathon-Serve/commit/36199fe4a7aaa333534d7c7962591681499201bc))
+* added tag entertainment list router ([d81b019](https://github.com/AyberkCakar/Dailyathon-Serve/commit/d81b019f742555d163f709a2ccf36082cba379fa))
+* added user news router ([408a1a6](https://github.com/AyberkCakar/Dailyathon-Serve/commit/408a1a6991d08988630da57b0b6b1f4785ddf3c9))
+
+
+### Bug Fixes
+
+* category transactions insert sqlQuery ([3e34989](https://github.com/AyberkCakar/Dailyathon-Serve/commit/3e34989392ac0990a7ce8ed1250f146bda267658))
+
 ## 1.3.0 (2020-10-03)
 
 
