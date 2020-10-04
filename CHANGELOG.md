@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.4.0...v1.5.0) (2020-10-04)
+
+
+### Features
+
+* added league delete router ([5c71b65](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5c71b65d381b9d24cf85db50a210d215b297a62f))
+* added league insert router ([f17c265](https://github.com/AyberkCakar/Dailyathon-Serve/commit/f17c265c633a9c50abe0ec6eb5dc71ba6738aca5))
+* added league list router ([f262731](https://github.com/AyberkCakar/Dailyathon-Serve/commit/f262731d5703f954c00f0534db9810a5879a9009))
+* added league update router ([a4a7dce](https://github.com/AyberkCakar/Dailyathon-Serve/commit/a4a7dcee99b49330ae576143a15f63296b3af3c6))
+* added sport delete router ([e89f19e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/e89f19ee62d71f4131960acee3c3ce44e6ee3471))
+* added sport insert router ([30c1c12](https://github.com/AyberkCakar/Dailyathon-Serve/commit/30c1c12bf687d3019fe91dbdd50a923245032468))
+* added sport list router ([ab6b21e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/ab6b21e164cb08f2e49fc940c1f7442611224065))
+* added sport update router ([beb34d1](https://github.com/AyberkCakar/Dailyathon-Serve/commit/beb34d1a28473e223077c3a3c4c7c95c8393f99d))
+
 ## [1.4.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.3.0...v1.4.0) (2020-10-04)
 
 
