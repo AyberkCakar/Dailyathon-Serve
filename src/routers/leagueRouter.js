@@ -15,6 +15,15 @@ router.get('/league', async (req, res) => {
     }
 });
 
+router.get('/user-league', verifyToken,leagueValidator.userLeagueList,async (req, res) => {
+    try {
+        const response = await leagueTransactions.userLeagueList(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/league', verifyToken,leagueValidator.add, async (req, res) => {
     try {
         const response = await leagueTransactions.insert(req.body);
