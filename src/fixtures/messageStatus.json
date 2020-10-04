@@ -268,6 +268,18 @@
         "message": "No content available !"
       }
     },
+    "cityEntertainmentList":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
+    "tagEntertainmentList":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
     "insert": {
       "Ok": {
         "status": 200,
