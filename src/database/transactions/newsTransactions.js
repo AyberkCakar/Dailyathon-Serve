@@ -35,8 +35,8 @@ module.exports = {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('CALL UserNews(?)',[data.UserID], (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0][0] != null)
+                        resolve(result[0][0]);
                     else
                         reject( newsMessage.userNewsList.Not_Found );
                 else
