@@ -40,7 +40,8 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
-    },insert: (data) => {
+    },
+    insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblEntertainment SET ?', [data], (error, result) => {
                 if (!error)
@@ -48,6 +49,19 @@ module.exports = {
                         resolve( entertainmentMessage.insert.Ok );
                     else
                         reject(entertainmentMessage.insert.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    delete: (EntertainmentID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('DELETE FROM tblEntertainment WHERE EntertainmentID = ?', [EntertainmentID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(entertainmentMessage.delete.Ok);
+                    else
+                        resolve(entertainmentMessage.delete.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });

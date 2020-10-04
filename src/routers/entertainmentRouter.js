@@ -41,4 +41,14 @@ router.post('/entertainment', verifyToken,entertainmentValidator.add, async (req
         res.status(error.status).json({ message: error.message });
     }
 });
+
+router.delete('/entertainment', verifyToken,entertainmentValidator.delete, async (req, res) => {
+    try {
+        const response = await entertainmentTransactions.delete(req.body.EntertainmentID);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
