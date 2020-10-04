@@ -4,7 +4,7 @@ const dbFactory = require('../database');
 
 const router = express();
 const leagueTransactions = dbFactory('leagueTransactions');
-const leagueValidator = validators.sportValidator;
+const leagueValidator = validators.leagueValidator;
 
 router.get('/league', async (req, res) => {
     try {
