@@ -17,7 +17,7 @@ module.exports = {
     },
     insert: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT INTO tblCategory SET ?)', [data], (error, result) => {
+            mysqlDataContext.query('INSERT INTO tblCategory SET ?', [data], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( CategoryMessage.insert.Ok );
