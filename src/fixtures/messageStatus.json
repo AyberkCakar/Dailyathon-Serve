@@ -308,7 +308,41 @@
         "message": "You are not authorized to do this !"
       }
     }
+  },
+  "sportMessage": {
+    "all": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
+    "insert": {
+      "Ok": {
+        "status": 200,
+        "message": "Sport added."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "There was an error adding Sport !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "delete": {
+      "Ok": {
+        "status": 200,
+        "message": "Sport deletion has occurred."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred during Sport deletion !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    }
   }
-
-
 }
