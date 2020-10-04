@@ -12,4 +12,13 @@ router.get('/news-category', async (req, res) => {
         res.status(error.status).json({ message: error.message });
     }
 });
+
+router.get('/news', async (req, res) => {
+    try {
+        const response = await newsTransactions.list();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 module.exports = router;
