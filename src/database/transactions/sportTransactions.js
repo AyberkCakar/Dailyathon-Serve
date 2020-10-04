@@ -27,5 +27,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    update: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE tblSport SET ? WHERE SportID = ?', [data, data.SportID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(sportMessage.update.Ok);
+                    else
+                        reject(sportMessage.update.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };

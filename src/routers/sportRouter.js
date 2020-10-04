@@ -24,4 +24,13 @@ router.post('/sport', verifyToken,sportValidator.add, async (req, res) => {
     }
 });
 
+router.put('/sport', verifyToken,sportValidator.update, async (req, res) => {
+    try {
+        const response = await sportTransactions.update(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
