@@ -32,4 +32,13 @@ router.post('/news', verifyToken,newsValidator.add, async (req, res) => {
         res.status(error.status).json({ message: error.message });
     }
 });
+
+router.delete('/news', verifyToken, newsValidator.delete, async (req, res) => {
+    try {
+        const response = await newsValidator.delete(req.body.NewsID);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 module.exports = router;

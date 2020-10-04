@@ -43,5 +43,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    delete: (NewsID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('DELETE FROM tblNews WHERE NewsID = ?', [NewsID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(newsMessage.delete.Ok);
+                    else
+                        resolve(newsMessage.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
