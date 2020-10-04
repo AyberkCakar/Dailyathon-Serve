@@ -27,5 +27,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    tagEntertainmentList: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL UserEntertainment(?)',[data.UserID], (error, result) => {
+                if (!error)
+                    if (result[0] != null)
+                        resolve(result[0]);
+                    else
+                        reject( entertainmentMessage.tagEntertainmentList.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };

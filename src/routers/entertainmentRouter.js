@@ -17,7 +17,16 @@ router.get('/entertainment', async (req, res) => {
 
 router.get('/city-entertainment',verifyToken,entertainmentValidator.cityEntertainmentList, async (req, res) => {
     try {
-        const response = await entertainmentTransactions.cityEntertainmentList(UserCity);
+        const response = await entertainmentTransactions.cityEntertainmentList(req.body.UserCity);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
+router.get('/tag-entertainment',verifyToken,entertainmentValidator.tagEntertainmentList, async (req, res) => {
+    try {
+        const response = await entertainmentTransactions.tagEntertainmentList(req.body);
         res.json(response);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
