@@ -26,7 +26,7 @@ router.get('/news', async (req, res) => {
 
 router.post('/news', verifyToken,newsValidator.add, async (req, res) => {
     try {
-        const response = await newsValidator.insert(req.body);
+        const response = await newsTransactions.insert(req.body);
         res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
@@ -35,7 +35,7 @@ router.post('/news', verifyToken,newsValidator.add, async (req, res) => {
 
 router.delete('/news', verifyToken, newsValidator.delete, async (req, res) => {
     try {
-        const response = await newsValidator.delete(req.body.NewsID);
+        const response = await newsTransactions.delete(req.body.NewsID);
         res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
