@@ -33,4 +33,13 @@ router.put('/sport', verifyToken,sportValidator.update, async (req, res) => {
     }
 });
 
+router.delete('/sport', verifyToken, sportValidator.delete, async (req, res) => {
+    try {
+        const response = await sportTransactions.delete(req.body.SportID);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;

@@ -40,5 +40,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    delete: (SportID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('DELETE FROM tblSport WHERE SportID = ?', [SportID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(sportMessage.delete.Ok);
+                    else
+                        resolve(sportMessage.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
