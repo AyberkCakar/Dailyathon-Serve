@@ -15,6 +15,19 @@ module.exports = {
             });
         });
     },
+    tableList: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL LeagueTableName(?)'[data.UserID], (error, result) => {
+                if (!error)
+                    if (result[0] != null)
+                        resolve(result[0]);
+                    else
+                        reject( leagueMessage.LeagueTablenameList.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     userLeagueList: (data) => {
         return new Promise((resolve, reject) => {
             const res = [];

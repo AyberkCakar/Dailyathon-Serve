@@ -12,6 +12,16 @@ module.exports = {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
     },
+    tableList: async (req, res, next) => {
+        try {
+            await joi.object({
+                UserID:joi.number().min(1).max(99999999999).required()
+            }).validateAsync(req.body);
+            next();
+        } catch (error) {
+            res.status(validateMessage.status).send({ message: validateMessage.message });
+        }
+    },
     add: async (req, res, next) => {
         try {
             await joi.object({
