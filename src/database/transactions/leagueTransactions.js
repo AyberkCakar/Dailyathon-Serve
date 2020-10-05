@@ -19,8 +19,8 @@ module.exports = {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('CALL LeagueTableName(?)',[UserID], (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0] != null)
+                        resolve(result[0]);
                     else
                         reject( leagueMessage.LeagueTablenameList.Not_Found );
                 else
