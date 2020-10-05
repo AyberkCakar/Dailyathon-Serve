@@ -1,29 +1,28 @@
-<div class="content-page tabcontent" id="tabTag">
+<div class="content-page tabcontent" id="tabNews">
     <div class="content-code"></div>
     <div class="content">
         <div class="overflow-hidden content-section">
-            <h1>Tag Transacsions</h1>
-            <p>The user performs tag operations will be with the examples below.</p>
+            <h1>News Transacsions</h1>
+            <p>The user performs News operations will be with the examples below.</p>
         </div>
         <div class="overflow-hidden content-section">
-            <h2>List</h2>
+            <h2>News Category List</h2>
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">tag</url>
+Get <url id="path">news-category</url>
 
 Result Example:
 {
     "result": {
-        "TagID": 4,
-        "TagName": "Teknoloji",
-        "CategoryID": 1
+        "NewsCategoryID": 1,
+        "NewsCategoryName": "E-Spor"
     }
 }
         </code></pre>
-            <p>For the Tag List, you need to make a Get call to the URL below :
+            <p>For the News Category List, you need to make a Get call to the URL below :
                 <br>
-                <code class="higlighted" id="path">tag</code>
+                <code class="higlighted" id="path">news-category</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -42,24 +41,65 @@ Result Example:
             </table>
         </div>
         <div class="overflow-hidden content-section">
-            <h2>Category Tag List</h2>
+            <h2>List</h2>
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">category-tag</url>
+Get <url id="path">news</url>
 
 Result Example:
 {
     "result": {
-        "TagID": 4,
-        "TagName": "Teknoloji",
-        "CategoryName": "Haber"
+        "NewsID": 61,
+        "NewsTitle": "newstitle5",
+        "NewsDescription": "newsdesc5",
+        "NewsImage": "newsimage5",
+        "NewsCategoryID": 4,
+        "NewsCategoryName": "Siyaset"
     }
 }
         </code></pre>
-            <p>For the Category Tag List, you need to make a Get call to the URL below :
+            <p>For the News List, you need to make a Get call to the URL below :
                 <br>
-                <code class="higlighted" id="path">category-tag</code>
+                <code class="higlighted" id="path">news</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>User News List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">user-news</url>
+
+Result Example:
+{
+    "result": {
+        "NewsID": 41,
+        "NewsTitle": "newstitle3",
+        "NewsDescription": "newsdesc3",
+        "NewsImage": "newsimage3",
+        "NewsCategoryID": 2,
+        "NewsCategoryName": "Spor"
+    }
+}
+        </code></pre>
+            <p>For the User News List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">user-news</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -82,19 +122,24 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-POST <url id="path">tag</url>
+Post <url id="path">news</url>
 {
-    "TagName": "Teknoloji",
-    "CategoryID": 1
+    "NewsTitle": "Newsdenemetitle",
+    "NewsDescription":"Newsdenemedescription",
+    "NewsImage":"Newsdenemeimage",
+    "NewsCategoryID": 1
 }
+
 Result Example:
 {
-    "message": "Tag added."
+    "result": {
+        "message": "News added."
+    }
 }
         </code></pre>
-            <p>For the Tag Insert, you need to make a Post call to the URL below :
+            <p>For the News Insert, you need to make a Get call to the URL below :
                 <br>
-                <code class="higlighted" id="path">tag</code>
+                <code class="higlighted" id="path">news</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -108,11 +153,18 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
-                    <td>TagName</td>
+                    <td>NewsTitle</td>
                     <td>String</td>
                 </tr>
                 <tr>
-                    <td>CategoryID</td>
+                    <td>NewsDescription</td>
+                    <td>String</td>
+                </tr>                <tr>
+                    <td>NewsImage</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>NewsCategoryID</td>
                     <td>Int</td>
                 </tr>
                 <tr>
@@ -127,16 +179,16 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-DELETE <url id="path">category</url>
+DELETE <url id="path">news</url>
 {
-    "TagID": 2,
+    "NewsID": 2,
 }
 Result Example:
 {
-    "message": "Tag deletion has occurred."
+    "message": "News deletion has occurred."
 }
         </code></pre>
-            <p>For the Tag Delete, you need to make a Delete call to the URL below :
+            <p>For the News Delete, you need to make a Delete call to the URL below :
                 <br>
                 <code class="higlighted" id="path">tag</code>
             </p>
@@ -152,7 +204,7 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
-                    <td>TagID</td>
+                    <td>NewsID</td>
                     <td>Int</td>
                 </tr>
                 <tr>
@@ -162,7 +214,7 @@ Result Example:
                 </tbody>
             </table>
         </div>
-
     </div>
+
     <div class="content-code"></div>
 </div>

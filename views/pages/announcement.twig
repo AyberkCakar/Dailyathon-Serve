@@ -1,0 +1,90 @@
+<div class="content-page tabcontent" id="tabAnnouncement">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>Announcement Transacsions</h1>
+            <p>The user performs Announcement operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">announcement</url>
+
+Result Example:
+{
+    "result": {
+        "AnnouncementID": 21,
+        "AnnouncementContent": "test anket3",
+        "AnnouncementStartDate": "2020-10-03T00:00:00.000Z",
+        "AnnouncementDueDate": "2020-10-03T00:00:00.000Z"
+    }
+}
+        </code></pre>
+            <p>For the Announcement List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcement</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>User Announcement List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">announcementUserList</url>
+
+Result Example:
+{
+    "result": {
+        "AnnouncementID": 1,
+        "AnnouncementContent": "test duyuru1",
+        "AnnouncementStartDate": "2020-10-03T00:00:00.000Z",
+        "AnnouncementDueDate": "2020-10-03T00:00:00.000Z"
+    }
+}
+        </code></pre>
+            <p>For the User Announcement List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcementUserList</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="content-code"></div>
+</div>

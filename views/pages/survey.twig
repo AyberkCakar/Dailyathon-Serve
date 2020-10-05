@@ -1,0 +1,94 @@
+<div class="content-page tabcontent" id="tabSurvey">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>Survey Transacsions</h1>
+            <p>The user performs Survey operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">survey</url>
+
+Result Example:
+{
+    "result": {
+        "SurveyListID": 5,
+        "SurveyName": "anket5",
+        "SurveyTableName": "tblanket5",
+        "SurveyStartDate": "2020-10-02T00:00:00.000Z",
+        "SurveyDueDate": "2020-10-02T00:00:00.000Z",
+        "SurveyUrl": ""
+    }
+}
+        </code></pre>
+            <p>For the Tag List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">survey</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>User Survey List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">surveyUserList</url>
+
+Result Example:
+{
+    "result": {
+        "SurveyListID": 3,
+        "SurveyName": "anket3",
+        "SurveyTableName": "tblanket3",
+        "SurveyStartDate": "2020-10-02T00:00:00.000Z",
+        "SurveyDueDate": "2020-10-02T00:00:00.000Z",
+        "SurveyUrl": ""
+    }
+}
+        </code></pre>
+            <p>For the User Survey List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">surveyUserList</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="content-code"></div>
+</div>

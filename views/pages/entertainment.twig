@@ -1,0 +1,298 @@
+<div class="content-page tabcontent" id="tabEntertainment">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>News Transacsions</h1>
+            <p>The user performs News operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">entertainment</url>
+
+Result Example:
+{
+    "result": {
+        "EntertainmentID": 71,
+        "EntertainmentName": "eğlence6",
+        "EntertainmentContent": "eğlence16",
+        "EntertainmentStartDate": "2020-10-04T00:00:00.000Z",
+        "EntertainmentDueDate": "2020-10-04T00:00:00.000Z",
+        "EntertainmentisFree": 0,
+        "EntertainmentPosterUrl": "eğlence16.html",
+        "EntertainmentTicketUrl": "eğlence16.html",
+        "EntertainmentCity": "İstanbul",
+        "EntertainmentDistrict": "Acıbadem",
+        "EntertainmentVenue": "Badem Bar",
+        "EntertainmentCategoryID": 21,
+        "EntertainmentPerformer": "Alpars Şanlı"
+    }
+}
+        </code></pre>
+            <p>For the Entertainment List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">entertainment</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>City Entertainment List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">city-entertainment</url>
+
+Result Example:
+{
+    "result": {
+        "EntertainmentID": 21,
+        "EntertainmentName": "eğlence1",
+        "EntertainmentContent": "eğlence1",
+        "EntertainmentStartDate": "2020-10-04T00:00:00.000Z",
+        "EntertainmentDueDate": "2020-10-04T00:00:00.000Z",
+        "EntertainmentisFree": 0,
+        "EntertainmentPosterUrl": "eğlence1.html",
+        "EntertainmentTicketUrl": "eğlence1.html",
+        "EntertainmentCity": "İzmir",
+        "EntertainmentDistrict": "Karşıyaka",
+        "EntertainmentVenue": "Val Bar",
+        "EntertainmentCategoryID": 11,
+        "EntertainmentPerformer": "Deneme Akça",
+        "EntertainmentCategoryName": "Konser"
+    }
+}
+        </code></pre>
+            <p>For the City Entertainment List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">city-entertainment</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserCity</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Tag Entertainment List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">tag-entertainment</url>
+
+Result Example:
+{
+    "result": {
+        "EntertainmentID": 31,
+        "EntertainmentName": "eğlence2",
+        "EntertainmentContent": "eğlence2",
+        "EntertainmentStartDate": "2020-10-04T00:00:00.000Z",
+        "EntertainmentDueDate": "2020-10-04T00:00:00.000Z",
+        "EntertainmentisFree": 1,
+        "EntertainmentPosterUrl": "eğlence2.html",
+        "EntertainmentTicketUrl": "eğlence2.html",
+        "EntertainmentCity": "İzmir",
+        "EntertainmentDistrict": "Karşıyaka",
+        "EntertainmentVenue": "Dele Bar",
+        "EntertainmentCategoryID": 11,
+        "EntertainmentPerformer": "Koray Can",
+        "EntertainmentCategoryName": "Konser"
+    }
+}
+        </code></pre>
+            <p>For the Tag Entertainment List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">tag-entertainment</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+Post <url id="path">entertainment</url>
+{
+    "EntertainmentName": "eğlence",
+    "EntertainmentContent":"eğlencecontent",
+    "EntertainmentStartDate":"2020-10-05",
+    "EntertainmentDueDate": "2020-10-05",
+    "EntertainmentisFree": "False",
+    "EntertainmentPosterUrl":"eğlenceurl1",
+    "EntertainmentTicketUrl":"eğlenceurl2",
+    "EntertainmentCity": "İzmir",
+    "EntertainmentDistrict":"Karşıyaka",
+    "EntertainmentVenue":"Venue Bar",
+    "EntertainmentPerformer":" Peri Kan",
+    "EntertainmentCategoryID":"11",
+}
+
+Result Example:
+{
+    "result": {
+        "message": "Entertainment added."
+    }
+}
+        </code></pre>
+            <p>For the Entertainment Insert, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">entertainment</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>EntertainmentName</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentContent</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentStartDate</td>
+                    <td>Date</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentDueDate</td>
+                    <td>Date</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentisFree</td>
+                    <td>Boolean</td>
+                </tr>                <tr>
+                    <td>EntertainmentPosterUrl</td>
+                    <td>String</td>
+                </tr>                <tr>
+                    <td>EntertainmentTicketUrl</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentCity</td>
+                    <td>Boolean</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentDistrict</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentVenue</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentPerformer</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>EntertainmentCategoryID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">entertainment</url>
+{
+    "EntertainmentID": 2,
+}
+Result Example:
+{
+    "message": "Entertainment deletion has occurred."
+}
+        </code></pre>
+            <p>For the Entertainment Delete, you need to make a Delete call to the URL below :
+                <br>
+                <code class="higlighted" id="path">entertainment</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>EntertainmentID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="content-code"></div>
+</div>
