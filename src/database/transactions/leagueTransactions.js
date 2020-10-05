@@ -15,12 +15,12 @@ module.exports = {
             });
         });
     },
-    tableList: (data) => {
+    tableList: (UserID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL LeagueTableName(?)'[data.UserID], (error, result) => {
+            mysqlDataContext.query('Call LeagueTableName(?)'[UserID], (error, result) => {
                 if (!error)
-                    if (result[0] != null)
-                        resolve(result[0]);
+                    if (result != null)
+                        resolve(result);
                     else
                         reject( leagueMessage.LeagueTablenameList.Not_Found );
                 else
