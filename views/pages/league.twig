@@ -1,0 +1,233 @@
+<div class="content-page tabcontent" id="tabLeague">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>News Transacsions</h1>
+            <p>The user performs News operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">league</url>
+
+Result Example:
+{
+    "result": {
+        "LeagueID": 1,
+        "LeagueName": "Süper Lig",
+        "SportID": 1
+    }
+}
+        </code></pre>
+            <p>For the League List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">league</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>League TableName List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">league-table</url>
+
+Result Example:
+{
+    "result": {
+        "LeagueTableName":"tblFootball"
+    }
+}
+        </code></pre>
+            <p>For the League TableName List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">league-table</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>User League List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">user-league</url>
+{
+    "UserID": "1",
+    "LeagueTableName":"tblBasketball",
+}
+
+Result Example:
+{
+    "result": {
+        "BasketballID": 1,
+        "SequenceNo": 1,
+        "TeamName": "GS",
+        "TeamLogoUrl": "asdadsa",
+        "O": 1,
+        "G": 4,
+        "M": 7,
+        "A": 12,
+        "Y": 323,
+        "AV": "2123",
+        "P": 123,
+        "LeagueID": 21
+    }
+}
+        </code></pre>
+            <p>For the User League List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">user-league</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>LeagueTableName</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+Post <url id="path">league</url>
+{
+    "LeagueName": "Süper Lig",
+    "SportID":"1"
+}
+
+Result Example:
+{
+    "result": {
+        "message": "League added."
+    }
+}
+        </code></pre>
+            <p>For the League Insert, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">league</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>LeagueName</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>SportID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">league</url>
+{
+    "LeagueID": 2,
+}
+Result Example:
+{
+    "message": "League deletion has occurred."
+}
+        </code></pre>
+            <p>For the League Delete, you need to make a Delete call to the URL below :
+                <br>
+                <code class="higlighted" id="path">league</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>LeagueID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="content-code"></div>
+</div>

@@ -1,0 +1,134 @@
+<div class="content-page tabcontent" id="tabSport">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>Sport Transacsions</h1>
+            <p>The user performs sport operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">sport</url>
+
+Result Example:
+{
+    "result": {
+        "SportID": 1,
+        "SportName": "Futbol",
+        "LeagueTableName": "tblFootball"
+    }
+}
+        </code></pre>
+            <p>For the Sport List, you need to make a Get call to the URL below :
+                <br>
+                <code class="higlighted" id="path">sport</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">sport</url>
+{
+    "SportName": "Futbol",
+    "LeagueTableName": "tblFootball"
+}
+
+Result Example:
+{
+    "message": "Sport added."
+}
+        </code></pre>
+            <p>For the Sport Insert, you need to make a Post call to the URL below :
+                <br>
+                <code class="higlighted" id="path">sport</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>SportName</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>LeagueTableName</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">sport</url>
+{
+    "SportID": 2,
+}
+
+Result Example:
+{
+    "message": "Sport deletion has occurred."
+}
+        </code></pre>
+            <p>For the Sport Delete, you need to make a Delete call to the URL below :
+                <br>
+                <code class="higlighted" id="path">sport</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>SportID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="content-code"></div>
+</div>
