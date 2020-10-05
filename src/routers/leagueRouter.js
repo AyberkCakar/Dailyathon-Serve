@@ -17,7 +17,7 @@ router.get('/league', async (req, res) => {
 
 router.get('/league-table',verifyToken,leagueValidator.tableList, async (req, res) => {
     try {
-        const response = await leagueTransactions.tableList(req.body);
+        const response = await leagueTransactions.tableList(req.body.UserID);
         res.json(response);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
