@@ -17,7 +17,7 @@ module.exports = {
     },
     tableList: (UserID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('Call LeagueTableName(?)'[UserID], (error, result) => {
+            mysqlDataContext.query('CALL LeagueTableName(?)',[UserID], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
