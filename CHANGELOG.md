@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.5.0...v1.6.0) (2020-10-05)
+
+
+### Features
+
+* added user league list router ([4b777fe](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4b777fe2a7041bb637925ec64b060add2b1d08be))
+* added user league tablename list router ([f7d8592](https://github.com/AyberkCakar/Dailyathon-Serve/commit/f7d859249c6edab2a03552e7d6dee95b96455fc8))
+
+
+### Bug Fixes
+
+* fix necessary data for sport ([7160305](https://github.com/AyberkCakar/Dailyathon-Serve/commit/71603053797d83797bedc5f218dc17272bd53720))
+* fix user league list transactions ([5e7f70c](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5e7f70c27e58710dd900daac329c9066c1ee8cc0))
+* fix user leagues transactions ([4c69377](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4c6937730a2adc68ee51f2dbf6152727d17fba62))
+
 ## [1.5.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.4.0...v1.5.0) (2020-10-04)
 
 
