@@ -82,17 +82,6 @@ module.exports = {
         }
     },
 
-    findAdminUsername: async (req, res, next) => {
-        try {
-            await joi.object({
-                Username: joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-            }).validateAsync(req.body);
-            next();
-        } catch (error) {
-            res.status(validateMessage.status).send({ message: validateMessage.message });
-        }
-    },
-
     deleteMyAccount: async (req, res, next) => {
         try {
             await joi.object({

@@ -124,12 +124,6 @@
         "message": "There is such admin."
       }
     },
-    "findAdminUsername": {
-      "Not_Found": {
-        "status": 404,
-        "message": "There is no such admin !"
-      }
-    },
     "find":{
       "Not_Found": {
         "status": 404,
