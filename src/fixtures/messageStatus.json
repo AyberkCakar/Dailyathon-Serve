@@ -198,6 +198,12 @@
       "message": "No content available !"
     }
   },
+  "userTagList":{
+    "Not_Found": {
+      "status": 404,
+      "message": "No content available !"
+    }
+  },
   "insert": {
     "Ok": {
       "status": 200,
@@ -206,6 +212,20 @@
     "Internal_Server_Error": {
       "status": 500,
       "message": "There was an error adding Tag !"
+    },
+    "Proxy_Authentication_Required": {
+      "status": 407,
+      "message": "You are not authorized to do this !"
+    }
+  },
+  "tagSelect": {
+    "Ok": {
+      "status": 200,
+      "message": "Tag selection added !"
+    },
+    "Internal_Server_Error": {
+      "status": 500,
+      "message": "There was an error adding Tag selection !"
     },
     "Proxy_Authentication_Required": {
       "status": 407,
@@ -234,6 +254,20 @@
     "Internal_Server_Error": {
       "status": 500,
       "message": "An error occurred during Tag deletion !"
+    },
+    "Proxy_Authentication_Required": {
+      "status": 407,
+      "message": "You are not authorized to do this !"
+    }
+  },
+  "tagDelete": {
+    "Ok": {
+      "status": 200,
+      "message": "Selected Tag deletion has been occurred."
+    },
+    "Internal_Server_Error": {
+      "status": 500,
+      "message": "An error occurred during Selected Tag deletion !"
     },
     "Proxy_Authentication_Required": {
       "status": 407,

@@ -14,6 +14,7 @@ router.get('/tag', async (req, res) => {
         res.status(error.status).json({ message: error.message });
     }
 });
+
 router.get('/category-tag', async (req, res) => {
     try {
         const response = await tagTransactions.categoryTagList();
@@ -23,9 +24,27 @@ router.get('/category-tag', async (req, res) => {
     }
 });
 
+router.get('/user-tag', verifyToken,tagValidator.userTag, async (req, res) => {
+    try {
+        const response = await tagTransactions.userTagList(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
     try {
         const response = await tagTransactions.insert(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
+router.post('/user-tag', verifyToken,tagValidator.tagSelect, async (req, res) => {
+    try {
+        const response = await tagTransactions.tagSelect(req.body);
         res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
@@ -49,4 +68,14 @@ router.delete('/tag', verifyToken, tagValidator.delete, async (req, res) => {
         res.status(error.status).json({ message: error.message });
     }
 });
+
+router.delete('/user-tag', verifyToken, tagValidator.tagDelete, async (req, res) => {
+    try {
+        const response = await tagTransactions.tagDelete(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;

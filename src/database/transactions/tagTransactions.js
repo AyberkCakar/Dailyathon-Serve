@@ -28,6 +28,19 @@ module.exports = {
             });
         });
     },
+    userTagList: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL UserTagList(?)',[data.UserID], (error, result) => {
+                if (!error)
+                    if (result[0] != null)
+                        resolve(result[0]);
+                    else
+                        reject( tagMessage.userTagList.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblTag SET ?', [data], (error, result) => {
@@ -36,6 +49,19 @@ module.exports = {
                         resolve( tagMessage.insert.Ok );
                     else
                         reject(tagMessage.insert.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    tagSelect: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL UserTagSelect(?,?)', [data.UserID,data.TagName], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve( tagMessage.tagSelect.Ok );
+                    else
+                        reject(tagMessage.tagSelect.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });
@@ -62,6 +88,19 @@ module.exports = {
                         resolve(tagMessage.delete.Ok);
                     else
                         resolve(tagMessage.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    tagDelete: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL UserTagDelete(?,?)', [data.UserID,data.TagName], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(tagMessage.tagDelete.Ok);
+                    else
+                        resolve(tagMessage.tagDelete.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });
