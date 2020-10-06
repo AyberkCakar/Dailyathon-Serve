@@ -2,6 +2,32 @@ const { mysqlDataContext } = require('../dataContexts');
 const { userMessage }  = require('../../fixtures/messageStatus.json');
 
 module.exports = {
+    list: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblUser order by UserID asc', (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( userMessage.all.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    find: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblUser WHERE UserID = ?', [data.UserID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject(userMessage.find.Not_Found);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     login: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('CALL UserLogin(?, ?)', [data.UserEmail, data.UserPassword], (error, result) => {
@@ -28,22 +54,9 @@ module.exports = {
             });
         });
     },
-    findUserEmail: (UserEmail) => {
+    delete: (UserID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblUser WHERE UserMail = ?', [UserEmail], (error, result) => {
-                if (!error)
-                    if (result[0] != null)
-                        resolve(result[0]);
-                    else
-                        reject(userMessage.findUserEmail.Not_Found);
-                else
-                    reject({ status: 500, message: error.message });
-            });
-        });
-    },
-    delete: (UserEmail) => {
-        return new Promise((resolve, reject) => {
-            mysqlDataContext.query('DELETE FROM tblUser WHERE UserMail = ?', [UserEmail], (error, result) => {
+            mysqlDataContext.query('DELETE FROM tblUser WHERE UserID = ?', [UserID], (error, result) => {
                 console.log(result);
                 if (!error)
                     if (result.affectedRows != 0)
