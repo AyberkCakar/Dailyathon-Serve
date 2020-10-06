@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.6.0...v1.7.0) (2020-10-06)
+
+
+### Features
+
+* added category update router ([feeb581](https://github.com/AyberkCakar/Dailyathon-Serve/commit/feeb581b651d4cb825d574ef73bc379268ac4fd4))
+* added tag update router ([53e054d](https://github.com/AyberkCakar/Dailyathon-Serve/commit/53e054d298a400e748203f3631aadbd9ee95860c))
+* added user tag delete router ([02af02d](https://github.com/AyberkCakar/Dailyathon-Serve/commit/02af02d9b5c024c8e48b7e16939e50350a5fc339))
+* added user tag list router ([5e0b436](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5e0b4368060c38edf8effa0256f1a8250bdbbbb2))
+* added user tag selection router ([3d91c96](https://github.com/AyberkCakar/Dailyathon-Serve/commit/3d91c9662d32f30cb9cef830d97f9b50d072ea14))
+
+
+### Bug Fixes
+
+* fix league tablename list transactions ([aceb2fc](https://github.com/AyberkCakar/Dailyathon-Serve/commit/aceb2fcfeb6f701134d42ee974fb5836e364ff08))
+* fix tag routers path ([13b2a5e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/13b2a5ef103471efb38474d76eebb1aa20ec0f3c))
+* tag update message ([2d5f3cf](https://github.com/AyberkCakar/Dailyathon-Serve/commit/2d5f3cfc17e0c5912b371fbf0530f658e89d4a4e))
+
 ## [1.6.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.5.0...v1.6.0) (2020-10-05)
 
 
