@@ -41,19 +41,6 @@ module.exports = {
             });
         });
     },
-    findUserEmail: (UserEmail) => {
-        return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblUser WHERE UserMail = ?', [UserEmail], (error, result) => {
-                if (!error)
-                    if (result[0] != null)
-                        resolve(result[0]);
-                    else
-                        reject(userMessage.findUserEmail.Not_Found);
-                else
-                    reject({ status: 500, message: error.message });
-            });
-        });
-    },
     delete: (UserEmail) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('DELETE FROM tblUser WHERE UserMail = ?', [UserEmail], (error, result) => {

@@ -60,12 +60,6 @@
         "message": "There is such user."
       }
     },
-    "findUserEmail": {
-      "Not_Found": {
-        "status": 404,
-        "message": "There is no such user !"
-      }
-    },
     "delete": {
       "Ok": {
         "status": 200,
