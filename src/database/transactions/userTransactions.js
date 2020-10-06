@@ -2,6 +2,19 @@ const { mysqlDataContext } = require('../dataContexts');
 const { userMessage }  = require('../../fixtures/messageStatus.json');
 
 module.exports = {
+    find: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblUser WHERE UserID = ?', [data.UserID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject(userMessage.find.Not_Found);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     login: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('CALL UserLogin(?, ?)', [data.UserEmail, data.UserPassword], (error, result) => {

@@ -2,6 +2,19 @@ const { mysqlDataContext } = require('../dataContexts');
 const { adminMessage } = require ('../../fixtures/messageStatus.json');
 
 module.exports = {
+    find: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblAdmin WHERE AdminID = ?', [data.AdminID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject(adminMessage.find.Not_Found);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     login: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('CALL AdminLogin(?, ?)', [data.Username, data.Password], (error, result) => {

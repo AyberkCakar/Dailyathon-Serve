@@ -1,4 +1,40 @@
 {
+  "authMessage": {
+    "login": {
+      "Not_Found": {
+        "status": 404,
+        "message": "There is no such !"
+      },
+      "Bad_Request": {
+        "status": 400,
+        "message": "The entry type is not correct."
+      }
+    },
+    "signUp": {
+      "Ok": {
+        "status": 200,
+        "message": "Registration has taken place."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "Error while registering !"
+      },
+      "Conflict": {
+        "status": 409,
+        "message": "There is such."
+      },
+      "find":{
+        "Not_Found": {
+          "status": 404,
+          "message": "There is no such !"
+        },
+        "Bad_Request": {
+          "status": 400,
+          "message": "The entry type is not correct."
+        }
+      }
+    }
+  },
   "userMessage": {
     "login": {
       "Not_Found": {
@@ -42,6 +78,16 @@
       "Proxy_Authentication_Required": {
         "status": 407,
         "message": "You are not authorized to do this !"
+      }
+    },
+    "find":{
+      "Not_Found": {
+        "status": 404,
+        "message": "There is no such User !"
+      },
+      "Bad_Request": {
+        "status": 400,
+        "message": "The entry type is not correct."
       }
     }
   },
@@ -88,6 +134,16 @@
       "Not_Found": {
         "status": 404,
         "message": "There is no such admin !"
+      }
+    },
+    "find":{
+      "Not_Found": {
+        "status": 404,
+        "message": "There is no such Admin !"
+      },
+      "Bad_Request": {
+        "status": 400,
+        "message": "The entry type is not correct."
       }
     }
   },
