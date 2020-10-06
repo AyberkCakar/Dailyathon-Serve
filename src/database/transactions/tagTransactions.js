@@ -54,6 +54,19 @@ module.exports = {
             });
         });
     },
+    tagSelect: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UserTagSelect(?,?)', [data.UserID,data.TagName], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve( tagMessage.tagSelect.Ok );
+                    else
+                        reject(tagMessage.tagSelect.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     update: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('UPDATE tblTag SET ? WHERE TagID = ?', [data, data.TagID], (error, result) => {

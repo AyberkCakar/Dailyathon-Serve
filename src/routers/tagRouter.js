@@ -42,6 +42,15 @@ router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
     }
 });
 
+router.post('/tag-select', verifyToken,tagValidator.tagSelect, async (req, res) => {
+    try {
+        const response = await tagTransactions.tagSelect(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.put('/tag', verifyToken,tagValidator.update, async (req, res) => {
     try {
         const response = await tagTransactions.update(req.body);
