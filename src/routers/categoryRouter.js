@@ -26,7 +26,7 @@ router.post('/category', verifyToken,categoryValidator.add, async (req, res) => 
 
 router.put('/category', verifyToken,categoryValidator.update, async (req, res) => {
     try {
-        const response = await categoryValidator.update(req.body);
+        const response = await categoryTransactions.update(req.body);
         res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
