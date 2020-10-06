@@ -23,6 +23,16 @@ router.post('/category', verifyToken,categoryValidator.add, async (req, res) => 
         res.status(error.status).json({ message: error.message });
     }
 });
+
+router.put('/category', verifyToken,categoryValidator.update, async (req, res) => {
+    try {
+        const response = await categoryTransactions.update(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.delete('/category', verifyToken, categoryValidator.delete, async (req, res) => {
     try {
         const response = await categoryTransactions.delete(req.body.CategoryID);

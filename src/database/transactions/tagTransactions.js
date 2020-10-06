@@ -1,5 +1,5 @@
 const { mysqlDataContext } = require('../dataContexts');
-const { TagMessage }  = require('../../fixtures/messageStatus.json');
+const { tagMessage }  = require('../../fixtures/messageStatus.json');
 
 module.exports = {
     list: () => {
@@ -9,7 +9,7 @@ module.exports = {
                     if (result != null)
                         resolve(result);
                     else
-                        reject( TagMessage.all.Not_Found );
+                        reject( tagMessage.all.Not_Found );
                 else
                     reject({ status: 500, message: error.message });
             });
@@ -22,7 +22,7 @@ module.exports = {
                     if (result != null)
                         resolve(result);
                     else
-                        reject( TagMessage.categoryTagList.Not_Found );
+                        reject( tagMessage.categoryTagList.Not_Found );
                 else
                     reject({ status: 500, message: error.message });
             });
@@ -33,9 +33,22 @@ module.exports = {
             mysqlDataContext.query('INSERT INTO tblTag SET ?', [data], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
-                        resolve( TagMessage.insert.Ok );
+                        resolve( tagMessage.insert.Ok );
                     else
-                        reject(TagMessage.insert.Internal_Server_Error);
+                        reject(tagMessage.insert.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    update: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE tblTag SET ? WHERE TagID = ?', [data, data.TagID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(tagMessage.update.Ok);
+                    else
+                        reject(tagMessage.update.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });
@@ -46,9 +59,9 @@ module.exports = {
             mysqlDataContext.query('DELETE FROM tblTag WHERE TagID = ?', [TagID], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
-                        resolve(TagMessage.delete.Ok);
+                        resolve(tagMessage.delete.Ok);
                     else
-                        resolve(TagMessage.delete.Internal_Server_Error);
+                        resolve(tagMessage.delete.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });
