@@ -28,6 +28,19 @@ module.exports = {
             });
         });
     },
+    userTagList: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL UserTagList(?)',[data.UserID], (error, result) => {
+                if (!error)
+                    if (result[0] != null)
+                        resolve(result[0]);
+                    else
+                        reject( tagMessage.userTagList.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblTag SET ?', [data], (error, result) => {
