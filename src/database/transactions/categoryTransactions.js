@@ -1,5 +1,5 @@
 const { mysqlDataContext } = require('../dataContexts');
-const { CategoryMessage }  = require('../../fixtures/messageStatus.json');
+const { categoryMessage }  = require('../../fixtures/messageStatus.json');
 
 module.exports = {
     list: () => {
@@ -9,7 +9,7 @@ module.exports = {
                     if (result != null)
                         resolve(result);
                     else
-                        reject( CategoryMessage.all.Not_Found );
+                        reject( categoryMessage.all.Not_Found );
                 else
                     reject({ status: 500, message: error.message });
             });
@@ -20,9 +20,22 @@ module.exports = {
             mysqlDataContext.query('INSERT INTO tblCategory SET ?', [data], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
-                        resolve( CategoryMessage.insert.Ok );
+                        resolve(categoryMessage.insert.Ok );
                     else
-                        reject(CategoryMessage.insert.Internal_Server_Error);
+                        reject(categoryMessage.insert.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    update: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE tblTag tblCategory ? WHERE CategoryID = ?', [data, data.CategoryID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(categoryMessage.update.Ok);
+                    else
+                        reject(categoryMessage.update.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });
@@ -33,9 +46,9 @@ module.exports = {
             mysqlDataContext.query('DELETE FROM tblCategory WHERE CategoryID = ?', [CategoryID], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
-                        resolve(CategoryMessage.delete.Ok);
+                        resolve(categoryMessage.delete.Ok);
                     else
-                        resolve(CategoryMessage.delete.Internal_Server_Error);
+                        resolve(categoryMessage.delete.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });

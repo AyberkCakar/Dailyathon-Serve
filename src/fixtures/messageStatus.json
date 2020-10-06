@@ -135,7 +135,7 @@
       }
     }
   },
-  "CategoryMessage": {
+  "categoryMessage": {
     "all": {
       "Not_Found": {
         "status": 404,
@@ -150,6 +150,20 @@
       "Internal_Server_Error": {
         "status": 500,
         "message": "There was an error adding Category !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "update": {
+      "Ok": {
+        "status": 200,
+        "message": "The Category has been updated."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred updating Category !"
       },
       "Proxy_Authentication_Required": {
         "status": 407,

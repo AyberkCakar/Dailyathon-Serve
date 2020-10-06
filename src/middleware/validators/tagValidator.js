@@ -18,6 +18,7 @@ module.exports = {
             await joi.object({
                 TagID:joi.number().min(1).max(99999999999).required(),
                 TagName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                CategoryID:joi.number().min(1).max(99999999999)
             }).validateAsync(req.body);
             next();
         } catch (error) {
