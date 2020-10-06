@@ -32,6 +32,15 @@ router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
     }
 });
 
+router.put('/tag', verifyToken,tagValidator.update, async (req, res) => {
+    try {
+        const response = await tagTransactions.update(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.delete('/tag', verifyToken, tagValidator.delete, async (req, res) => {
     try {
         const response = await tagTransactions.delete(req.body.TagID);
