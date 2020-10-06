@@ -259,6 +259,20 @@
       "status": 407,
       "message": "You are not authorized to do this !"
     }
+  },
+  "tagDelete": {
+    "Ok": {
+      "status": 200,
+      "message": "Selected Tag deletion has been occurred."
+    },
+    "Internal_Server_Error": {
+      "status": 500,
+      "message": "An error occurred during Selected Tag deletion !"
+    },
+    "Proxy_Authentication_Required": {
+      "status": 407,
+      "message": "You are not authorized to do this !"
+    }
   }
 },
   "newsMessage": {

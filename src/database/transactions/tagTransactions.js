@@ -56,7 +56,7 @@ module.exports = {
     },
     tagSelect: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('UserTagSelect(?,?)', [data.UserID,data.TagName], (error, result) => {
+            mysqlDataContext.query('CALL UserTagSelect(?,?)', [data.UserID,data.TagName], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( tagMessage.tagSelect.Ok );
@@ -88,6 +88,19 @@ module.exports = {
                         resolve(tagMessage.delete.Ok);
                     else
                         resolve(tagMessage.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    tagDelete: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL UserTagDelete(?,?)', [data.UserID,data.TagName], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(tagMessage.tagDelete.Ok);
+                    else
+                        resolve(tagMessage.tagDelete.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });

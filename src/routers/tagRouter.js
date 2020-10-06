@@ -68,4 +68,14 @@ router.delete('/tag', verifyToken, tagValidator.delete, async (req, res) => {
         res.status(error.status).json({ message: error.message });
     }
 });
+
+router.delete('/tag-delete', verifyToken, tagValidator.tagDelete, async (req, res) => {
+    try {
+        const response = await tagTransactions.tagDelete(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
