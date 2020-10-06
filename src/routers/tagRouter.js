@@ -42,7 +42,7 @@ router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
     }
 });
 
-router.post('/tag-select', verifyToken,tagValidator.tagSelect, async (req, res) => {
+router.post('/user-tag', verifyToken,tagValidator.tagSelect, async (req, res) => {
     try {
         const response = await tagTransactions.tagSelect(req.body);
         res.json({message:response.message});
@@ -69,7 +69,7 @@ router.delete('/tag', verifyToken, tagValidator.delete, async (req, res) => {
     }
 });
 
-router.delete('/tag-delete', verifyToken, tagValidator.tagDelete, async (req, res) => {
+router.delete('/user-tag', verifyToken, tagValidator.tagDelete, async (req, res) => {
     try {
         const response = await tagTransactions.tagDelete(req.body);
         res.json({message:response.message});
