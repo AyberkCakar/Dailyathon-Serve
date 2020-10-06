@@ -10,6 +10,15 @@ const adminTransactions = dbFactory('adminTransactions');
 
 const authValidator = validators.authValidator;
 
+router.get('/user', async (req, res) => {
+    try {
+        const response = await userTransactions.list();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.get('/find/:findType', authValidator.find, async (req, res) => {
     try {
         let result;
@@ -24,7 +33,7 @@ router.get('/find/:findType', authValidator.find, async (req, res) => {
                 res.status(authMessage.find.Bad_Request.status).json({message: authMessage.find.Bad_Request.message});
                 return;
         }
-        res.json({ result });
+        res.json(result);
     } catch (err) {
         res.status(err.status).json({ message: err.message });
     }
