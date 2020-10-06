@@ -30,7 +30,7 @@ module.exports = {
     },
     update: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('UPDATE tblTag tblCategory ? WHERE CategoryID = ?', [data, data.CategoryID], (error, result) => {
+            mysqlDataContext.query('UPDATE tblCategory ? WHERE CategoryID = ?', [data, data.CategoryID], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve(categoryMessage.update.Ok);
