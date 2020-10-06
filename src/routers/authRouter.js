@@ -24,7 +24,7 @@ router.get('/find/:findType', authValidator.find, async (req, res) => {
                 res.status(authMessage.find.Bad_Request.status).json({message: authMessage.find.Bad_Request.message});
                 return;
         }
-        res.json({ message: result.message });
+        res.json({ result });
     } catch (err) {
         res.status(err.status).json({ message: err.message });
     }
