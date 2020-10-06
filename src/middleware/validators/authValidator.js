@@ -85,7 +85,7 @@ module.exports = {
     deleteMyAccount: async (req, res, next) => {
         try {
             await joi.object({
-                UserEmail: joi.string().email().required(),
+                UserID: joi.string().email().required(),
             }).validateAsync(req.body);
             next();
         } catch (error) {

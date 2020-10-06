@@ -41,9 +41,9 @@ module.exports = {
             });
         });
     },
-    delete: (UserEmail) => {
+    delete: (UserID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('DELETE FROM tblUser WHERE UserMail = ?', [UserEmail], (error, result) => {
+            mysqlDataContext.query('DELETE FROM tblUser WHERE UserID = ?', [UserID], (error, result) => {
                 console.log(result);
                 if (!error)
                     if (result.affectedRows != 0)

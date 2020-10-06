@@ -73,10 +73,10 @@ router.post('/sign-up/:signupTpye', authValidator.signUp, async (req, res) => {
     }
 });
 
-router.delete('/delete-my-account', async (req, res) => {
+router.delete('/delete-my-account',verifyToken,authValidator.deleteMyAccount, async (req, res) => {
     try {
-        if (req.decode.UserEmail == req.body.UserEmail) {
-            const result = await userTransactions.delete(req.body.UserEmail);
+        if (req.decode.UserID == req.body.UserID) {
+            const result = await userTransactions.delete(req.body.UserID);
             res.status(result.status).json({ message: result.message });
         } else {
             res.status(userMessage.delete.Proxy_Authentication_Required.status).json({ message: userMessage.delete.Proxy_Authentication_Required.message });
