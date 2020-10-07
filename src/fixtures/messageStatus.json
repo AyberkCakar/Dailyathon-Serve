@@ -161,6 +161,62 @@
         "status": 407,
         "message": "You are not authorized to do this !"
       }
+    },
+    "insert": {
+      "Ok": {
+        "status": 200,
+        "message": "Survey added."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "There was an error adding Survey !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "userToSurveyRead": {
+      "Ok": {
+        "status": 200,
+        "message": "Survey as read added  !"
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "There was an error adding Survey as read !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "update": {
+      "Ok": {
+        "status": 200,
+        "message": "The Survey has been updated."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred updating Survey !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "delete": {
+      "Ok": {
+        "status": 200,
+        "message": "Survey deletion has occurred."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred during Survey deletion !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
     }
   },
   "announcementMessage": {

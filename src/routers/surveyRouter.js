@@ -24,4 +24,39 @@ router.get('/surveyUserList',verifyToken,surveyValidator.surveyUserList, async (
     }
 });
 
+router.post('/survey', verifyToken,surveyValidator.add,async (req, res) => {
+    try {
+        const response = await surveyTransactions.insert(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
+router.post('/survey-read', verifyToken,surveyValidator.surveyAsRead,async (req, res) => {
+    try {
+        const response = await surveyTransactions.surveyAsRead(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
+router.put('/survey', verifyToken,surveyValidator.update,async (req, res) => {
+    try {
+        const response = await surveyTransactions.update(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
+router.delete('/survey', verifyToken,surveyValidator.delete,async (req, res) => {
+    try {
+        const response = await surveyTransactions.delete(req.body.SurveyListID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 module.exports = router;
