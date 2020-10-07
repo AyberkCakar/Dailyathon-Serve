@@ -27,5 +27,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    insert: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('INSERT INTO tblAnnouncement SET ?', [data], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve( announcementMessage.insert.Ok );
+                    else
+                        reject(announcementMessage.insert.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };

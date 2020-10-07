@@ -12,5 +12,17 @@ module.exports = {
         } catch (error) {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
+    },
+    add: async (req, res, next) => {
+        try {
+            await joi.object({
+                AnnouncementContent:joi.string().min(2).required(),
+                AnnouncementStartDate:joi.date().required(),
+                AnnouncementDueDate:joi.date().required(),
+            }).validateAsync(req.body);
+            next();
+        } catch (error) {
+            res.status(validateMessage.status).send({ message: validateMessage.message });
+        }
     }
 };

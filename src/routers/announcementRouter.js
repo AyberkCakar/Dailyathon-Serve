@@ -24,4 +24,13 @@ router.get('/announcementUserList',verifyToken,announcementValidator.announcemen
     }
 });
 
+router.post('/announcement',verifyToken,announcementValidator.add, async (req, res) => {
+    try {
+        const response = await announcementTransactions.insert(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
