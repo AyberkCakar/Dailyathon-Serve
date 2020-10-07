@@ -40,5 +40,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    update: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE tblAnnouncement SET ? WHERE AnnouncementID = ?', [data, data.AnnouncementID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(announcementMessage.update.Ok);
+                    else
+                        reject(announcementMessage.update.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };

@@ -33,4 +33,13 @@ router.post('/announcement',verifyToken,announcementValidator.add, async (req, r
     }
 });
 
+router.put('/announcement',verifyToken,announcementValidator.update, async (req, res) => {
+    try {
+        const response = await announcementTransactions.update(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
