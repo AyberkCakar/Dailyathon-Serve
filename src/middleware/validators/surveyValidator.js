@@ -26,5 +26,20 @@ module.exports = {
         } catch (error) {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
+    },
+    update: async (req, res, next) => {
+        try {
+            await joi.object({
+                SurveyListID:joi.number().min(0).max(99999999999).required(),
+                SurveyName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')),
+                SurveyTableName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')),
+                SurveyStartDate:joi.date(),
+                SurveyDueDate:joi.date(),
+                SurveyUrl:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')),
+            }).validateAsync(req.body);
+            next();
+        } catch (error) {
+            res.status(validateMessage.status).send({ message: validateMessage.message });
+        }
     }
 };

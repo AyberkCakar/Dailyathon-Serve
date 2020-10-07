@@ -40,5 +40,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    update: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE tblSurveyList SET ? WHERE SurveyListID = ?', [data, data.SurveyListID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(surveyMessage.update.Ok);
+                    else
+                        reject(surveyMessage.update.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
