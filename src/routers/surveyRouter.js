@@ -24,4 +24,12 @@ router.get('/surveyUserList',verifyToken,surveyValidator.surveyUserList, async (
     }
 });
 
+router.post('/survey', verifyToken,surveyValidator.add,async (req, res) => {
+    try {
+        const response = await surveyTransactions.insert(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 module.exports = router;
