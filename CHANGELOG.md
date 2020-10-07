@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.7.0...v1.8.0) (2020-10-07)
+
+
+### Features
+
+* added survey as read router ([6485cba](https://github.com/AyberkCakar/Dailyathon-Serve/commit/6485cbab26287f91083f245d007f82e9a5d91583))
+* added survey delete router ([6f282c0](https://github.com/AyberkCakar/Dailyathon-Serve/commit/6f282c09956bf766e1f8d52ce8caf28b0a8a1b6e))
+* added survey insert router ([7cf71c3](https://github.com/AyberkCakar/Dailyathon-Serve/commit/7cf71c3dbbaf1254372158bde1ddc433b1eac1ee))
+* added survey update router ([77644d0](https://github.com/AyberkCakar/Dailyathon-Serve/commit/77644d0180a520ec12353573907ffc5340740711))
+* added user and admin find router ([052f343](https://github.com/AyberkCakar/Dailyathon-Serve/commit/052f343f2721a032c8726c942d9cd7636bc8e015))
+* added user list router ([eda5470](https://github.com/AyberkCakar/Dailyathon-Serve/commit/eda547045fcaadda068b9b8853b50879ca614dda))
+
+
+### Bug Fixes
+
+* fix user delete router ([95445ee](https://github.com/AyberkCakar/Dailyathon-Serve/commit/95445ee31756c395fc03992842224d425c90b9a6))
+
 ## [1.7.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.6.0...v1.7.0) (2020-10-06)
 
 
