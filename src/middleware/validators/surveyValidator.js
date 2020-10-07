@@ -46,7 +46,7 @@ module.exports = {
                 SurveyTableName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')),
                 SurveyStartDate:joi.date(),
                 SurveyDueDate:joi.date(),
-                SurveyUrl:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')),
+                SurveyUrl:joi.string(),
             }).validateAsync(req.body);
             next();
         } catch (error) {
