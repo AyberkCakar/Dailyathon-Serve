@@ -42,4 +42,13 @@ router.put('/announcement',verifyToken,announcementValidator.update, async (req,
     }
 });
 
+router.delete('/announcement',verifyToken,announcementValidator.delete, async (req, res) => {
+    try {
+        const response = await announcementTransactions.delete(req.body.AnnouncementID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
