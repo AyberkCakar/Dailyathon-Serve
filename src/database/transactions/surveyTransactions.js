@@ -41,6 +41,19 @@ module.exports = {
             });
         });
     },
+    surveyAsRead: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('INSERT INTO tblSurveyUser SET UserID = ?, SurveyListID = ?', [data.UserID,data.SurveyListID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve( surveyMessage.userToSurveyRead.Ok );
+                    else
+                        reject(surveyMessage.userToSurveyRead.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     update: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('UPDATE tblSurveyList SET ? WHERE SurveyListID = ?', [data, data.SurveyListID], (error, result) => {

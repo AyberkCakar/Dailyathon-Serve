@@ -33,6 +33,15 @@ router.post('/survey', verifyToken,surveyValidator.add,async (req, res) => {
     }
 });
 
+router.post('/survey-read', verifyToken,surveyValidator.surveyAsRead,async (req, res) => {
+    try {
+        const response = await surveyTransactions.surveyAsRead(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.put('/survey', verifyToken,surveyValidator.update,async (req, res) => {
     try {
         const response = await surveyTransactions.update(req.body);
