@@ -254,7 +254,7 @@
         "message": "You are not authorized to do this !"
       }
     },
-    "userToSurveyRead": {
+    "announcementAsRead": {
       "Ok": {
         "status": 200,
         "message": "Announcement as read added  !"

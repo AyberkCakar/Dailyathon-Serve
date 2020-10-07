@@ -33,6 +33,15 @@ router.post('/announcement',verifyToken,announcementValidator.add, async (req, r
     }
 });
 
+router.post('/announcement-user',verifyToken,announcementValidator.announcementAsRead, async (req, res) => {
+    try {
+        const response = await announcementTransactions.announcementAsRead(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.put('/announcement',verifyToken,announcementValidator.update, async (req, res) => {
     try {
         const response = await announcementTransactions.update(req.body);

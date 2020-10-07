@@ -41,6 +41,19 @@ module.exports = {
             });
         });
     },
+    announcementAsRead: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('INSERT INTO tblAnnouncementUser SET UserID = ?, AnnouncementID = ?', [data.UserID,data.AnnouncementID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve( announcementMessage.announcementAsRead.Ok );
+                    else
+                        reject(announcementMessage.announcementAsRead.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     update: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('UPDATE tblAnnouncement SET ? WHERE AnnouncementID = ?', [data, data.AnnouncementID], (error, result) => {
