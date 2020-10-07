@@ -42,4 +42,12 @@ router.put('/survey', verifyToken,surveyValidator.update,async (req, res) => {
     }
 });
 
+router.delete('/survey', verifyToken,surveyValidator.delete,async (req, res) => {
+    try {
+        const response = await surveyTransactions.delete(req.body.SurveyListID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
 module.exports = router;

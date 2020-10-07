@@ -53,5 +53,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    delete: (SurveyListID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('DELETE FROM tblSurveyList WHERE SurveyListID = ?', [SurveyListID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(surveyMessage.delete.Ok);
+                    else
+                        resolve(surveyMessage.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
