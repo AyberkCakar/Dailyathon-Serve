@@ -41,6 +41,19 @@ module.exports = {
             });
         });
     },
+    find: (EntertainmentID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblEntertainment WHERE EntertainmentID = ?',[EntertainmentID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( entertainmentMessage.find.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblEntertainment SET ?', [data], (error, result) => {
