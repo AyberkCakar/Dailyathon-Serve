@@ -17,7 +17,7 @@ module.exports = {
     },
     surveyUserList: (UserID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT  * FROM tblSurveyList WHERE SurveyListID NOT IN (SELECT SurveyListID FROM tblSurveyUser WHERE UserID= ?)', [(UserID)], (error, result) => {
+            mysqlDataContext.query('SELECT SurveyListID,SurveyName,SurveyStartDate,SurveyDueDate FROM tblSurveyList WHERE SurveyListID NOT IN (SELECT SurveyListID FROM tblSurveyUser WHERE UserID = ?)', [(UserID)], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
