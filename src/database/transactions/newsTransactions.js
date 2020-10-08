@@ -44,6 +44,19 @@ module.exports = {
             });
         });
     },
+    find: (NewsID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblNews WHERE NewsID = ?',[NewsID],(error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( newsMessage.find.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblNews SET ?', [data], (error, result) => {
