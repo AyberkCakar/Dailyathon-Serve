@@ -15,6 +15,15 @@ router.get('/announcement', async (req, res) => {
     }
 });
 
+router.get('/announcement-find' ,verifyToken,announcementValidator.find , async (req, res) => {
+    try {
+        const response = await announcementTransactions.find(req.body.AnnouncementID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.get('/announcementUserList',verifyToken,announcementValidator.announcementUserList, async (req, res) => {
     try {
         const response = await announcementTransactions.announcementUserList(req.body.UserID);
