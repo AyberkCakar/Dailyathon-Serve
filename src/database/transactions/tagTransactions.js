@@ -41,6 +41,19 @@ module.exports = {
             });
         });
     },
+    find:(TagID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblTag Where TagID = ?',[TagID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( tagMessage.find.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblTag SET ?', [data], (error, result) => {
