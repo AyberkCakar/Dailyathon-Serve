@@ -12,6 +12,16 @@ module.exports = {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
     },
+    find: async (req, res, next) => {
+        try {
+            await joi.object({
+                CategoryID:joi.number().min(1).max(99999999999).required(),
+            }).validateAsync(req.body);
+            next();
+        } catch (error) {
+            res.status(validateMessage.status).send({ message: validateMessage.message });
+        }
+    },
     update: async (req, res, next) => {
         try {
             await joi.object({

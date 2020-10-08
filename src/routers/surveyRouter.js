@@ -24,6 +24,15 @@ router.get('/surveyUserList',verifyToken,surveyValidator.surveyUserList, async (
     }
 });
 
+router.get('/survey-find',verifyToken,surveyValidator.find, async (req, res) => {
+    try {
+        const response = await surveyTransactions.find(req.body.SurveyListID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/survey', verifyToken,surveyValidator.add,async (req, res) => {
     try {
         const response = await surveyTransactions.insert(req.body);

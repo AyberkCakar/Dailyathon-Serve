@@ -33,6 +33,15 @@ router.get('/user-tag', verifyToken,tagValidator.userTag, async (req, res) => {
     }
 });
 
+router.get('/tag-find', verifyToken,tagValidator.find , async (req, res) => {
+    try {
+        const response = await tagTransactions.find(req.body.TagID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
     try {
         const response = await tagTransactions.insert(req.body);

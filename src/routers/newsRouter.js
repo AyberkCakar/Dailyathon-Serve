@@ -33,6 +33,15 @@ router.get('/user-news',verifyToken,newsValidator.userNews, async (req, res) => 
     }
 });
 
+router.get('/news-find',verifyToken,newsValidator.find, async (req, res) => {
+    try {
+        const response = await newsTransactions.find(req.body.NewsID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/news', verifyToken,newsValidator.add, async (req, res) => {
     try {
         const response = await newsTransactions.insert(req.body);

@@ -15,6 +15,15 @@ router.get('/sport', async (req, res) => {
     }
 });
 
+router.get('/sport-find' , verifyToken,sportValidator.find , async (req, res) => {
+    try {
+        const response = await sportTransactions.find(req.body.SportID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/sport', verifyToken,sportValidator.add, async (req, res) => {
     try {
         const response = await sportTransactions.insert(req.body);

@@ -33,6 +33,15 @@ router.get('/user-league', verifyToken,leagueValidator.userLeagueList,async (req
     }
 });
 
+router.get('/league-find', verifyToken,leagueValidator.find,async (req, res) => {
+    try {
+        const response = await leagueTransactions.find(req.body.LeagueID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/league', verifyToken,leagueValidator.add, async (req, res) => {
     try {
         const response = await leagueTransactions.insert(req.body);

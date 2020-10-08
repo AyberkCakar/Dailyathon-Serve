@@ -15,6 +15,19 @@ module.exports = {
             });
         });
     },
+    find: (CategoryID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblCategory WHERE CategoryID = ?',[CategoryID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( categoryMessage.all.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblCategory SET ?', [data], (error, result) => {

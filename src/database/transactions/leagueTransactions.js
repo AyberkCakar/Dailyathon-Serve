@@ -44,6 +44,19 @@ module.exports = {
             });
         });
     },
+    find:(LeagueID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblLeague WHERE LeagueID = ?',[LeagueID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( leagueMessage.find.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblLeague SET ?', [data], (error, result) => {

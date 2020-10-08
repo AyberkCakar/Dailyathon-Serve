@@ -15,6 +15,19 @@ module.exports = {
             });
         });
     },
+    find: (SportID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblSport WHERE SportID = ?',[SportID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( sportMessage.find.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblSport SET ?', [data], (error, result) => {

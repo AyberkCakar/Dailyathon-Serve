@@ -162,6 +162,12 @@
         "message": "You are not authorized to do this !"
       }
     },
+    "find":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
     "insert": {
       "Ok": {
         "status": 200,
@@ -310,6 +316,12 @@
         "message": "No content available !"
       }
     },
+    "find":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
     "insert": {
       "Ok": {
         "status": 200,
@@ -354,94 +366,100 @@
     }
   },
   "tagMessage": {
-  "all": {
-    "Not_Found": {
-      "status": 404,
-      "message": "No content available !"
+    "all": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
+    "find":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
+    "categoryTagList":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
+    "userTagList":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
+    "insert": {
+      "Ok": {
+        "status": 200,
+        "message": "Tag added."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "There was an error adding Tag !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "tagSelect": {
+      "Ok": {
+        "status": 200,
+        "message": "Tag selection added !"
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "There was an error adding Tag selection !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "update": {
+      "Ok": {
+        "status": 200,
+        "message": "The Tag has been updated."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred updating Tag !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "delete": {
+      "Ok": {
+        "status": 200,
+        "message": "Tag deletion has occurred."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred during Tag deletion !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "tagDelete": {
+      "Ok": {
+        "status": 200,
+        "message": "Selected Tag deletion has been occurred."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred during Selected Tag deletion !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
     }
-  },
-  "categoryTagList":{
-    "Not_Found": {
-      "status": 404,
-      "message": "No content available !"
-    }
-  },
-  "userTagList":{
-    "Not_Found": {
-      "status": 404,
-      "message": "No content available !"
-    }
-  },
-  "insert": {
-    "Ok": {
-      "status": 200,
-      "message": "Tag added."
-    },
-    "Internal_Server_Error": {
-      "status": 500,
-      "message": "There was an error adding Tag !"
-    },
-    "Proxy_Authentication_Required": {
-      "status": 407,
-      "message": "You are not authorized to do this !"
-    }
-  },
-  "tagSelect": {
-    "Ok": {
-      "status": 200,
-      "message": "Tag selection added !"
-    },
-    "Internal_Server_Error": {
-      "status": 500,
-      "message": "There was an error adding Tag selection !"
-    },
-    "Proxy_Authentication_Required": {
-      "status": 407,
-      "message": "You are not authorized to do this !"
-    }
-  },
-  "update": {
-    "Ok": {
-      "status": 200,
-      "message": "The Tag has been updated."
-    },
-    "Internal_Server_Error": {
-      "status": 500,
-      "message": "An error occurred updating Tag !"
-    },
-    "Proxy_Authentication_Required": {
-      "status": 407,
-      "message": "You are not authorized to do this !"
-    }
-  },
-  "delete": {
-    "Ok": {
-      "status": 200,
-      "message": "Tag deletion has occurred."
-    },
-    "Internal_Server_Error": {
-      "status": 500,
-      "message": "An error occurred during Tag deletion !"
-    },
-    "Proxy_Authentication_Required": {
-      "status": 407,
-      "message": "You are not authorized to do this !"
-    }
-  },
-  "tagDelete": {
-    "Ok": {
-      "status": 200,
-      "message": "Selected Tag deletion has been occurred."
-    },
-    "Internal_Server_Error": {
-      "status": 500,
-      "message": "An error occurred during Selected Tag deletion !"
-    },
-    "Proxy_Authentication_Required": {
-      "status": 407,
-      "message": "You are not authorized to do this !"
-    }
-  }
 },
   "newsMessage": {
     "all": {
@@ -460,6 +478,12 @@
       "Not_Found": {
         "status": 404,
         "message": "Selected tag not found !"
+      }
+    },
+    "find":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
       }
     },
     "insert": {
@@ -510,6 +534,12 @@
         "message": "No content available !"
       }
     },
+    "find":{
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
     "insert": {
       "Ok": {
         "status": 200,
@@ -541,6 +571,12 @@
   },
   "sportMessage": {
     "all": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
+    "find":{
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -591,6 +627,12 @@
   },
   "leagueMessage": {
     "all": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available !"
+      }
+    },
+    "find":{
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
