@@ -10,17 +10,17 @@
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">news-category</url>
+GET <url id="path">news-category</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "NewsCategoryID": 1,
         "NewsCategoryName": "E-Spor"
     }
-}
+]
         </code></pre>
-            <p>For the News Category List, you need to make a Get call to the URL below :
+            <p>For the News Category List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">news-category</code>
             </p>
@@ -45,11 +45,11 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">news</url>
+GET <url id="path">news</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "NewsID": 61,
         "NewsTitle": "newstitle5",
         "NewsDescription": "newsdesc5",
@@ -57,9 +57,9 @@ Result Example:
         "NewsCategoryID": 4,
         "NewsCategoryName": "Siyaset"
     }
-}
+]
         </code></pre>
-            <p>For the News List, you need to make a Get call to the URL below :
+            <p>For the News List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">news</code>
             </p>
@@ -75,6 +75,56 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>News Find</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">news-find</url>
+{
+    "NewsID": 61
+}
+
+Result Example:
+[
+    {
+        "NewsID": 61,
+        "NewsTitle": "newstitle5",
+        "NewsDescription": "newsdesc5",
+        "NewsImage": "newsimage5",
+        "NewsCategoryID": 4,
+        "NewsCategoryName": "Siyaset"
+    }
+]
+        </code></pre>
+            <p>For the News Find, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">news-find</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>NewsID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -122,7 +172,7 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-Post <url id="path">news</url>
+POST <url id="path">news</url>
 {
     "NewsTitle": "Newsdenemetitle",
     "NewsDescription":"Newsdenemedescription",
@@ -132,12 +182,10 @@ Post <url id="path">news</url>
 
 Result Example:
 {
-    "result": {
-        "message": "News added."
-    }
+    "message": "News added."
 }
         </code></pre>
-            <p>For the News Insert, you need to make a Get call to the URL below :
+            <p>For the News Insert, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">news</code>
             </p>
@@ -188,7 +236,7 @@ Result Example:
     "message": "News deletion has occurred."
 }
         </code></pre>
-            <p>For the News Delete, you need to make a Delete call to the URL below :
+            <p>For the News Delete, you need to make a DELETE call to the URL below :
                 <br>
                 <code class="higlighted" id="path">tag</code>
             </p>

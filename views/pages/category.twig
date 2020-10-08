@@ -13,8 +13,8 @@
 Get <url id="path">category</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "CategoryID": 1,
         "CategoryName": "Haber"
     },
@@ -22,7 +22,7 @@ Result Example:
         "CategoryID": 2,
         "CategoryName": "Eğlence"
     }
-}
+]
         </code></pre>
             <p>For the Category List, you need to make a Get call to the URL below :
                 <br>
@@ -40,6 +40,56 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Category Find</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">category-find</url>
+{
+    "CategoryID": 1
+}
+
+Result Example:
+[
+    {
+        "CategoryID": 1,
+        "CategoryName": "Haber"
+    },
+    {
+        "CategoryID": 2,
+        "CategoryName": "Eğlence"
+    }
+]
+        </code></pre>
+            <p>For the category find, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">category-find</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>CategoryID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
@@ -73,6 +123,51 @@ Result Example:
                 </tr>
                 </thead>
                 <tbody>
+                <tr>
+                    <td>CategoryName</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Update</h2>
+            <pre><code class="json">
+#Request Example
+
+PUT <url id="path">category</url>
+{
+    "CategoryID": 1,
+    "CategoryName": Spor,
+}
+Result Example:
+{
+    "message": "The Category has been updated."
+}
+        </code></pre>
+            <p>For the Category Update, you need to make a PUT call to the URL below :
+                <br>
+                <code class="higlighted" id="path">category</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>CategoryID</td>
+                    <td>Int</td>
+                </tr>
                 <tr>
                     <td>CategoryName</td>
                     <td>String</td>

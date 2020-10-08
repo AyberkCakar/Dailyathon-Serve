@@ -10,19 +10,19 @@
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">announcement</url>
+GET <url id="path">announcement</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "AnnouncementID": 21,
         "AnnouncementContent": "test anket3",
-        "AnnouncementStartDate": "2020-10-03T00:00:00.000Z",
-        "AnnouncementDueDate": "2020-10-03T00:00:00.000Z"
+        "AnnouncementDate": "2020-10-03T00:00:00.000Z",
+        "AnnouncementTitle": "title3"
     }
-}
+]
         </code></pre>
-            <p>For the Announcement List, you need to make a Get call to the URL below :
+            <p>For the Announcement List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">announcement</code>
             </p>
@@ -47,19 +47,19 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">announcementUserList</url>
+GET <url id="path">announcementUserList</url>
 
 Result Example:
-{
-    "result": {
-        "AnnouncementID": 1,
-        "AnnouncementContent": "test duyuru1",
-        "AnnouncementStartDate": "2020-10-03T00:00:00.000Z",
-        "AnnouncementDueDate": "2020-10-03T00:00:00.000Z"
+[
+    {
+        "AnnouncementID": 21,
+        "AnnouncementContent": "test anket3",
+        "AnnouncementDate": "2020-10-03T00:00:00.000Z",
+        "AnnouncementTitle": "title3"
     }
-}
+]
         </code></pre>
-            <p>For the User Announcement List, you need to make a Get call to the URL below :
+            <p>For the User Announcement List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">announcementUserList</code>
             </p>
@@ -76,6 +76,244 @@ Result Example:
                 <tbody>
                 <tr>
                     <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Announcement Find</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">announcement-find</url>
+{
+    "AnnouncementID": 1
+}
+
+Result Example:
+[
+    {
+        "AnnouncementID": 21,
+        "AnnouncementContent": "test anket3",
+        "AnnouncementDate": "2020-10-03T00:00:00.000Z",
+        "AnnouncementTitle": "title3"
+    }
+]
+        </code></pre>
+            <p>For the Announcement Find, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcement-find</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>AnnouncementID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">announcement</url>
+{
+    "AnnouncementTitle": "Announcement Title Test ",
+    "AnnouncementContent": "Announcement Test Content",
+    "AnnouncementDate": "2020-10-02",
+}
+Result Example:
+{
+    "message": "Announcement added."
+}
+        </code></pre>
+            <p>For the Announcement Insert, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcement</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>AnnouncementTitle</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>AnnouncementContent</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>AnnouncementDate</td>
+                    <td>Date</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Update</h2>
+            <pre><code class="json">
+#Request Example
+
+PUT <url id="path">announcement</url>
+{
+    "AnnouncementID": 12,
+    "AnnouncementTitle": "Announcement Title Test ",
+    "AnnouncementContent": "Announcement Test Content",
+    "AnnouncementDate": "2020-10-02",
+}
+Result Example:
+{
+    "message": "The Announcement has been updated."
+}
+        </code></pre>
+            <p>For the Announcement Update, you need to make a PUT call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcement</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>AnnouncementID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>AnnouncementTitle</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>AnnouncementContent</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>AnnouncementDate</td>
+                    <td>Date</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">announcement</url>
+{
+    "AnnouncementID": 2,
+}
+Result Example:
+{
+    "message": "Announcement deletion has occurred."
+}
+        </code></pre>
+            <p>For the Announcement Delete, you need to make a DELETE call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcement</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>AnnouncementID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>User Announcement Read</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">announcement-user</url>
+{
+    "UserID": 1,
+    "AnnouncementID": 21
+}
+Result Example:
+{
+    "message": "Announcement as read added  !"
+}
+        </code></pre>
+            <p>For the User Announcement Read, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcement-user</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>AnnouncementID</td>
                     <td>Int</td>
                 </tr>
                 <tr>

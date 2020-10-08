@@ -2,7 +2,7 @@
     <div class="content-code"></div>
     <div class="content">
         <div class="overflow-hidden content-section">
-            <h1>News Transacsions</h1>
+            <h1>League Transacsions</h1>
             <p>The user performs News operations will be with the examples below.</p>
         </div>
         <div class="overflow-hidden content-section">
@@ -10,18 +10,18 @@
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">league</url>
+GET <url id="path">league</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "LeagueID": 1,
         "LeagueName": "Süper Lig",
         "SportID": 1
     }
-}
+]
         </code></pre>
-            <p>For the League List, you need to make a Get call to the URL below :
+            <p>For the League List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">league</code>
             </p>
@@ -45,16 +45,16 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">league-table</url>
+GET <url id="path">league-table</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "LeagueTableName":"tblFootball"
     }
-}
+]
         </code></pre>
-            <p>For the League TableName List, you need to make a Get call to the URL below :
+            <p>For the League TableName List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">league-table</code>
             </p>
@@ -85,15 +85,15 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">user-league</url>
+GET <url id="path">user-league</url>
 {
     "UserID": "1",
     "LeagueTableName":"tblBasketball",
 }
 
 Result Example:
-{
-    "result": {
+[
+    {
         "BasketballID": 1,
         "SequenceNo": 1,
         "TeamName": "GS",
@@ -107,9 +107,9 @@ Result Example:
         "P": 123,
         "LeagueID": 21
     }
-}
+]
         </code></pre>
-            <p>For the User League List, you need to make a Get call to the URL below :
+            <p>For the User League List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">user-league</code>
             </p>
@@ -140,11 +140,59 @@ Result Example:
             </table>
         </div>
         <div class="overflow-hidden content-section">
+            <h2>League Find</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">league-find</url>
+{
+    "LeagueID": 1
+}
+
+Result Example:
+[
+    {
+        "LeagueID": 1,
+        "LeagueName": "Süper Lig",
+        "SportID": 1
+    }
+]
+        </code></pre>
+            <p>For the League Find, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">league-find</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>LeagueID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="overflow-hidden content-section">
             <h2>Insert</h2>
             <pre><code class="json">
 #Request Example
 
-Post <url id="path">league</url>
+POST <url id="path">league</url>
 {
     "LeagueName": "Süper Lig",
     "SportID":"1"
@@ -152,12 +200,10 @@ Post <url id="path">league</url>
 
 Result Example:
 {
-    "result": {
-        "message": "League added."
-    }
+    "message": "League added."
 }
         </code></pre>
-            <p>For the League Insert, you need to make a Get call to the URL below :
+            <p>For the League Insert, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">league</code>
             </p>
@@ -201,7 +247,7 @@ Result Example:
     "message": "League deletion has occurred."
 }
         </code></pre>
-            <p>For the League Delete, you need to make a Delete call to the URL below :
+            <p>For the League Delete, you need to make a DELETE call to the URL below :
                 <br>
                 <code class="higlighted" id="path">league</code>
             </p>

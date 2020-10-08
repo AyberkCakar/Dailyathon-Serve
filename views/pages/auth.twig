@@ -6,6 +6,146 @@
 			<p>The user performs the login, sign up and account delete operations with the following examples.</p>
 		</div>
 		<div class="overflow-hidden content-section">
+			<h2>User List</h2>
+			<pre><code class="json">
+#Request Example
+
+GET <url id="path">user</url>
+
+Result Example:
+[
+    {
+        "UserID": 1,
+        "UserName": "Dailyathon",
+        "UserSurname": "Dailyathon",
+        "UserMail": "dailyathon@gmail.com",
+        "UserPassword": "password",
+        "UserDate": "1236-01-03T00:00:00.000Z",
+        "UserProfession": "Yazılım Mühendisi",
+        "UserCity": "İzmir"
+    }
+]
+        </code></pre>
+			<p>For the user list, you need to make a GET call to the URL below :
+				<br>
+				<code class="higlighted" id="path">user</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="overflow-hidden content-section">
+			<h2>User Find</h2>
+			<pre><code class="json">
+#Request Example
+
+GET <url id="path">find/user</url>
+{
+    "UserID": 1
+}
+
+Result Example:
+[
+    {
+        "UserID": 1,
+        "UserName": "Dailyathon",
+        "UserSurname": "Dailyathon",
+        "UserMail": "dailyathon@gmail.com",
+        "UserPassword": "password",
+        "UserDate": "1236-01-03T00:00:00.000Z",
+        "UserProfession": "Yazılım Mühendisi",
+        "UserCity": "İzmir"
+    }
+]
+        </code></pre>
+			<p>For the user find, you need to make a GET call to the URL below :
+				<br>
+				<code class="higlighted" id="path">find/user</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>UserID</td>
+					<td>Int</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>token</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="overflow-hidden content-section">
+			<h2>Admin Find</h2>
+			<pre><code class="json">
+#Request Example
+
+GET <url id="path">find/admin</url>
+{
+    "AdminID": 1
+}
+
+Result Example:
+[
+    {
+        "AdminID": 1,
+        "AdminUsername": "admin",
+        "AdminPassword": "password"
+    }
+]
+        </code></pre>
+			<p>For the admin find, you need to make a GET call to the URL below :
+				<br>
+				<code class="higlighted" id="path">admin/find</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>AdminID</td>
+					<td>Int</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>token</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="overflow-hidden content-section">
 			<h2>User Login</h2>
 			<pre><code class="json">
 #Request Example
@@ -266,6 +406,43 @@ Reusult Example:
 				</tbody>
 			</table>
 		</div>
+		<div class="overflow-hidden content-section">
+			<h2>Token Decode</h2>
+			<pre><code>
+#Request Example
+GET <url id="path">token-decode</url>
+
+Reusult Example:
+{
+    "AdminID": 1,
+    "iat": 1602187100,
+    "exp": 1602187820
+}
+        </code></pre>
+			<p>For the token decode, you need to make a GET call to the URL below :
+				<br>
+				<code class="higlighted" id="path">token-decode</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>token</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
 	</div>
 	<div class="content-code"></div>
 </div>

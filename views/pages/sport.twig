@@ -10,18 +10,18 @@
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">sport</url>
+GET <url id="path">sport</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "SportID": 1,
         "SportName": "Futbol",
         "LeagueTableName": "tblFootball"
     }
-}
+]
         </code></pre>
-            <p>For the Sport List, you need to make a Get call to the URL below :
+            <p>For the Sport List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">sport</code>
             </p>
@@ -42,6 +42,53 @@ Result Example:
             </table>
         </div>
         <div class="overflow-hidden content-section">
+            <h2>Sport Find</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">sport-find</url>
+{
+    "SportID": 1
+}
+
+Result Example:
+[
+    {
+        "SportID": 1,
+        "SportName": "Futbol",
+        "LeagueTableName": "tblFootball"
+    }
+]
+        </code></pre>
+            <p>For the Sport Find, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">sport-find</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>SportID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
             <h2>Insert</h2>
             <pre><code class="json">
 #Request Example
@@ -57,7 +104,7 @@ Result Example:
     "message": "Sport added."
 }
         </code></pre>
-            <p>For the Sport Insert, you need to make a Post call to the URL below :
+            <p>For the Sport Insert, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">sport</code>
             </p>
@@ -102,7 +149,7 @@ Result Example:
     "message": "Sport deletion has occurred."
 }
         </code></pre>
-            <p>For the Sport Delete, you need to make a Delete call to the URL below :
+            <p>For the Sport Delete, you need to make a DELETE call to the URL below :
                 <br>
                 <code class="higlighted" id="path">sport</code>
             </p>

@@ -2,7 +2,7 @@
     <div class="content-code"></div>
     <div class="content">
         <div class="overflow-hidden content-section">
-            <h1>News Transacsions</h1>
+            <h1>Entertainment Transacsions</h1>
             <p>The user performs News operations will be with the examples below.</p>
         </div>
         <div class="overflow-hidden content-section">
@@ -13,8 +13,8 @@
 Get <url id="path">entertainment</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "EntertainmentID": 71,
         "EntertainmentName": "eğlence6",
         "EntertainmentContent": "eğlence16",
@@ -29,7 +29,7 @@ Result Example:
         "EntertainmentCategoryID": 21,
         "EntertainmentPerformer": "Alpars Şanlı"
     }
-}
+]
         </code></pre>
             <p>For the Entertainment List, you need to make a Get call to the URL below :
                 <br>
@@ -58,8 +58,8 @@ Result Example:
 Get <url id="path">city-entertainment</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "EntertainmentID": 21,
         "EntertainmentName": "eğlence1",
         "EntertainmentContent": "eğlence1",
@@ -75,7 +75,7 @@ Result Example:
         "EntertainmentPerformer": "Deneme Akça",
         "EntertainmentCategoryName": "Konser"
     }
-}
+]
         </code></pre>
             <p>For the City Entertainment List, you need to make a Get call to the URL below :
                 <br>
@@ -111,8 +111,8 @@ Result Example:
 Get <url id="path">tag-entertainment</url>
 
 Result Example:
-{
-    "result": {
+[
+    {
         "EntertainmentID": 31,
         "EntertainmentName": "eğlence2",
         "EntertainmentContent": "eğlence2",
@@ -128,7 +128,7 @@ Result Example:
         "EntertainmentPerformer": "Koray Can",
         "EntertainmentCategoryName": "Konser"
     }
-}
+]
         </code></pre>
             <p>For the Tag Entertainment List, you need to make a Get call to the URL below :
                 <br>
@@ -157,6 +157,63 @@ Result Example:
             </table>
         </div>
         <div class="overflow-hidden content-section">
+            <h2>Entertainment Find</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">entertainment-find</url>
+{
+    "EntertainmentID": 71
+}
+
+Result Example:
+[
+    {
+        "EntertainmentID": 71,
+        "EntertainmentName": "eğlence6",
+        "EntertainmentContent": "eğlence16",
+        "EntertainmentStartDate": "2020-10-04T00:00:00.000Z",
+        "EntertainmentDueDate": "2020-10-04T00:00:00.000Z",
+        "EntertainmentisFree": 0,
+        "EntertainmentPosterUrl": "eğlence16.html",
+        "EntertainmentTicketUrl": "eğlence16.html",
+        "EntertainmentCity": "İstanbul",
+        "EntertainmentDistrict": "Acıbadem",
+        "EntertainmentVenue": "Badem Bar",
+        "EntertainmentCategoryID": 21,
+        "EntertainmentPerformer": "Alpars Şanlı"
+    }
+]
+        </code></pre>
+            <p>For the Entertainment Find, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">entertainment-find</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>EntertainmentID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
             <h2>Insert</h2>
             <pre><code class="json">
 #Request Example
@@ -179,9 +236,7 @@ Post <url id="path">entertainment</url>
 
 Result Example:
 {
-    "result": {
-        "message": "Entertainment added."
-    }
+    "message": "Entertainment added."
 }
         </code></pre>
             <p>For the Entertainment Insert, you need to make a Get call to the URL below :

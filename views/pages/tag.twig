@@ -10,7 +10,7 @@
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">tag</url>
+GET <url id="path">tag</url>
 
 Result Example:
 {
@@ -21,7 +21,7 @@ Result Example:
     }
 }
         </code></pre>
-            <p>For the Tag List, you need to make a Get call to the URL below :
+            <p>For the Tag List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">tag</code>
             </p>
@@ -46,7 +46,7 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">category-tag</url>
+GET <url id="path">category-tag</url>
 
 Result Example:
 {
@@ -57,7 +57,7 @@ Result Example:
     }
 }
         </code></pre>
-            <p>For the Category Tag List, you need to make a Get call to the URL below :
+            <p>For the Category Tag List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">category-tag</code>
             </p>
@@ -78,6 +78,108 @@ Result Example:
             </table>
         </div>
         <div class="overflow-hidden content-section">
+            <h2>User Tag List</h2>
+            <pre><code class="json">
+#Request Example
+
+Get <url id="path">user-tag</url>
+{
+    "UserID": 1
+}
+
+Result Example:
+[
+    {
+        "TagID": 1,
+        "TagName": "Spor",
+        "CategoryID": 1,
+        "CategoryName": "Haber"
+    },
+    {
+        "TagID": 3,
+        "TagName": "Ekonomi",
+        "CategoryID": 1,
+        "CategoryName": "Haber"
+    }
+]
+        </code></pre>
+            <p>For the User Tag List, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">user-tag</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Tag Find</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">tag-find</url>
+{
+    "TagID": 1
+}
+
+Result Example:
+[
+    {
+        "TagID": 1,
+        "TagName": "Spor",
+        "CategoryID": 1,
+        "CategoryName": "Haber"
+    }
+]
+        </code></pre>
+            <p>For the Tag Find, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">tag-find</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>TagID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
             <h2>Insert</h2>
             <pre><code class="json">
 #Request Example
@@ -92,7 +194,7 @@ Result Example:
     "message": "Tag added."
 }
         </code></pre>
-            <p>For the Tag Insert, you need to make a Post call to the URL below :
+            <p>For the Tag Insert, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">tag</code>
             </p>
@@ -123,20 +225,22 @@ Result Example:
             </table>
         </div>
         <div class="overflow-hidden content-section">
-            <h2>Delete</h2>
+            <h2>Update</h2>
             <pre><code class="json">
 #Request Example
 
-DELETE <url id="path">category</url>
+PUT <url id="path">tag</url>
 {
-    "TagID": 2,
+    "TagID": 1,
+    "TagName": Spor,
+    "CategoryID": 1
 }
 Result Example:
 {
-    "message": "Tag deletion has occurred."
+    "message": "The Tag has been updated."
 }
         </code></pre>
-            <p>For the Tag Delete, you need to make a Delete call to the URL below :
+            <p>For the Tag Update, you need to make a PUT call to the URL below :
                 <br>
                 <code class="higlighted" id="path">tag</code>
             </p>
@@ -154,6 +258,144 @@ Result Example:
                 <tr>
                     <td>TagID</td>
                     <td>Int</td>
+                </tr>
+                <tr>
+                    <td>TagName</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>CategoryID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">category</url>
+{
+    "TagID": 2,
+}
+Result Example:
+{
+    "message": "Tag deletion has occurred."
+}
+        </code></pre>
+            <p>For the Tag Delete, you need to make a DELETE call to the URL below :
+                <br>
+                <code class="higlighted" id="path">tag</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>TagID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>User Tag Select</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">user-tag</url>
+{
+    "UserID": 1,
+    "TagName": "Teknoloji"
+}
+Result Example:
+{
+    "message": "Tag selection added !"
+}
+        </code></pre>
+            <p>For the User Tag Select, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">user-tag</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>TagName</td>
+                    <td>String</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>User Tag Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">user-tag</url>
+{
+    "UserID": 1,
+    "TagName": "Teknoloji"
+}
+Result Example:
+{
+    "message": "Selected Tag deletion has been occurred."
+}
+        </code></pre>
+            <p>For the User Tag Delete, you need to make a DELETE call to the URL below :
+                <br>
+                <code class="higlighted" id="path">user-tag</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>TagName</td>
+                    <td>String</td>
                 </tr>
                 <tr>
                     <td>token</td>
