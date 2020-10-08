@@ -28,6 +28,19 @@ module.exports = {
             });
         });
     },
+    find: (SurveyListID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblSurveyList WHERE SurveyListID = ?',[SurveyListID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( surveyMessage.find.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblSurveyList SET ?', [data], (error, result) => {
