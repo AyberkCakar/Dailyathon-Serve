@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.8.0...v1.9.0) (2020-10-08)
+
+
+### Features
+
+* added announcement as read router ([9e141ad](https://github.com/AyberkCakar/Dailyathon-Serve/commit/9e141ad699b600eef75abfe9f97c4553ea35c857))
+* added announcement delete router ([ef2c53d](https://github.com/AyberkCakar/Dailyathon-Serve/commit/ef2c53d2d5f54a07b6e5116686ba5306150b2b87))
+* added announcement find router ([bfe2ffb](https://github.com/AyberkCakar/Dailyathon-Serve/commit/bfe2ffbb55bdd26d3f338c81f18654c72840d243))
+* added announcement insert router ([c1accc0](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c1accc089c9ee3c797e4dc2508d862964351447e))
+* added announcement update router ([3f66a53](https://github.com/AyberkCakar/Dailyathon-Serve/commit/3f66a5319d029bff7f3721c064d869bf910ad11b))
+* added category find router ([797fac2](https://github.com/AyberkCakar/Dailyathon-Serve/commit/797fac25f52c54ce092d104c8ce19d525e4ef1ab))
+* added entertainment find router ([6d3baef](https://github.com/AyberkCakar/Dailyathon-Serve/commit/6d3baef5d489e29e94537f9a65e9998d05e02887))
+* added league find router ([ee877f8](https://github.com/AyberkCakar/Dailyathon-Serve/commit/ee877f8e94c4e87df0ff5dfee754992748230c34))
+* added news find router ([73a2137](https://github.com/AyberkCakar/Dailyathon-Serve/commit/73a2137cc558bd88e7a07fdfda8e92801abb54f8))
+* added sport find router ([b007c54](https://github.com/AyberkCakar/Dailyathon-Serve/commit/b007c543dd9e21f224470fb06c288c281a3a5be5))
+* added survey find router ([9d68c87](https://github.com/AyberkCakar/Dailyathon-Serve/commit/9d68c87e32024c9bcd8e4eb59c279b345d54e113))
+* added tag find router ([5b7790a](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5b7790a495eeab5f61ac86803a19cbe0250231c8))
+
+
+### Bug Fixes
+
+* fix announcement validator ([f2e52d2](https://github.com/AyberkCakar/Dailyathon-Serve/commit/f2e52d21a8d3e2297f201e64724b7882832fef96))
+* fix news and survey list transactions ([aa6b721](https://github.com/AyberkCakar/Dailyathon-Serve/commit/aa6b72141b43148f8239fbab2f161ad9d94364b0))
+
 ## [1.8.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.7.0...v1.8.0) (2020-10-07)
 
 
