@@ -15,6 +15,15 @@ router.get('/category', async (req, res) => {
     }
 });
 
+router.get('/category-find', verifyToken,categoryValidator.find, async (req, res) => {
+    try {
+        const response = await categoryTransactions.find(req.body.CategoryID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/category', verifyToken,categoryValidator.add, async (req, res) => {
     try {
         const response = await categoryTransactions.insert(req.body);
