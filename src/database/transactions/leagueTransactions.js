@@ -109,18 +109,5 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
-    },
-    standingsDelete: (data) => {
-        return new Promise((resolve, reject) => {
-            mysqlDataContext.query('DELETE FROM ?? WHERE LeagueID = ?', [data.LeagueTableName, data.LeagueID], (error, result) => {
-                if (!error)
-                    if (result.affectedRows != 0)
-                        resolve(leagueMessage.delete.Ok);
-                    else
-                        resolve(leagueMessage.delete.Internal_Server_Error);
-                else
-                    reject({ status: 500, message: error.message });
-            });
-        });
     }
 };
