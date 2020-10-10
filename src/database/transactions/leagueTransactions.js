@@ -70,6 +70,19 @@ module.exports = {
             });
         });
     },
+    standingsInsert: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('INSERT INTO ??  SET ?', [data.LeagueTableName,data], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve( leagueMessage.standingsInsert.Ok );
+                    else
+                        reject(leagueMessage.standingsInsert.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     update: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('UPDATE tblLeague SET ? WHERE LeagueID = ?', [data, data.LeagueID], (error, result) => {
@@ -86,6 +99,19 @@ module.exports = {
     delete: (LeagueID) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('DELETE FROM tblLeague WHERE LeagueID = ?', [LeagueID], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(leagueMessage.delete.Ok);
+                    else
+                        resolve(leagueMessage.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    standingsDelete: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('DELETE FROM ??  WHERE LeagueID = (SELECT LeagueID From tblLeague Where LeagueName = ?)', [data.LeagueTableName,data.LeagueName], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve(leagueMessage.delete.Ok);
