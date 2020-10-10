@@ -51,6 +51,15 @@ router.post('/league', verifyToken,leagueValidator.add, async (req, res) => {
     }
 });
 
+router.post('/league-standings', verifyToken,leagueValidator.standings, async (req, res) => {
+    try {
+        const response = await leagueTransactions.standingsInsert(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.put('/league', verifyToken,leagueValidator.update, async (req, res) => {
     try {
         const response = await leagueTransactions.update(req.body);

@@ -664,6 +664,20 @@
         "message": "You are not authorized to do this !"
       }
     },
+    "standingsInsert": {
+      "Ok": {
+        "status": 200,
+        "message": "League standings added."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "There was an error adding League standings!"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
     "update": {
       "Ok": {
         "status": 200,
