@@ -53,7 +53,7 @@ router.post('/league', verifyToken,leagueValidator.add, async (req, res) => {
 
 router.post('/league-standings',leagueValidator.standings, async (req, res) => {
     try {
-        const response = await leagueTransactions.standingsInsert(req.body);
+        const response = await leagueTransactions.standingsInsert(req.body.LeagueTableName,req.body);
         res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
