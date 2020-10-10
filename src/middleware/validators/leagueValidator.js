@@ -86,16 +86,5 @@ module.exports = {
         } catch (error) {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
-    },
-    standingsDelete: async (req, res, next) => {
-    try {
-        await joi.object({
-            LeagueID:joi.number().min(0).max(99999999999).required(),
-            LeagueTableName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required()
-        }).validateAsync(req.data);
-        next();
-    } catch (error) {
-        res.status(validateMessage.status).send({ message: validateMessage.message });
     }
-}
 };
