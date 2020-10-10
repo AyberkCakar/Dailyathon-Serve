@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.9.0...v1.10.0) (2020-10-10)
+
+
+### Features
+
+* added league standings delete router ([25eb1c0](https://github.com/AyberkCakar/Dailyathon-Serve/commit/25eb1c0e64ee8317a336be808ae81b99c6dd2a9f))
+* added league standings insert router ([6b363c4](https://github.com/AyberkCakar/Dailyathon-Serve/commit/6b363c4cbd1e17210d95695b6c84df194426c38c))
+
+
+### Bug Fixes
+
+* fix league standing delete ([23eb150](https://github.com/AyberkCakar/Dailyathon-Serve/commit/23eb150c0a4310e84260b53b1cea7969ed56739e))
+* fix league standings delete ([bbb2b31](https://github.com/AyberkCakar/Dailyathon-Serve/commit/bbb2b31b87361412bf015dd07e4952008452795b))
+* fix league standings delete transactions ([fae5ace](https://github.com/AyberkCakar/Dailyathon-Serve/commit/fae5acec41d8fe181b0448b7c3ae358e85ba75df))
+* fix league standings delete transactions ([fc2c23f](https://github.com/AyberkCakar/Dailyathon-Serve/commit/fc2c23f8c57db4a00531783e61e56279d892b066))
+* fix league standings insert validator ([ae6e8a5](https://github.com/AyberkCakar/Dailyathon-Serve/commit/ae6e8a5555bd5ee476b75b4c66cabe4d4dad62c6))
+* fix league standings transactions ([17b1fa2](https://github.com/AyberkCakar/Dailyathon-Serve/commit/17b1fa207e4c1e2171bd8a01d009dc03678c482d))
+* fix league standings validator ([4bf29ae](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4bf29ae58c31f76a99daf86b55ef7580314d4e61))
+* fix league standings verify token delete ([76f81a9](https://github.com/AyberkCakar/Dailyathon-Serve/commit/76f81a918114ea8d33802eb48721fcb1f44de6e8))
+
 ## [1.9.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.8.0...v1.9.0) (2020-10-08)
 
 
