@@ -90,7 +90,7 @@ module.exports = {
     standingsDelete: async (req, res, next) => {
     try {
         await joi.object({
-            LeagueName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+            LeagueID:joi.number().min(0).max(99999999999).required(),
             LeagueTableName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required()
         }).validateAsync(req.body);
         next();

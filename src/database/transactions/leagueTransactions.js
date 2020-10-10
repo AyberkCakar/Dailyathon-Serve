@@ -112,7 +112,7 @@ module.exports = {
     },
     standingsDelete: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('DELETE FROM ??  WHERE LeagueID = (SELECT LeagueID From tblLeague Where LeagueName = ?)', [data.LeagueTableName,data.LeagueName], (error, result) => {
+            mysqlDataContext.query('DELETE FROM ?? WHERE LeagueID = ?', [data.LeagueTableName, data.LeagueID], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve(leagueMessage.delete.Ok);
