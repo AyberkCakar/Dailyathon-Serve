@@ -72,7 +72,7 @@ module.exports = {
     },
     standingsInsert: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT INTO ??  SET ?', [data.LeagueTableName,data], (error, result) => {
+            mysqlDataContext.query('INSERT INTO ?? SET ?', [data.LeagueTableName,data], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( leagueMessage.standingsInsert.Ok );

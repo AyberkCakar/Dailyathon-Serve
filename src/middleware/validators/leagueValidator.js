@@ -47,9 +47,17 @@ module.exports = {
     standings: async (req, res, next) => {
         try {
             await joi.object({
-                SequenceNo:joi.number().min(1).max(99999999999).required(),
+                SequenceNo:joi.number().min(0).max(99999999999).required(),
                 TeamName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 TeamLogoUrl:joi.string().required(),
+                O:joi.number(),
+                G:joi.number(),
+                B:joi.number(),
+                M:joi.number(),
+                A:joi.number(),
+                Y:joi.number(),
+                AV:joi.number(),
+                P:joi.number(),
                 LeagueTableName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 LeagueID:joi.number().min(1).max(99999999999).required()
             }).validateAsync(req.body);
