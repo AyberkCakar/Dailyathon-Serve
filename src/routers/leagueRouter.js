@@ -80,7 +80,7 @@ router.delete('/league', verifyToken, leagueValidator.delete, async (req, res) =
 
 router.delete('/league-standings', leagueValidator.standingsDelete, async (req, res) => {
     try {
-        const response = await leagueTransactions.standingsDelete(req.body);
+        const response = await leagueTransactions.standingsDelete(req.data);
         res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
