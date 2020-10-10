@@ -48,7 +48,7 @@ module.exports = {
         try {
             await joi.object({
                 SequenceNo:joi.number().min(0).max(99999999999).required(),
-                TeamName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                TeamName:joi.string().required(),
                 TeamLogoUrl:joi.string().required(),
                 O:joi.number(),
                 G:joi.number(),
