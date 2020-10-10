@@ -69,6 +69,15 @@ router.put('/league', verifyToken,leagueValidator.update, async (req, res) => {
     }
 });
 
+router.put('/league-standings', leagueValidator.standingsUpdate, async (req, res) => {
+    try {
+        const response = await leagueTransactions.standingsUpdate(req.body.LeagueTableName,req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.delete('/league', verifyToken, leagueValidator.delete, async (req, res) => {
     try {
         const response = await leagueTransactions.delete(req.body.SportID);

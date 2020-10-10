@@ -681,11 +681,11 @@
     "update": {
       "Ok": {
         "status": 200,
-        "message": "League registration has taken place."
+        "message": "The League has been updated."
       },
       "Internal_Server_Error": {
         "status": 500,
-        "message": "The League has been updated."
+        "message": "An error occurred updating League !"
       },
       "Proxy_Authentication_Required": {
         "status": 407,
@@ -700,6 +700,20 @@
       "Internal_Server_Error": {
         "status": 500,
         "message": "An error occurred during League deletion !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
+    },
+    "standingsUpdate": {
+      "Ok": {
+        "status": 200,
+        "message": "The League standings has been updated."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred updating League standings !"
       },
       "Proxy_Authentication_Required": {
         "status": 407,

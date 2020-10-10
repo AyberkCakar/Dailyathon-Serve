@@ -97,6 +97,20 @@ module.exports = {
             });
         });
     },
+    standingsUpdate: (LeagueTableName,data) => {
+        delete data['LeagueTableName'];
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE ?? SET ? WHERE LeagueID = ? and SequenceNo = ?', [LeagueTableName, data,data.LeagueID,data.SequenceNo], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(leagueMessage.standingsUpdate.Ok);
+                    else
+                        reject(leagueMessage.standingsUpdate.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     delete: (LeagueID) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('DELETE FROM tblLeague WHERE LeagueID = ?', [LeagueID], (error, result) => {
