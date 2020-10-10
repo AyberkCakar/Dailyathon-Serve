@@ -705,6 +705,21 @@
         "status": 407,
         "message": "You are not authorized to do this !"
       }
+    },
+    "standingsDelete": {
+      "Ok": {
+        "status": 200,
+        "message": "League standings deletion has occurred."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred during League standings deletion !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
     }
+
   }
 }

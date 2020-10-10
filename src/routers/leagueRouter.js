@@ -78,4 +78,13 @@ router.delete('/league', verifyToken, leagueValidator.delete, async (req, res) =
     }
 });
 
+router.delete('/league-standings', verifyToken, leagueValidator.standingsDelete, async (req, res) => {
+    try {
+        const response = await leagueTransactions.standingsDelete(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
