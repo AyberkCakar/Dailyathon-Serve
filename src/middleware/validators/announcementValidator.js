@@ -29,7 +29,7 @@ module.exports = {
                 AnnouncementTitle:joi.string().min(2).required(),
                 AnnouncementContent:joi.string().min(2).required(),
                 AnnouncementDate:joi.date().required(),
-                Visible: joi.boolean().strict().required()
+                Visible: required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
@@ -55,7 +55,7 @@ module.exports = {
                 AnnouncementTitle:joi.string().min(2).required(),
                 AnnouncementContent:joi.string().min(2),
                 AnnouncementDate:joi.date(),
-                Visible: joi.boolean().strict().required()
+                Visible: joi.required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
