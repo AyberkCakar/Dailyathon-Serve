@@ -1,5 +1,5 @@
 const express = require('express');
-const { validators } = require('../middleware');
+const { verifyToken } = require('../middleware');
 const dbFactory = require('../database');
 
 const router = express();
@@ -14,7 +14,7 @@ router.get('/adminlog', async (req, res) => {
     }
 });
 
-router.post('/adminlog',  async (req, res) => {
+router.post('/adminlog', async (req, res) => {
     try {
         const response = await logTransactions.adminlogInsert(req.body);
         res.json({message:response.message});
@@ -27,6 +27,15 @@ router.delete('/adminlog',verifyToken, async (req, res) => {
     try {
         const response = await logTransactions.adminlogDelete();
         res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
+router.get('/servelog', async (req, res) => {
+    try {
+        const response = await logTransactions.servelogList();
+        res.json(response);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
     }

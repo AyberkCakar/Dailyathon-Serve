@@ -40,5 +40,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    servelogList: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblServeLog order by LogID DESC', (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( logMessage.ServeLog.all.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
