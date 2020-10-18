@@ -34,7 +34,7 @@
         "message": "The entry type is not correct."
       }
     },
-    "forgotpassword":{
+    "forgotpassword": {
       "Ok": {
         "status": 200,
         "message": "Password changed successfully"
@@ -47,6 +47,7 @@
         "status": 407,
         "message": "You are not authorized to do this !"
       }
+    }
   },
   "userMessage": {
     "all": {
