@@ -82,7 +82,7 @@ router.post('/sign-up/:Type', authValidator.signUp, async (req, res) => {
     }
 });
 
-router.post('/forgotpassword', verifyToken,authValidator.forgotpassword, async (req, res) => {
+router.post('/forgotpassword', authValidator.forgotpassword, async (req, res) => {
     try {
         const response = await userTransactions.forgotpassword(req.body);
         res.json({message:response.message});
