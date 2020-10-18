@@ -30,7 +30,7 @@ module.exports = {
     },
     adminlogDelete: () => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('TRUNCATE TABLE tblAdminLog', , (error, result) => {
+            mysqlDataContext.query('TRUNCATE TABLE tblAdminLog', (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve(logMessage.AdminLog.delete.Ok);
@@ -49,6 +49,19 @@ module.exports = {
                         resolve(result);
                     else
                         reject( logMessage.ServeLog.all.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    servelogInsert: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('INSERT tblServeLog tbl SET ?', [data], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve( logMessage.ServeLog.insert.Ok );
+                    else
+                        reject(logMessage.ServeLog.insert.Internal_Server_Error);
                 else
                     reject({ status: 500, message: error.message });
             });
