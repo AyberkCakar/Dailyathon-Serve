@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.11.0...v1.12.0) (2020-10-18)
+
+
+### Features
+
+* added forgot router ([84525f0](https://github.com/AyberkCakar/Dailyathon-Serve/commit/84525f0d3b42c60c5e0fddb685984701b138bd36))
+
+
+### Bug Fixes
+
+* fix Dailyathon_Database_SqlScript ([d585108](https://github.com/AyberkCakar/Dailyathon-Serve/commit/d585108a828823377a1dbb575be5d87e6299b219))
+* fix forgot password router ([c8ff4c3](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c8ff4c34977286fad5ba2e870361d9ef32c99ee7))
+* fix survey transactions ([6894a09](https://github.com/AyberkCakar/Dailyathon-Serve/commit/6894a0906075263466ca7ab9bb682956faef0d01))
+
 ## [1.11.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.10.0...v1.11.0) (2020-10-18)
 
 
