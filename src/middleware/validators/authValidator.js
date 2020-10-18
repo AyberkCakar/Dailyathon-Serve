@@ -50,7 +50,6 @@ module.exports = {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
     },
-
     signUp: async (req, res, next) => {
         try {
             const signType = req.params;
@@ -86,7 +85,20 @@ module.exports = {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
     },
-
+    forgotpassword: async (req, res, next) => {
+        try {
+            await joi.object({
+                UserName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                UserSurname:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                UserEmail: joi.string().email().required(),
+                NewPassword: joi.string().max(99).required(),
+                UserDate: joi.date().required()
+            }).validateAsync(req.body);
+            next();
+        } catch (error) {
+            res.status(validateMessage.status).send({ message: validateMessage.message });
+        }
+    },
     deleteMyAccount: async (req, res, next) => {
         try {
             await joi.object({

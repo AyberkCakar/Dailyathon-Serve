@@ -82,6 +82,15 @@ router.post('/sign-up/:Type', authValidator.signUp, async (req, res) => {
     }
 });
 
+router.post('/forgotpassword', verifyToken,authValidator.forgotpassword, async (req, res) => {
+    try {
+        const response = await userTransactions.forgotpassword(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.delete('/delete-my-account',verifyToken,authValidator.deleteMyAccount, async (req, res) => {
     try {
         if (req.decode.UserID == req.body.UserID) {

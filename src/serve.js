@@ -15,6 +15,7 @@ app.use(routers.newsRouter);
 app.use(routers.entertainmentRouter);
 app.use(routers.sportRouter);
 app.use(routers.leagueRouter);
+app.use(routers.logRouter);
 
 app.get('/', function (req, res) {
     res.json('Dailyathon Serve Project');

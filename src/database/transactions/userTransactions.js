@@ -1,5 +1,5 @@
 const { mysqlDataContext } = require('../dataContexts');
-const { userMessage }  = require('../../fixtures/messageStatus.json');
+const { userMessage,authMessage }  = require('../../fixtures/messageStatus.json');
 
 module.exports = {
     list: () => {
@@ -51,6 +51,19 @@ module.exports = {
                         reject(userMessage.signUp.Internal_Server_Error);
                 else
                     reject(error.errno == 1644 ? userMessage.signUp.Conflict : { status: 500, message: error.message });
+            });
+        });
+    },
+    forgotpassword: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL ForgotPassword(?,?,?,?,?)', [data.UserName, data.NewPassword,data.UserSurname,data.UserEmail,data.UserDate], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(authMessage.forgotpassword.Ok);
+                    else
+                        reject(authMessage.forgotpassword.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
             });
         });
     },

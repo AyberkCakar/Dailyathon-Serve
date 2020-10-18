@@ -33,7 +33,20 @@
         "status": 400,
         "message": "The entry type is not correct."
       }
-    }
+    },
+    "forgotpassword":{
+      "Ok": {
+        "status": 200,
+        "message": "Password changed successfully"
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "There was an error changing Password !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
   },
   "userMessage": {
     "all": {
