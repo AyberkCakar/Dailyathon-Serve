@@ -92,5 +92,19 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    databotlogInsert: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('INSERT tblDatabotLog tbl SET ?', [data], (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve( logMessage.DatabotLog.insert.Ok );
+                    else
+                        reject(logMessage.DatabotLog.insert.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    }
 
-    };
+};

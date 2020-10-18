@@ -59,4 +59,13 @@ router.get('/databotlog', async (req, res) => {
     }
 });
 
+router.post('/databotlog', async (req, res) => {
+    try {
+        const response = await logTransactions.databotlogInsert(req.body);
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
