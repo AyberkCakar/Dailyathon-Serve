@@ -4,7 +4,7 @@ const { userMessage }  = require('../../fixtures/messageStatus.json');
 module.exports = {
     list: () => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblUser order by UserID asc', (error, result) => {
+            mysqlDataContext.query('SELECT UserID,UserName,UserSurname,UserMail,UserDate,UserProfession,UserCity,RegDate FROM tblUser order by UserID asc', (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -17,10 +17,10 @@ module.exports = {
     },
     find: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblUser WHERE UserID = ?', [data.UserID], (error, result) => {
+            mysqlDataContext.query('CALL UserFind(?)', [data.UserID], (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0][0] != null)
+                        resolve(result[0][0]);
                     else
                         reject(userMessage.find.Not_Found);
                 else
@@ -43,7 +43,7 @@ module.exports = {
     },
     signup: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL UserSignUp(?,?,?,?,?,?,?,?)', [data.UserName, data.UserSurname, data.UserMail, data.UserPassword, data.UserDate, data.UserProfession, data.UserCity,data.RegDate], (error, result) => {
+            mysqlDataContext.query('CALL UserSignUp(?,?,?,?,?,?,?,?)', [data.UserName, data.UserSurname, data.UserEmail, data.UserPassword, data.UserDate, data.UserProfession, data.UserCity,data.RegDate], (error, result) => {
                 if (!error)
                     if (result[0][0] != null)
                         resolve(userMessage.signUp.Ok);
