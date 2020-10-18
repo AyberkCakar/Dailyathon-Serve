@@ -41,4 +41,13 @@ router.get('/servelog', async (req, res) => {
     }
 });
 
+router.delete('/servelog',verifyToken, async (req, res) => {
+    try {
+        const response = await logTransactions.servelogDelete();
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;

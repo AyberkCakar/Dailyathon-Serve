@@ -66,5 +66,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    servelogDelete: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('TRUNCATE TABLE tblServeLog', (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(logMessage.ServeLog.delete.Ok);
+                    else
+                        resolve(logMessage.ServeLog.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
