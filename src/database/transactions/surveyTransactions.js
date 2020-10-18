@@ -4,7 +4,7 @@ const { surveyMessage }  = require('../../fixtures/messageStatus.json');
 module.exports = {
     list: () => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblSurveyList order by SurveyListID desc', (error, result) => {
+            mysqlDataContext.query('SELECT * FROM tblSurvey order by SurveyListID desc', (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -17,7 +17,7 @@ module.exports = {
     },
     surveyUserList: (UserID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT SurveyListID,SurveyName,SurveyStartDate,SurveyDueDate FROM tblSurveyList WHERE SurveyListID NOT IN (SELECT SurveyListID FROM tblSurveyUser WHERE UserID = ?)', [(UserID)], (error, result) => {
+            mysqlDataContext.query('SELECT SurveyListID,SurveyName,SurveyStartDate,SurveyDueDate FROM tblSurvey WHERE SurveyListID NOT IN (SELECT SurveyListID FROM tblSurveyUser WHERE UserID = ?)', [(UserID)], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -30,7 +30,7 @@ module.exports = {
     },
     find: (SurveyListID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblSurveyList WHERE SurveyListID = ?',[SurveyListID], (error, result) => {
+            mysqlDataContext.query('SELECT * FROM tblSurvey WHERE SurveyListID = ?',[SurveyListID], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -43,7 +43,7 @@ module.exports = {
     },
     insert: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT INTO tblSurveyList SET ?', [data], (error, result) => {
+            mysqlDataContext.query('INSERT INTO tblSurvey SET ?', [data], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( surveyMessage.insert.Ok );
@@ -69,7 +69,7 @@ module.exports = {
     },
     update: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('UPDATE tblSurveyList SET ? WHERE SurveyListID = ?', [data, data.SurveyListID], (error, result) => {
+            mysqlDataContext.query('UPDATE tblSurvey SET ? WHERE SurveyListID = ?', [data, data.SurveyListID], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve(surveyMessage.update.Ok);
@@ -82,7 +82,7 @@ module.exports = {
     },
     delete: (SurveyListID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('DELETE FROM tblSurveyList WHERE SurveyListID = ?', [SurveyListID], (error, result) => {
+            mysqlDataContext.query('DELETE FROM tblSurvey WHERE SurveyListID = ?', [SurveyListID], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve(surveyMessage.delete.Ok);
