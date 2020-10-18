@@ -1,491 +1,382 @@
+create table tbladmin
+(
+    AdminID       int auto_increment,
+    AdminUsername varchar(30) null,
+    AdminPassword varchar(99) null,
+    AdminName     varchar(30) not null,
+    AdminAuth     varchar(20) not null,
+    AdminPosition varchar(30) not null,
+    RegDate       date        not null,
+    constraint AdminID
+        unique (AdminID),
+    constraint AdminUsername
+        unique (AdminUsername)
+);
+
+alter table tbladmin
+    add primary key (AdminID);
+
+create table tbladminlog
+(
+    LogID     int auto_increment
+        primary key,
+    AdminID   int          not null,
+    Operation varchar(200) not null,
+    isSuccess tinyint(1)   not null,
+    RegDate   date         not null
+);
+
+create table tblannouncement
+(
+    AnnouncementID      int auto_increment,
+    AnnouncementContent text                 null,
+    AnnouncementDate    date                 null,
+    AnnouncementTitle   varchar(100)         not null,
+    Visible             tinyint(1) default 1 not null,
+    constraint AnnouncementID
+        unique (AnnouncementID)
+);
+
+alter table tblannouncement
+    add primary key (AnnouncementID);
+
+create table tblannouncementuser
+(
+    AnnouncementUserID int auto_increment,
+    AnnouncementID     int  not null,
+    UserID             int  not null,
+    RegDate            date not null,
+    constraint AnnouncementUserID
+        unique (AnnouncementUserID)
+)
+    charset = utf32;
+
+alter table tblannouncementuser
+    add primary key (AnnouncementUserID);
+
+create table tblbasketball
+(
+    BasketballID int auto_increment
+        primary key,
+    SequenceNo   int          not null,
+    TeamName     varchar(50)  not null,
+    TeamLogoUrl  varchar(500) not null,
+    O            int          not null,
+    G            int          not null,
+    M            int          null,
+    A            int          not null,
+    Y            int          not null,
+    AV           varchar(5)   not null,
+    P            int          not null,
+    LeagueID     int          not null
+);
+
+create table tblcategory
+(
+    CategoryID   int auto_increment,
+    CategoryName varchar(30) null,
+    constraint CategoryID
+        unique (CategoryID)
+);
+
+alter table tblcategory
+    add primary key (CategoryID);
+
+create table tbldatabotlog
+(
+    LogID     int auto_increment
+        primary key,
+    BotName   varchar(50)   not null,
+    Url       varchar(300)  not null,
+    Message   varchar(300)  not null,
+    Exception varchar(2000) null,
+    RegDate   date          not null
+);
+
+create table tblentertainment
+(
+    EntertainmentID         int auto_increment,
+    EntertainmentName       varchar(50)  null,
+    EntertainmentContent    text         null,
+    EntertainmentStartDate  date         not null,
+    EntertainmentDueDate    date         not null,
+    EntertainmentisFree     tinyint(1)   not null,
+    EntertainmentPosterUrl  varchar(500) null,
+    EntertainmentTicketUrl  varchar(500) null,
+    EntertainmentCity       varchar(20)  null,
+    EntertainmentDistrict   varchar(30)  null,
+    EntertainmentVenue      varchar(200) null,
+    EntertainmentCategoryID int          not null,
+    EntertainmentPerformer  varchar(50)  not null,
+    constraint EntertainmentID
+        unique (EntertainmentID)
+);
+
+alter table tblentertainment
+    add primary key (EntertainmentID);
+
+create table tblentertainmentcategory
+(
+    EntertainmentCategoryID   int auto_increment
+        primary key,
+    EntertainmentCategoryName varchar(50) null
+);
+
+create table tblfootball
+(
+    FootballID  int auto_increment
+        primary key,
+    SequenceNo  int          not null,
+    TeamName    varchar(50)  not null,
+    TeamLogoUrl varchar(500) not null,
+    O           int          not null,
+    G           int          not null,
+    B           int          not null,
+    M           int          not null,
+    A           int          not null,
+    Y           int          not null,
+    AV          varchar(5)   not null,
+    P           int          not null,
+    LeagueID    int          not null
+);
+
+create table tblleague
+(
+    LeagueID      int auto_increment
+        primary key,
+    LeagueName    varchar(50)  not null,
+    LeagueUrl     varchar(500) not null,
+    SportID       int          not null,
+    LeagueCountry varchar(50)  not null
+);
+
+create table tblnews
+(
+    NewsID          int auto_increment,
+    NewsTitle       varchar(50)  null,
+    NewsDescription text         null,
+    NewsImage       varchar(500) null,
+    NewsCategoryID  int          not null,
+    constraint NewsID
+        unique (NewsID)
+);
+
+alter table tblnews
+    add primary key (NewsID);
+
+create table tblnewscategory
+(
+    NewsCategoryID   int         not null,
+    NewsCategoryName varchar(30) null
+);
+
+create table tblservelog
+(
+    LogID      int auto_increment
+        primary key,
+    RouterName varchar(50)   not null,
+    RouterType varchar(30)   not null,
+    Message    varchar(300)  not null,
+    Exception  varchar(2000) null,
+    RegDate    date          not null
+);
+
+create table tblsport
+(
+    SportID         int auto_increment
+        primary key,
+    SportName       varchar(30) not null,
+    LeagueTableName varchar(50) not null
+);
+
+create table tblsurvey
+(
+    SurveyListID    int auto_increment,
+    SurveyName      varchar(50)          null,
+    SurveyTableName varchar(30)          null,
+    SurveyStartDate date                 not null,
+    SurveyDueDate   date                 not null,
+    SurveyUrl       varchar(500)         not null,
+    Visible         tinyint(1) default 1 not null,
+    constraint SurveyListID
+        unique (SurveyListID)
+);
+
+alter table tblsurvey
+    add primary key (SurveyListID);
+
+create table tblsurveyuser
+(
+    SurveyUserID int auto_increment,
+    SurveyListID int  not null,
+    UserID       int  not null,
+    RegDate      date not null,
+    constraint SurveyUserID
+        unique (SurveyUserID)
+)
+
+alter table tblsurveyuser
+    add primary key (SurveyUserID);
+
+create table tbltag
+(
+    TagID      int auto_increment,
+    TagName    varchar(30) null,
+    CategoryID int         not null,
+    constraint TagID
+        unique (TagID)
+);
+
+alter table tbltag
+    add primary key (TagID);
+
+create table tbltaguser
+(
+    TagUserID int auto_increment
+        primary key,
+    TagID     int  not null,
+    UserID    int  not null,
+    RegDate   date not null
+);
+
+create table tbluser
+(
+    UserID         int auto_increment,
+    UserName       varchar(30) null,
+    UserSurname    varchar(20) null,
+    UserMail       varchar(40) null,
+    UserPassword   varchar(99) null,
+    UserDate       date        null,
+    UserProfession varchar(30) null,
+    UserCity       varchar(15) null,
+    RegDate        date        not null,
+    constraint UserID
+        unique (UserID),
+    constraint UserMail
+        unique (UserMail)
+);
+
+alter table tbluser
+    add primary key (UserID);
+
+create procedure AdminFind(IN _AdminID int)
+BEGIN
+    SELECT AdminID, AdminName, AdminAuth, AdminPosition, RegDate FROM tblAdmin WHERE AdminID = _AdminID;
+END;
+
+create procedure AdminLogin(IN Username varchar(30), IN Password varchar(99))
+BEGIN
+    select * from tbladmin WHERE AdminUsername = Username and AdminPassword = Password;
+END;
+
+create procedure AdminSignUp(IN _Username varchar(30), IN _Password varchar(99),
+                                                       IN _Name varchar(30), IN _Auth varchar(20),
+                                                       IN _Position varchar(30), IN _RegDate date)
+BEGIN
+    INSERT INTO tbladmin (AdminUsername, AdminPassword, AdminName, AdminAuth, AdminPosition, RegDate)
+    VALUES (_Username, _Password, _Name, _Auth, _Position, _RegDate);
+        (Select AdminID FROM tbladmin ORDER BY AdminID DESC LIMIT 1);
+    COMMIT;
+END;
+
+create procedure ForgotPassword(IN _Username varchar(30), IN _NewPassword varchar(99),
+                                                          IN _UserSurname varchar(20), IN _UserMail varchar(40),
+                                                          IN _UserDate date)
+BEGIN
+    UPDATE tbluser
+    SET UserPassword = _NewPassword
+    WHERE UserName = _Username
+      and UserSurname = _UserSurname
+      and UserMail = _UserMail
+      and UserDate = _UserDate;
+END;
+
+create procedure LeagueTableName(IN ID int)
+BEGIN
+    (SELECT LeagueTableName
+     FROM tblsport
+     where SportName in
+           (SELECT TagName
+            FROM tbltag
+            WHERE TagID IN
+                  (SELECT TagID FROM tbltaguser WHERE UserID = ID)
+              and CategoryID = (SELECT CategoryID from tblcategory where CategoryName = 'Spor')));
+END;
+
+create procedure UserEntertainment(IN ID int)
+BEGIN
+    SELECT *
+    FROM tblentertainment T
+             inner join
+         tblentertainmentcategory TC on T.EntertainmentCategoryID = TC.EntertainmentCategoryID
+    where TC.EntertainmentCategoryName in
+          (SELECT TagName
+           FROM tbltag
+           WHERE TagID IN
+                 (SELECT TagID FROM tbltaguser WHERE UserID = ID)
+             and CategoryID = (SELECT CategoryID from tblcategory where CategoryName = 'Eğlence'));
+END;
+
+create procedure UserFind(IN _UserID int)
+BEGIN
+    SELECT UserID,
+           UserName,
+           UserSurname,
+           UserMail,
+           UserDate,
+           UserProfession,
+           UserCity,
+           RegDate
+    FROM tblUser
+    WHERE UserID = _UserID;
+END;
+
+create procedure UserLogin(IN Email varchar(40), IN Password varchar(99))
+BEGIN
+    select * from tbluser WHERE UserMail = Email and UserPassword = Password;
+END;
+
+create procedure UserNews(IN ID int)
+BEGIN
+    SELECT *
+    FROM tblnews N
+             inner join
+         tblnewscategory t on N.NewsCategoryID = t.NewsCategoryID
+    where t.NewsCategoryName in
+          (SELECT TagName
+           FROM tbltag
+           WHERE TagID IN
+                 (SELECT TagID FROM tbltaguser WHERE UserID = ID)
+             and CategoryID = (SELECT CategoryID from tblcategory where CategoryName = 'Haber'));
+END;
+
+create procedure UserSignUp(IN _UserName varchar(30), IN _UserSurname varchar(20),
+                                                      IN _UserMail varchar(40), IN _UserPassword varchar(99),
+                                                      IN _UserDate date, IN _UserProfession varchar(30),
+                                                      IN _UserCity varchar(15), IN _RegDate date)
+BEGIN
+    INSERT INTO tbluser (UserName, UserSurname, UserMail, UserPassword, UserDate, UserProfession, UserCity, RegDate)
+    VALUES (_UserName, _UserSurname, _UserMail, _UserPassword, _UserDate, _UserProfession, _UserCity, _RegDate);
+        (Select UserID FROM tblUser ORDER BY UserID DESC LIMIT 1);
+    COMMIT;
+END;
+
+create procedure UserTagDelete(IN ID int, IN Tag varchar(30))
+BEGIN
+    DELETE FROM tbltaguser WHERE UserID = ID and TagID = (select TagID FROM tbltag WHERE TagName = Tag);
+END;
+
+create procedure UserTagList(IN ID int)
+BEGIN
+    (SELECT T.TagID, T.TagName, C.CategoryID, C.CategoryName
+     FROM tbltag T
+              inner join tblcategory C on T.CategoryID = C.CategoryID
+     WHERE TagID IN
+           (SELECT TagID FROM tbltaguser WHERE UserID = ID));
+END;
+
+create procedure UserTagSelect(IN ID int, IN Tag varchar(30), IN _RegDate date)
+BEGIN
+    INSERT INTO tbltaguser SET UserID = ID, TagID=(SELECT TagID FROM tbltag WHERE TagName = Tag), RegDate = _RegDate;
+END;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Veritabanı: `dailyathondb`
---
-
-DELIMITER $$
---
--- Yordamlar
---
-CREATE PROCEDURE `AdminLogin` (IN `Username` VARCHAR(30), IN `Password` VARCHAR(99))  BEGIN
-    select * from tbladmin WHERE AdminUsername=Username and AdminPassword = Password;
-END$$
-
-CREATE PROCEDURE `AdminSignUp` (IN `Username` VARCHAR(30), IN `Password` VARCHAR(99))  BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        GET DIAGNOSTICS CONDITION 1
-        @p2 = MESSAGE_TEXT;
-        ROLLBACK;
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @p2;
-    END;
-    START TRANSACTION;
-		INSERT INTO tbladmin (AdminUsername,AdminPassword)
-		VALUES (Username,Password);
-    (Select AdminID FROM tbladmin ORDER BY AdminID DESC LIMIT 1);
-	COMMIT;
-END$$
-
-CREATE  PROCEDURE `UserLogin` (IN `Email` VARCHAR(40), IN `Password` VARCHAR(99))  BEGIN
-    select * from tbluser WHERE UserMail=Email and UserPassword = Password;
-END$$
-
-CREATE  PROCEDURE `UserSignUp` (IN `UserName` VARCHAR(30), IN `UserSurname` VARCHAR(20), IN `UserMail` VARCHAR(40), IN `UserPassword` VARCHAR(99), IN `UserDate` DATE, IN `UserProfession` VARCHAR(30), IN `UserCity` VARCHAR(15))  BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        GET DIAGNOSTICS CONDITION 1
-        @p2 = MESSAGE_TEXT;
-        ROLLBACK;
-        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = @p2;
-    END;
-    START TRANSACTION;
-		INSERT INTO tbluser (UserName,UserSurname,UserMail, UserPassword,UserDate,UserProfession,UserCity)
-		VALUES (UserName,UserSurname,UserMail, UserPassword,UserDate,UserProfession,UserCity);
-    (Select UserID FROM tblUser ORDER BY UserID DESC LIMIT 1);
-	COMMIT;
-END$$
-
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tbladmin`
---
-
-CREATE TABLE `tbladmin` (
-  `AdminID` int(11) NOT NULL,
-  `AdminUsername` varchar(30) DEFAULT NULL,
-  `AdminPassword` varchar(99) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblannouncement`
---
-
-CREATE TABLE `tblannouncement` (
-  `AnnouncementID` int(11) NOT NULL,
-  `AnnouncementContent` text,
-  `AnnouncementStartDate` date DEFAULT NULL,
-  `AnnouncementDueDate` date DEFAULT NULL,
-  `AnnouncementUrl` varchar(500)  NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblannouncementuser`
---
-
-CREATE TABLE `tblannouncementuser` (
-  `AnnouncementUserID` int(11) NOT NULL,
-  `AnnouncementID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblcategory`
---
-
-CREATE TABLE `tblcategory` (
-  `CategoryID` int(11) NOT NULL,
-  `CategoryName` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblentertainment`
---
-
-CREATE TABLE `tblentertainment` (
-  `EntertainmentID` int(11) NOT NULL,
-  `EntertainmentName` varchar(50)DEFAULT NULL,
-  `EntertainmentContent` text ,
-  `EntertainmentStartDate` date NOT NULL,
-  `EntertainmentDueDate` date NOT NULL,
-  `EntertainmentisFree` tinyint(1) NOT NULL,
-  `EntertainmentPosterUrl` varchar(500) DEFAULT NULL,
-  `EntertainmentTicketUrl` varchar(500) DEFAULT NULL,
-  `EntertainmentCity` varchar(20) DEFAULT NULL,
-  `EntertainmentDistrict` varchar(30) DEFAULT NULL,
-  `EntertainmentVenue` varchar(200) DEFAULT NULL,
-  `EntertainmentCategoryID` int(11) NOT NULL,
-  `EntertainmentPerformer` varchar(50)  NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblentertainmentcategory`
---
-
-CREATE TABLE `tblentertainmentcategory` (
-  `EntertainmentCategoryID` int(11) NOT NULL,
-  `EntertainmentCategoryName` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblleague`
---
-
-CREATE TABLE `tblleague` (
-  `LeagueID` int(11) NOT NULL,
-  `LeagueName` varchar(50) NOT NULL,
-  `LeagueTableName` varchar(50) NOT NULL,
-  `SportID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblleaugeuser`
---
-
-CREATE TABLE `tblleaugeuser` (
-  `LeaugeuserID` int(11) NOT NULL,
-  `LeagueID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblnews`
---
-
-CREATE TABLE `tblnews` (
-  `NewsID` int(11) NOT NULL,
-  `NewsTitle` varchar(50) DEFAULT NULL,
-  `NewsDescription` text,
-  `NewsImage` varchar(500) DEFAULT NULL,
-  `NewsCategoryID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblnewscategory`
---
-
-CREATE TABLE `tblnewscategory` (
-  `NewsCategoryID` int(11) NOT NULL,
-  `NewsCategoryName` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblsport`
---
-
-CREATE TABLE `tblsport` (
-  `SportID` int(11) NOT NULL,
-  `SportName` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblsurveylist`
---
-
-CREATE TABLE `tblsurveylist` (
-  `SurveyListID` int(11) NOT NULL,
-  `SurveyName` varchar(50) DEFAULT NULL,
-  `SurveyTableName` varchar(30) DEFAULT NULL,
-  `SurveyStartDate` date NOT NULL,
-  `SurveyDueDate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tblsurveyuser`
---
-
-CREATE TABLE `tblsurveyuser` (
-  `SurveyUserID` int(11) NOT NULL,
-  `SurveyListID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tbltag`
---
-
-CREATE TABLE `tbltag` (
-  `TagID` int(11) NOT NULL,
-  `TagName` varchar(30) DEFAULT NULL,
-  `CategoryID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tbltaguser`
---
-
-CREATE TABLE `tbltaguser` (
-  `TagUserID` int(11) NOT NULL,
-  `TagID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `tbluser`
---
-
-CREATE TABLE `tbluser` (
-  `UserID` int(11) NOT NULL,
-  `UserName` varchar(30) DEFAULT NULL,
-  `UserSurname` varchar(20) DEFAULT NULL,
-  `UserMail` varchar(40) DEFAULT NULL,
-  `UserPassword` varchar(99) DEFAULT NULL,
-  `UserDate` date DEFAULT NULL,
-  `UserProfession` varchar(30) DEFAULT NULL,
-  `UserCity` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dökümü yapılmış tablolar için indeksler
---
-
---
--- Tablo için indeksler `tbladmin`
---
-ALTER TABLE `tbladmin`
-  ADD PRIMARY KEY (`AdminID`),
-  ADD UNIQUE KEY `AdminID` (`AdminID`),
-  ADD UNIQUE KEY `AdminUsername` (`AdminUsername`);
-
---
--- Tablo için indeksler `tblannouncement`
---
-ALTER TABLE `tblannouncement`
-  ADD PRIMARY KEY (`AnnouncementID`),
-  ADD UNIQUE KEY `AnnouncementID` (`AnnouncementID`);
-
---
--- Tablo için indeksler `tblannouncementuser`
---
-ALTER TABLE `tblannouncementuser`
-  ADD PRIMARY KEY (`AnnouncementUserID`),
-  ADD UNIQUE KEY `AnnouncementUserID` (`AnnouncementUserID`);
-
---
--- Tablo için indeksler `tblcategory`
---
-ALTER TABLE `tblcategory`
-  ADD PRIMARY KEY (`CategoryID`),
-  ADD UNIQUE KEY `CategoryID` (`CategoryID`);
-
---
--- Tablo için indeksler `tblentertainment`
---
-ALTER TABLE `tblentertainment`
-  ADD PRIMARY KEY (`EntertainmentID`),
-  ADD UNIQUE KEY `EntertainmentCategoryID` (`EntertainmentCategoryID`),
-  ADD UNIQUE KEY `EntertainmentID` (`EntertainmentID`);
-
---
--- Tablo için indeksler `tblentertainmentcategory`
---
-ALTER TABLE `tblentertainmentcategory`
-  ADD PRIMARY KEY (`EntertainmentCategoryID`);
-
---
--- Tablo için indeksler `tblleague`
---
-ALTER TABLE `tblleague`
-  ADD PRIMARY KEY (`LeagueID`),
-  ADD UNIQUE KEY `SportID` (`SportID`),
-  ADD UNIQUE KEY `LeagueID` (`LeagueID`);
-
---
--- Tablo için indeksler `tblleaugeuser`
---
-ALTER TABLE `tblleaugeuser`
-  ADD PRIMARY KEY (`LeaugeuserID`);
-
---
--- Tablo için indeksler `tblnews`
---
-ALTER TABLE `tblnews`
-  ADD PRIMARY KEY (`NewsID`),
-  ADD UNIQUE KEY `NewsCategoryID` (`NewsCategoryID`),
-  ADD UNIQUE KEY `NewsID` (`NewsID`);
-
---
--- Tablo için indeksler `tblnewscategory`
---
-ALTER TABLE `tblnewscategory`
-  ADD PRIMARY KEY (`NewsCategoryID`),
-  ADD UNIQUE KEY `NewsCategoryID` (`NewsCategoryID`);
-
---
--- Tablo için indeksler `tblsport`
---
-ALTER TABLE `tblsport`
-  ADD PRIMARY KEY (`SportID`);
-
---
--- Tablo için indeksler `tblsurveylist`
---
-ALTER TABLE `tblsurveylist`
-  ADD PRIMARY KEY (`SurveyListID`),
-  ADD UNIQUE KEY `SurveyListID` (`SurveyListID`);
-
---
--- Tablo için indeksler `tblsurveyuser`
---
-ALTER TABLE `tblsurveyuser`
-  ADD PRIMARY KEY (`SurveyUserID`),
-  ADD UNIQUE KEY `SurveyUserID` (`SurveyUserID`);
-
---
--- Tablo için indeksler `tbltag`
---
-ALTER TABLE `tbltag`
-  ADD PRIMARY KEY (`TagID`),
-  ADD UNIQUE KEY `TagID` (`TagID`);
-
---
--- Tablo için indeksler `tbltaguser`
---
-ALTER TABLE `tbltaguser`
-  ADD PRIMARY KEY (`TagUserID`);
-
---
--- Tablo için indeksler `tbluser`
---
-ALTER TABLE `tbluser`
-  ADD PRIMARY KEY (`UserID`),
-  ADD UNIQUE KEY `UserID` (`UserID`),
-  ADD UNIQUE KEY `UserMail` (`UserMail`);
-
---
--- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
---
-
---
--- Tablo için AUTO_INCREMENT değeri `tbladmin`
---
-ALTER TABLE `tbladmin`
-  MODIFY `AdminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblannouncement`
---
-ALTER TABLE `tblannouncement`
-  MODIFY `AnnouncementID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblannouncementuser`
---
-ALTER TABLE `tblannouncementuser`
-  MODIFY `AnnouncementUserID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblcategory`
---
-ALTER TABLE `tblcategory`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblentertainment`
---
-ALTER TABLE `tblentertainment`
-  MODIFY `EntertainmentID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblentertainmentcategory`
---
-ALTER TABLE `tblentertainmentcategory`
-  MODIFY `EntertainmentCategoryID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblleague`
---
-ALTER TABLE `tblleague`
-  MODIFY `LeagueID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblleaugeuser`
---
-ALTER TABLE `tblleaugeuser`
-  MODIFY `LeaugeuserID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblnews`
---
-ALTER TABLE `tblnews`
-  MODIFY `NewsID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblnewscategory`
---
-ALTER TABLE `tblnewscategory`
-  MODIFY `NewsCategoryID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblsport`
---
-ALTER TABLE `tblsport`
-  MODIFY `SportID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblsurveylist`
---
-ALTER TABLE `tblsurveylist`
-  MODIFY `SurveyListID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- Tablo için AUTO_INCREMENT değeri `tblsurveyuser`
---
-ALTER TABLE `tblsurveyuser`
-  MODIFY `SurveyUserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Tablo için AUTO_INCREMENT değeri `tbltag`
---
-ALTER TABLE `tbltag`
-  MODIFY `TagID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- Tablo için AUTO_INCREMENT değeri `tbltaguser`
---
-ALTER TABLE `tbltaguser`
-  MODIFY `TagUserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- Tablo için AUTO_INCREMENT değeri `tbluser`
---
-ALTER TABLE `tbluser`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
