@@ -79,5 +79,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
-    }
-};
+    },
+    databotlogList: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblDatabotLog order by LogID DESC', (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( logMessage.DatabotLog.all.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+
+    };

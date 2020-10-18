@@ -50,4 +50,13 @@ router.delete('/servelog',verifyToken, async (req, res) => {
     }
 });
 
+router.get('/databotlog', async (req, res) => {
+    try {
+        const response = await logTransactions.databotlogList();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
