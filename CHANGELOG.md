@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.10.0...v1.11.0) (2020-10-18)
+
+
+### Features
+
+* added admin log delete router ([c9ffcb6](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c9ffcb61595baddab26b66cfca53019dafd37bb3))
+* added admin log insert router ([01462d9](https://github.com/AyberkCakar/Dailyathon-Serve/commit/01462d9b93abcd2eed7c8c641a3b04f72b5822d0))
+* added admin log list router ([5b1e83a](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5b1e83a76a9a71b34e73726273f9e147498c1d65))
+* added databot log delete router ([4887c8e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4887c8e1380afb6be140d1303c46b7ac9b97a5f5))
+* added databot log insert router ([0e084ef](https://github.com/AyberkCakar/Dailyathon-Serve/commit/0e084ef89cfd71875215e7dcab177eac39d7c424))
+* added databot log list router ([f21f641](https://github.com/AyberkCakar/Dailyathon-Serve/commit/f21f641eecfad6dcce76d0161e66bfe4af5b6a4b))
+* added league standings update router ([7981438](https://github.com/AyberkCakar/Dailyathon-Serve/commit/798143823fdc9185958cd714ee0e50f6de3f4dee))
+* added serve log delete router ([e0ad4bc](https://github.com/AyberkCakar/Dailyathon-Serve/commit/e0ad4bc66361a4a25457c47599b07fba7b27e292))
+* added serve log insert transactions ([f88c317](https://github.com/AyberkCakar/Dailyathon-Serve/commit/f88c3173c2531e9ba86a0126a64e2c2c3351aabc))
+* added serve log list router ([4f9c9cf](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4f9c9cf3709880810eda22d4c8b5448240b97d5c))
+
+
+### Bug Fixes
+
+* fix announcement validator ([4f64c85](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4f64c85e60b86c2dd381fd83b118bdc87814081d))
+* fix announcement validator ([7169e8a](https://github.com/AyberkCakar/Dailyathon-Serve/commit/7169e8a4bab1f63cc5a2c5b9eb140c3c17835501))
+* fix announcement validator ([c0e32a3](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c0e32a3c1b98c52a2a8f09b27dce54a8125c9ff8))
+* fix announcement validator ([3858938](https://github.com/AyberkCakar/Dailyathon-Serve/commit/38589388cb6bf76b220f6b02d388d3bc81358f07))
+* fix signup auth router ([7bb1f81](https://github.com/AyberkCakar/Dailyathon-Serve/commit/7bb1f81c2ddaa2332f6546e73ca58c9cfb82445c))
+* fix survey and announcement validator ([59c2b9e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/59c2b9e929395611ad9bbb34562544d280c4cee9))
+* fix survey, announcement, tag validator ([ccefc02](https://github.com/AyberkCakar/Dailyathon-Serve/commit/ccefc02165549c2b80bd3f6c5c34be3b3227c5c7))
+* fix user and admin return information ([e4637b7](https://github.com/AyberkCakar/Dailyathon-Serve/commit/e4637b7511c53ac1e80790122ccb9bf0b0d9488f))
+
 ## [1.10.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.9.0...v1.10.0) (2020-10-10)
 
 
