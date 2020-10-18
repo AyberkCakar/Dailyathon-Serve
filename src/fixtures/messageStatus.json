@@ -24,7 +24,7 @@
         "message": "There is such."
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "There is no such !"
@@ -80,7 +80,7 @@
         "message": "You are not authorized to do this !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "There is no such User !"
@@ -130,7 +130,7 @@
         "message": "There is such admin."
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "There is no such Admin !"
@@ -142,13 +142,13 @@
     }
   },
   "surveyMessage": {
-    "all":{
+    "all": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
       }
     },
-    "SurveyUserList":{
+    "SurveyUserList": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -162,7 +162,7 @@
         "message": "You are not authorized to do this !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -226,19 +226,19 @@
     }
   },
   "announcementMessage": {
-    "all":{
+    "all": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
       }
     },
-    "AnnouncementUserList":{
+    "AnnouncementUserList": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -316,7 +316,7 @@
         "message": "No content available !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -372,19 +372,19 @@
         "message": "No content available !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
       }
     },
-    "categoryTagList":{
+    "categoryTagList": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
       }
     },
-    "userTagList":{
+    "userTagList": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -460,7 +460,7 @@
         "message": "You are not authorized to do this !"
       }
     }
-},
+  },
   "newsMessage": {
     "all": {
       "Not_Found": {
@@ -468,19 +468,19 @@
         "message": "No content available !"
       }
     },
-    "newsCategoryList":{
+    "newsCategoryList": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
       }
     },
-    "userNewsList":{
+    "userNewsList": {
       "Not_Found": {
         "status": 404,
         "message": "Selected tag not found !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -522,19 +522,19 @@
         "message": "No content available !"
       }
     },
-    "cityEntertainmentList":{
+    "cityEntertainmentList": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
       }
     },
-    "tagEntertainmentList":{
+    "tagEntertainmentList": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -576,7 +576,7 @@
         "message": "No content available !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -632,7 +632,7 @@
         "message": "No content available !"
       }
     },
-    "find":{
+    "find": {
       "Not_Found": {
         "status": 404,
         "message": "No content available !"
@@ -718,6 +718,116 @@
       "Proxy_Authentication_Required": {
         "status": 407,
         "message": "You are not authorized to do this !"
+      }
+    }
+  },
+  "logMessage": {
+    "AdminLog": {
+      "all": {
+        "Not_Found": {
+          "status": 404,
+          "message": "No content available !"
+        }
+      },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Admin Log added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Admin Log !"
+        },
+        "Proxy_Authentication_Required": {
+          "status": 407,
+          "message": "You are not authorized to do this !"
+        }
+      },
+      "delete": {
+        "Ok": {
+          "status": 200,
+          "message": "Admin Log deletion has occurred."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred during Admin Log deletion !"
+        },
+        "Proxy_Authentication_Required": {
+          "status": 407,
+          "message": "You are not authorized to do this !"
+        }
+      }
+    },
+    "ServeLog": {
+      "all": {
+        "Not_Found": {
+          "status": 404,
+          "message": "No content available !"
+        }
+      },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Serve Log added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Serve Log !"
+        },
+        "Proxy_Authentication_Required": {
+          "status": 407,
+          "message": "You are not authorized to do this !"
+        }
+      },
+      "delete": {
+        "Ok": {
+          "status": 200,
+          "message": "Serve Log deletion has occurred."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred during Serve Log deletion !"
+        },
+        "Proxy_Authentication_Required": {
+          "status": 407,
+          "message": "You are not authorized to do this !"
+        }
+      }
+    },
+    "DatabotLog": {
+      "all": {
+        "Not_Found": {
+          "status": 404,
+          "message": "No content available !"
+        }
+      },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Databot Log added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Admin Log !"
+        },
+        "Proxy_Authentication_Required": {
+          "status": 407,
+          "message": "You are not authorized to do this !"
+        }
+      },
+      "delete": {
+        "Ok": {
+          "status": 200,
+          "message": "Databot Log deletion has occurred."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred during Databot Log deletion !"
+        },
+        "Proxy_Authentication_Required": {
+          "status": 407,
+          "message": "You are not authorized to do this !"
+        }
       }
     }
   }
