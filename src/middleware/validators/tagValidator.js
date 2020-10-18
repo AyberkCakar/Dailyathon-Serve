@@ -38,6 +38,7 @@ module.exports = {
             await joi.object({
                 UserID:joi.number().min(1).max(99999999999).required(),
                 TagName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                RegDate: joi.date().required()
             }).validateAsync(req.body);
             next();
         } catch (error) {

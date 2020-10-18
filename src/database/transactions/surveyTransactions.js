@@ -56,7 +56,7 @@ module.exports = {
     },
     surveyAsRead: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT INTO tblSurveyUser SET UserID = ?, SurveyListID = ?', [data.UserID,data.SurveyListID], (error, result) => {
+            mysqlDataContext.query('INSERT INTO tblSurveyUser SET UserID = ?, SurveyListID = ? , RegDate = ?', [data.UserID,data.SurveyListID,data.RegDate], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( surveyMessage.userToSurveyRead.Ok );

@@ -56,7 +56,7 @@ module.exports = {
     },
     announcementAsRead: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT INTO tblAnnouncementUser SET UserID = ?, AnnouncementID = ?', [data.UserID,data.AnnouncementID], (error, result) => {
+            mysqlDataContext.query('INSERT INTO tblAnnouncementUser SET UserID = ?, AnnouncementID = ? , RegDate = ?', [data.UserID,data.AnnouncementID,data.RegDate], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( announcementMessage.announcementAsRead.Ok );
