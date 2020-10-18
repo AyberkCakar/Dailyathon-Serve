@@ -29,7 +29,7 @@ module.exports = {
                 AnnouncementTitle:joi.string().min(2).required(),
                 AnnouncementContent:joi.string().min(2).required(),
                 AnnouncementDate:joi.date().required(),
-                Visible: required()
+                Visible: joi.required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
