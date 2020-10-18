@@ -4,10 +4,10 @@ const { adminMessage } = require ('../../fixtures/messageStatus.json');
 module.exports = {
     find: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblAdmin WHERE AdminID = ?', [data.AdminID], (error, result) => {
+            mysqlDataContext.query('CALL AdminFind(?)', [data.AdminID], (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0][0] != null)
+                        resolve(result[0][0]);
                     else
                         reject(adminMessage.find.Not_Found);
                 else
@@ -30,10 +30,10 @@ module.exports = {
     },
     signup: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL AdminSignUp(?,?,?,?,?,?,?)', [data.Username, data.Password], (error, result) => {
+            mysqlDataContext.query('CALL AdminSignUp(?,?,?,?,?,?)', [data.Username, data.Password,data.AdminName,data.AdminAuth,data.AdminPosition,data.RegDate], (error, result) => {
                 if (!error)
                     if (result[0][0]  != null)
-                        resolve(userMessage.signUp.Ok);
+                        resolve(adminMessage.signUp.Ok);
                     else
                         reject(adminMessage.signUp.Internal_Server_Error);
                 else

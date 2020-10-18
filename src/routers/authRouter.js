@@ -62,10 +62,10 @@ router.post('/login/:loginType', authValidator.login, async (req, res) => {
     }
 });
 
-router.post('/sign-up/:signupTpye', authValidator.signUp, async (req, res) => {
+router.post('/sign-up/:Type', authValidator.signUp, async (req, res) => {
     try {
         let result;
-        switch (req.params.signupTpye) {
+        switch (req.params.Type) {
             case 'user':
                 result = await userTransactions.signup(req.body);
                 break;

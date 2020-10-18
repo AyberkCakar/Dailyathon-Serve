@@ -22,16 +22,16 @@
       "Conflict": {
         "status": 409,
         "message": "There is such."
+      }
+    },
+    "find":{
+      "Not_Found": {
+        "status": 404,
+        "message": "There is no such !"
       },
-      "find":{
-        "Not_Found": {
-          "status": 404,
-          "message": "There is no such !"
-        },
-        "Bad_Request": {
-          "status": 400,
-          "message": "The entry type is not correct."
-        }
+      "Bad_Request": {
+        "status": 400,
+        "message": "The entry type is not correct."
       }
     }
   },
