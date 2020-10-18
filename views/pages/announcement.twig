@@ -194,6 +194,7 @@ PUT <url id="path">announcement</url>
     "AnnouncementTitle": "Announcement Title Test ",
     "AnnouncementContent": "Announcement Test Content",
     "AnnouncementDate": "2020-10-02",
+    "Visible": false
 }
 Result Example:
 {
@@ -230,6 +231,10 @@ Result Example:
                 <tr>
                     <td>AnnouncementDate</td>
                     <td>Date</td>
+                </tr>
+                <tr>
+                    <td>Visible</td>
+                    <td>Boolean</td>
                 </tr>
                 <tr>
                     <td>token</td>
@@ -286,7 +291,8 @@ Result Example:
 POST <url id="path">announcement-user</url>
 {
     "UserID": 1,
-    "AnnouncementID": 21
+    "AnnouncementID": 21,
+    "RegDate": 2020-10-18
 }
 Result Example:
 {
@@ -315,6 +321,10 @@ Result Example:
                 <tr>
                     <td>AnnouncementID</td>
                     <td>Int</td>
+                </tr>
+                <tr>
+                    <td>RegDate</td>
+                    <td>Date</td>
                 </tr>
                 <tr>
                     <td>token</td>

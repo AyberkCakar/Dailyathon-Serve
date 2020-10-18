@@ -211,7 +211,8 @@ PUT <url id="path">survey</url>
     "SurveyTableName": "tblsurveytest",
     "SurveyStartDate": "2020-10-02",
     "SurveyDueDate": "2020-10-02",
-    "SurveyUrl": "www.surveytest.com"
+    "SurveyUrl": "www.surveytest.com",
+    "Visible": false
 }
 Result Example:
 {
@@ -256,6 +257,10 @@ Result Example:
                 <tr>
                     <td>SurveyUrl</td>
                     <td>String</td>
+                </tr>
+                <tr>
+                    <td>Visible</td>
+                    <td>Boolean</td>
                 </tr>
                 <tr>
                     <td>token</td>
@@ -312,7 +317,8 @@ Result Example:
 POST <url id="path">survey-read</url>
 {
     "UserID": 1,
-    "SurveyListID": 21
+    "SurveyListID": 21,
+    "RegDate": 2020-10-18
 }
 Result Example:
 {
@@ -341,6 +347,10 @@ Result Example:
                 <tr>
                     <td>SurveyListID</td>
                     <td>Int</td>
+                </tr>
+                <tr>
+                    <td>RegDate</td>
+                    <td>Date</td>
                 </tr>
                 <tr>
                     <td>token</td>

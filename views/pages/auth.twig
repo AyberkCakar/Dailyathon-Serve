@@ -19,10 +19,10 @@ Result Example:
         "UserName": "Dailyathon",
         "UserSurname": "Dailyathon",
         "UserMail": "dailyathon@gmail.com",
-        "UserPassword": "password",
         "UserDate": "1236-01-03T00:00:00.000Z",
         "UserProfession": "Yazılım Mühendisi",
-        "UserCity": "İzmir"
+        "UserCity": "İzmir",
+		"RegDate": 2020-10-18
     }
 ]
         </code></pre>
@@ -63,10 +63,10 @@ Result Example:
         "UserName": "Dailyathon",
         "UserSurname": "Dailyathon",
         "UserMail": "dailyathon@gmail.com",
-        "UserPassword": "password",
         "UserDate": "1236-01-03T00:00:00.000Z",
         "UserProfession": "Yazılım Mühendisi",
-        "UserCity": "İzmir"
+        "UserCity": "İzmir",
+		"RegDate": 2020-10-18
     }
 ]
         </code></pre>
@@ -112,8 +112,10 @@ Result Example:
 [
     {
         "AdminID": 1,
-        "AdminUsername": "admin",
-        "AdminPassword": "password"
+        "AdminName": "Cenk",
+        "AdminAuth": "Sub Admin",
+		"AdminPosition": "Genel Müdür",
+		"RegDate": 2020-10-18
     }
 ]
         </code></pre>
@@ -163,10 +165,10 @@ Result Example:
         "UserName": "Dailyathon",
         "UserSurname": "Dailyathon",
         "UserMail": "dailyathon@gmail.com",
-        "UserPassword": "password",
         "UserDate": "1236-01-03T00:00:00.000Z",
         "UserProfession": "Yazılım Mühendisi",
-        "UserCity": "İzmir"
+        "UserCity": "İzmir",
+		"RegDate": 2020-10-18
     },
     "token": "secretToken"
 }
@@ -215,8 +217,10 @@ Result Example:
     {
         "result": {
             "AdminID": 1,
-            "AdminUsername": "admin",
-            "AdminPassword": "password"
+			"AdminName": "Cenk",
+			"AdminAuth": "Sub Admin",
+			"AdminPosition": "Genel Müdür",
+			"RegDate": 2020-10-18
         },
         "token": "secretToken"
     }
@@ -262,7 +266,8 @@ POST <url id="path">sign-up/user</url>
     "UserPassword": "password",
     "UserDate": "1236-01-03T00:00:00.000Z",
     "UserProfession": "Yazılım Mühendisi",
-    "UserCity": "İzmir"
+    "UserCity": "İzmir",
+	"RegDate": 2020-10-18
 }
         
 Reusult Example:
@@ -322,6 +327,11 @@ Reusult Example:
 					<td>
 					</td>
 				</tr>
+				<tr>
+					<td>RegDate</td>
+					<td>Date</td>
+					<td></td>
+				</tr>
 				</tbody>
 			</table>
 		</div>
@@ -332,7 +342,8 @@ Reusult Example:
 POST <url id="path">sign-up/admin</url>
 {
     "Username": "Dailyathon",
-	"Password": "Dailyathon"
+	"Password": "Dailyathon",
+	"RegDate": 2020-10-18
 }
 
 Reusult Example:
@@ -362,6 +373,73 @@ Reusult Example:
 				</tr>
 				<tr>
 					<td>Password</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>RegDate</td>
+					<td>Date</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="overflow-hidden content-section">
+			<h2>Forgot Password</h2>
+			<pre><code>
+#Request Example
+POST <url id="path">forgotpassword</url>
+{
+	"UserName": "Dailyathon",
+    "UserSurname": "Dailyathon",
+    "UserMail": "dailyathon@gmail.com",
+    "UserDate": "1236-01-03",
+	"NewPassword": "newpassword"
+}
+
+Reusult Example:
+{
+    "message": "Password changed successfully"
+}
+        </code></pre>
+			<p>For the token decode, you need to make a POST call to the URL below :
+				<br>
+				<code class="higlighted" id="path">forgotpassword</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>UserName</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>UserSurname</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>UserEmail</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr><tr>
+					<td>NewPassword</td>
+					<td>String</td>
+					<td>
+					</td>
+				</tr><tr>
+					<td>UserDate</td>
 					<td>String</td>
 					<td>
 					</td>
