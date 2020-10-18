@@ -1,4 +1,4 @@
-const { validateMessage,userMessage,adminMessage,authMessage } = require('../../fixtures/messageStatus.json');
+const { validateMessage,authMessage } = require('../../fixtures/messageStatus.json');
 const joi = require('joi');
 
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
                     }).validateAsync(req.body);
                     break;
                 default:
-                    res.status(authMessage.find.Bad_Request.status).json({message: authMessage.find.Bad_Request.message});
+                    res.status(authMessage.login.Bad_Request.status).json({message: authMessage.login.Bad_Request.message});
                     return;
             }
             next();
@@ -53,27 +53,32 @@ module.exports = {
 
     signUp: async (req, res, next) => {
         try {
-            const Type = req.params;
-            switch (Type.signupType) {
+            const signType = req.params;
+            switch (signType.Type) {
                 case 'user':
                     await joi.object({
                         UserName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                         UserSurname:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                        UserEmail: joi.string().email().required(),
+                        UserMail: joi.string().email().required(),
                         UserPassword: joi.string().max(99).required(),
                         UserDate: joi.date().required(),
                         UserProfession: joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                         UserCity: joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı]+$')).required(),
+                        RegDate: joi.date().required()
                     }).validateAsync(req.body);
                     break;
                 case 'admin':
                     await joi.object({
                         Username: joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                        Password: joi.string().max(99).required()
+                        Password: joi.string().max(99).required(),
+                        AdminName: joi.string().max(30).required(),
+                        AdminAuth: joi.string().max(20).required(),
+                        AdminPosition: joi.string().max(30).required(),
+                        RegDate: joi.date().required()
                     }).validateAsync(req.body);
                     break;
                 default:
-                    res.status(adminMessage.signUp.Internal_Server_Error.status).json({message: adminMessage.signUp.Internal_Server_Error.message});
+                    res.status(authMessage.signUp.Internal_Server_Error.status).json({message: authMessage.signUp.Internal_Server_Error.message});
                     return;
             }
             next();

@@ -43,7 +43,7 @@ module.exports = {
     },
     signup: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL UserSignUp(?,?,?,?,?,?,?)', [data.UserName, data.UserSurname, data.UserEmail, data.UserPassword, data.UserDate, data.UserProfession, data.UserCity], (error, result) => {
+            mysqlDataContext.query('CALL UserSignUp(?,?,?,?,?,?,?,?)', [data.UserName, data.UserSurname, data.UserMail, data.UserPassword, data.UserDate, data.UserProfession, data.UserCity,data.RegDate], (error, result) => {
                 if (!error)
                     if (result[0][0] != null)
                         resolve(userMessage.signUp.Ok);

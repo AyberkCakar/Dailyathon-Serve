@@ -30,10 +30,10 @@ module.exports = {
     },
     signup: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL AdminSignUp(?,?,?,?,?,?,?)', [data.Username, data.Password], (error, result) => {
+            mysqlDataContext.query('CALL AdminSignUp(?,?,?,?,?,?)', [data.Username, data.Password,data.AdminName,data.AdminAuth,data.AdminPosition,data.RegDate], (error, result) => {
                 if (!error)
                     if (result[0][0]  != null)
-                        resolve(userMessage.signUp.Ok);
+                        resolve(adminMessage.signUp.Ok);
                     else
                         reject(adminMessage.signUp.Internal_Server_Error);
                 else
