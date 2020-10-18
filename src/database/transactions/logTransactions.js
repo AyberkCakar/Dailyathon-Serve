@@ -27,5 +27,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    adminlogDelete: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('TRUNCATE TABLE tblAdminLog', , (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(logMessage.AdminLog.delete.Ok);
+                    else
+                        resolve(logMessage.AdminLog.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
