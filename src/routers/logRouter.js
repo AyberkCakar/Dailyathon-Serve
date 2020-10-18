@@ -68,4 +68,13 @@ router.post('/databotlog', async (req, res) => {
     }
 });
 
+router.delete('/databotlog',verifyToken, async (req, res) => {
+    try {
+        const response = await logTransactions.databotlogDelete();
+        res.json({message:response.message});
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;

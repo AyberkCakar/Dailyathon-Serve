@@ -105,6 +105,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    databotlogDelete: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('TRUNCATE TABLE tblDatabotLog', (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(logMessage.DatabotLog.delete.Ok);
+                    else
+                        resolve(logMessage.DatabotLog.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
-
 };
