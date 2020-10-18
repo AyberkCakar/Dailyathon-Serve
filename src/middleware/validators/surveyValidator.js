@@ -30,8 +30,7 @@ module.exports = {
                 SurveyTableName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 SurveyStartDate:joi.date().required(),
                 SurveyDueDate:joi.date().required(),
-                SurveyUrl:joi.string().required(),
-                Visible: joi.boolean().required()
+                SurveyUrl:joi.string().required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
@@ -59,7 +58,7 @@ module.exports = {
                 SurveyStartDate:joi.date(),
                 SurveyDueDate:joi.date(),
                 SurveyUrl:joi.string(),
-                Visible: joi.boolean().required()
+                Visible: joi.required()
             }).validateAsync(req.body);
             next();
         } catch (error) {

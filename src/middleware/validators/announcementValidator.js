@@ -28,8 +28,7 @@ module.exports = {
             await joi.object({
                 AnnouncementTitle:joi.string().min(2).required(),
                 AnnouncementContent:joi.string().min(2).required(),
-                AnnouncementDate:joi.date().required(),
-                Visible: joi.required()
+                AnnouncementDate:joi.date().required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
