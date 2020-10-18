@@ -31,6 +31,7 @@ module.exports = {
                 SurveyStartDate:joi.date().required(),
                 SurveyDueDate:joi.date().required(),
                 SurveyUrl:joi.string().required(),
+                Visible: joi.boolean().required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
@@ -42,6 +43,7 @@ module.exports = {
             await joi.object({
                 UserID:joi.number().min(0).max(99999999999).required(),
                 SurveyListID:joi.number().min(0).max(99999999999).required(),
+                RegDate: joi.date().required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
@@ -57,6 +59,7 @@ module.exports = {
                 SurveyStartDate:joi.date(),
                 SurveyDueDate:joi.date(),
                 SurveyUrl:joi.string(),
+                Visible: joi.boolean().required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
