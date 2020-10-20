@@ -4,10 +4,10 @@ const { logMessage }  = require('../../fixtures/messageStatus.json');
 module.exports = {
     adminlogList: () => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblAdminLog order by LogID DESC', (error, result) => {
+            mysqlDataContext.query('CALL AdminLogList()', (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0] != null)
+                        resolve(result[0]);
                     else
                         reject( logMessage.AdminLog.all.Not_Found );
                 else
