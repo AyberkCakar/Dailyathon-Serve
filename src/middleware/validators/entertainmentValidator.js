@@ -41,6 +41,7 @@ module.exports = {
                 EntertainmentDueDate:joi.date().required(),
                 EntertainmentPosterUrl:joi.string().min(2).required(),
                 EntertainmentTicketUrl:joi.string().min(2).required(),
+                EntertainmentisFree:joi.required(),
                 EntertainmentCity:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 EntertainmentDistrict:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 EntertainmentVenue:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
