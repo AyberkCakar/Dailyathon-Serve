@@ -36,11 +36,11 @@ module.exports = {
         try {
             await joi.object({
                 EntertainmentName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                EntertainmentContent:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                EntertainmentContent:joi.string().min(2).required(),
                 EntertainmentStartDate:joi.date().required(),
                 EntertainmentDueDate:joi.date().required(),
-                EntertainmentPosterUrl:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                EntertainmentTicketUrl:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                EntertainmentPosterUrl:joi.string().min(2).required(),
+                EntertainmentTicketUrl:joi.string().min(2).required(),
                 EntertainmentCity:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 EntertainmentDistrict:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 EntertainmentVenue:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
