@@ -4,10 +4,10 @@ const { entertainmentMessage }  = require('../../fixtures/messageStatus.json');
 module.exports = {
     list: () => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblEntertainment order by EntertainmentID DESC', (error, result) => {
+            mysqlDataContext.query('CALL EntertainmentList()', (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0] != null)
+                        resolve(result[0]);
                     else
                         reject( entertainmentMessage.all.Not_Found );
                 else
@@ -17,10 +17,10 @@ module.exports = {
     },
     cityEntertainmentList: (UserCity) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblEntertainment t inner join tblEntertainmentCategory tc on t.EntertainmentCategoryID = tc.EntertainmentCategoryID where  t.EntertainmentCity = ?',[UserCity], (error, result) => {
+            mysqlDataContext.query('CALL EntertainmentCityList(?)',[UserCity], (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0] != null)
+                        resolve(result[0]);
                     else
                         reject( entertainmentMessage.cityEntertainmentList.Not_Found );
                 else
