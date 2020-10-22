@@ -104,6 +104,15 @@ router.delete('/delete-my-account',verifyToken,authValidator.deleteMyAccount, as
     }
 });
 
+router.delete('/user-delete',verifyToken,authValidator.deleteMyAccount, async (req, res) => {
+    try {
+        const result = await userTransactions.delete(req.body.UserID);
+        res.status(result.status).json({ message: result.message });
+    } catch (err) {
+        res.status(err.status).json({ message: err.message });
+    }
+});
+
 router.get('/token-decode', verifyToken, async (req, res) => {
     res.json(req.decode);
 });
