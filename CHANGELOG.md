@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.1](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.12.0...v1.12.1) (2020-10-22)
+
+
+### Bug Fixes
+
+* adminlog list transaction ([f542911](https://github.com/AyberkCakar/Dailyathon-Serve/commit/f5429114256f2fc8c5711aa6a689b42f606e46dd))
+* entertainment add validator ([10e511f](https://github.com/AyberkCakar/Dailyathon-Serve/commit/10e511f5c468f9554ecb8bcb47e72a7d934b4af9))
+* entertainment list and city list transactions ([303a304](https://github.com/AyberkCakar/Dailyathon-Serve/commit/303a30472928cc556ba200189c6f659e5b480c79))
+* league list transaction ([35e4ecc](https://github.com/AyberkCakar/Dailyathon-Serve/commit/35e4ecccbe7d7acee1db351c1ebb5284168a1b36))
+* league validator ([6b16698](https://github.com/AyberkCakar/Dailyathon-Serve/commit/6b16698a788df3c5902404fa96ce4ec030d1d550))
+* news category list delete ([cfb4cd6](https://github.com/AyberkCakar/Dailyathon-Serve/commit/cfb4cd63aa7ccfe79ef264d86a33e540c316d51b))
+* tag select transaction ([58a0fad](https://github.com/AyberkCakar/Dailyathon-Serve/commit/58a0fadaf20d36d192c057d8e1bfdc524262bddd))
+
 ## [1.12.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.11.0...v1.12.0) (2020-10-18)
 
 
