@@ -80,7 +80,7 @@ router.put('/league-standings', leagueValidator.standingsUpdate, async (req, res
 
 router.delete('/league', verifyToken, leagueValidator.delete, async (req, res) => {
     try {
-        const response = await leagueTransactions.delete(req.body.SportID);
+        const response = await leagueTransactions.delete(req.body.LeagueID);
         res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
