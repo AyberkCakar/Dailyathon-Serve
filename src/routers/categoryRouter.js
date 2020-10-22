@@ -15,7 +15,7 @@ router.get('/category', async (req, res) => {
     }
 });
 
-router.get('/category-find', verifyToken,categoryValidator.find, async (req, res) => {
+router.post('/category-find', verifyToken,categoryValidator.find, async (req, res) => {
     try {
         const response = await categoryTransactions.find(req.body.CategoryID);
         res.json(response);
