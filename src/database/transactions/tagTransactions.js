@@ -69,7 +69,7 @@ module.exports = {
     },
     tagSelect: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL UserTagSelect(?,?)', [data.UserID,data.TagName,data.RegDate], (error, result) => {
+            mysqlDataContext.query('CALL UserTagSelect(?,?,?)', [data.UserID,data.TagName,data.RegDate], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( tagMessage.tagSelect.Ok );
