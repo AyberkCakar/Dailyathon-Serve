@@ -33,7 +33,7 @@ router.get('/user-league', verifyToken,leagueValidator.userLeagueList,async (req
     }
 });
 
-router.get('/league-find', verifyToken,leagueValidator.find,async (req, res) => {
+router.post('/league-find', verifyToken,leagueValidator.find,async (req, res) => {
     try {
         const response = await leagueTransactions.find(req.body.LeagueID);
         res.json(response);

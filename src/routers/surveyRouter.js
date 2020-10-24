@@ -24,7 +24,7 @@ router.get('/surveyUserList',verifyToken,surveyValidator.surveyUserList, async (
     }
 });
 
-router.get('/survey-find',verifyToken,surveyValidator.find, async (req, res) => {
+router.post('/survey-find',verifyToken,surveyValidator.find, async (req, res) => {
     try {
         const response = await surveyTransactions.find(req.body.SurveyListID);
         res.json(response);

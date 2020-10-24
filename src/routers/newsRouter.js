@@ -24,7 +24,7 @@ router.get('/user-news',verifyToken,newsValidator.userNews, async (req, res) => 
     }
 });
 
-router.get('/news-find',verifyToken,newsValidator.find, async (req, res) => {
+router.post('/news-find',verifyToken,newsValidator.find, async (req, res) => {
     try {
         const response = await newsTransactions.find(req.body.NewsID);
         res.json(response);

@@ -19,7 +19,7 @@ router.get('/user', async (req, res) => {
     }
 });
 
-router.get('/find/:findType', authValidator.find, async (req, res) => {
+router.post('/find/:findType', authValidator.find, async (req, res) => {
     try {
         let result;
         switch (req.params.findType) {

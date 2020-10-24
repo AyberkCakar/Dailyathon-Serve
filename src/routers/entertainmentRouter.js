@@ -33,7 +33,7 @@ router.get('/tag-entertainment',verifyToken,entertainmentValidator.tagEntertainm
     }
 });
 
-router.get('/entertainment-find',verifyToken,entertainmentValidator.find, async (req, res) => {
+router.post('/entertainment-find',verifyToken,entertainmentValidator.find, async (req, res) => {
     try {
         const response = await entertainmentTransactions.find(req.body.EntertainmentID);
         res.json(response);

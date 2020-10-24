@@ -48,8 +48,8 @@ module.exports = {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('SELECT * FROM tblLeague WHERE LeagueID = ?',[LeagueID], (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0] != null)
+                        resolve(result[0]);
                     else
                         reject( leagueMessage.find.Not_Found );
                 else

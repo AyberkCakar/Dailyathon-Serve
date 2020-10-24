@@ -19,8 +19,8 @@ module.exports = {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('SELECT * FROM tblAnnouncement WHERE AnnouncementID = ?',[AnnouncementID], (error, result) => {
                 if (!error)
-                    if (result != null)
-                        resolve(result);
+                    if (result[0] != null)
+                        resolve(result[0]);
                     else
                         reject( announcementMessage.find.Not_Found );
                 else
