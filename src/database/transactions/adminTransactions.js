@@ -53,5 +53,18 @@ module.exports = {
                     reject(error.errno == 1644 ? adminMessage.signUp.Conflict : { status: 500, message: error.message });
             });
         });
+    },
+    update: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL AdminUpdate(?,?,?,?)', [data.AdminName,data.AdminAuth,data.AdminPosition,data.AdminID], (error, result) => {
+                if (!error)
+                    if (result[0][0]  != null)
+                        resolve(adminMessage.update.Ok);
+                    else
+                        reject(adminMessage.update.Internal_Server_Error);
+                else
+                    reject(error.errno == 1644 ? adminMessage.signUp.Conflict : { status: 500, message: error.message });
+            });
+        });
     }
 };

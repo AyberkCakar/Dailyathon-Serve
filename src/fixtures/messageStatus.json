@@ -159,6 +159,20 @@
         "status": 400,
         "message": "The entry type is not correct."
       }
+    },
+    "update": {
+      "Ok": {
+        "status": 200,
+        "message": "The Admin has been updated."
+      },
+      "Internal_Server_Error": {
+        "status": 500,
+        "message": "An error occurred updating Admin !"
+      },
+      "Proxy_Authentication_Required": {
+        "status": 407,
+        "message": "You are not authorized to do this !"
+      }
     }
   },
   "surveyMessage": {

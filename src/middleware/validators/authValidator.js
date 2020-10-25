@@ -99,6 +99,20 @@ module.exports = {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
     },
+    adminUpdate: async (req, res, next) => {
+        try {
+            await joi.object({
+                AdminID:joi.number().min(1).max(99999999999).required(),
+                AdminName: joi.string().max(30),
+                AdminAuth: joi.string().max(20),
+                AdminPosition: joi.string().max(30),
+            }).validateAsync(req.body);
+            next();
+        }
+         catch (error) {
+            res.status(validateMessage.status).send({ message: validateMessage.message });
+        }
+    },
     deleteMyAccount: async (req, res, next) => {
         try {
             await joi.object({

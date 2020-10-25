@@ -100,6 +100,15 @@ router.post('/forgotpassword', authValidator.forgotpassword, async (req, res) =>
     }
 });
 
+router.put('/admin',verifyToken,authValidator.adminUpdate, async (req, res) => {
+    try {
+        const response = await adminTransactions.update(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.delete('/delete-my-account',verifyToken,authValidator.deleteMyAccount, async (req, res) => {
     try {
         if (req.decode.UserID == req.body.UserID) {
