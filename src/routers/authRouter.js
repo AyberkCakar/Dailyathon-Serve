@@ -103,7 +103,7 @@ router.post('/forgotpassword', authValidator.forgotpassword, async (req, res) =>
 router.put('/admin',verifyToken,authValidator.adminUpdate, async (req, res) => {
     try {
         const response = await adminTransactions.update(req.body);
-        res.json(response);
+        res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
     }

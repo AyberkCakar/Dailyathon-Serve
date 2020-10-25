@@ -56,7 +56,7 @@ module.exports = {
     },
     update: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL AdminUpdate(?,?,?,?)', [data.AdminName,data.AdminAuth,data.AdminPosition,data.AdminID], (error, result) => {
+            mysqlDataContext.query('UPDATE tblAdmin SET ? WHERE AdminID = ?', [data,data.AdminID], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve(adminMessage.update.Ok);
