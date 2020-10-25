@@ -19,6 +19,15 @@ router.get('/user', async (req, res) => {
     }
 });
 
+router.get('/admin',verifyToken, async (req, res) => {
+    try {
+        const response = await adminTransactions.list();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/find/:findType', authValidator.find, async (req, res) => {
     try {
         let result;
