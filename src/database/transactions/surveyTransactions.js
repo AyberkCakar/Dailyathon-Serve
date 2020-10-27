@@ -41,6 +41,19 @@ module.exports = {
             });
         });
     },
+    statistic: (SurveyListID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblUser WHERE UserID IN (SELECT UserID FROM tblSurveyUser where SurveyListID = ?) order by UserName ASC',[SurveyListID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( surveyMessage.find.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblSurvey SET ?', [data], (error, result) => {
