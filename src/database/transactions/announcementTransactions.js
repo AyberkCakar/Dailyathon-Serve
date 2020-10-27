@@ -28,6 +28,19 @@ module.exports = {
             });
         });
     },
+    statistic: (AnnouncementID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblUser WHERE UserID IN (SELECT UserID FROM tblAnnouncementUser where AnnouncementID = ? ) order by UserName ASC',[AnnouncementID], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( announcementMessage.find.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     announcementUserList: (UserID) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('SELECT  * FROM tblAnnouncement WHERE AnnouncementID NOT IN (SELECT AnnouncementID FROM tblAnnouncementUser WHERE UserID= ?)', [(UserID)], (error, result) => {

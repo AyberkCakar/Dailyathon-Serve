@@ -24,6 +24,15 @@ router.post('/announcement-find' ,verifyToken,announcementValidator.find , async
     }
 });
 
+router.post('/announcement-statistic' ,verifyToken,announcementValidator.find , async (req, res) => {
+    try {
+        const response = await announcementTransactions.statistic(req.body.AnnouncementID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.get('/announcementUserList',verifyToken,announcementValidator.announcementUserList, async (req, res) => {
     try {
         const response = await announcementTransactions.announcementUserList(req.body.UserID);
