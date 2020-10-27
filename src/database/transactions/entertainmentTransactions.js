@@ -43,7 +43,7 @@ module.exports = {
     },
     find: (EntertainmentID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblEntertainment INNER JOIN tbltag T ON E.TagID=T.TagID  WHERE EntertainmentID = ?',[EntertainmentID], (error, result) => {
+            mysqlDataContext.query('SELECT * FROM tblEntertainment E INNER JOIN tbltag T ON E.TagID=T.TagID  WHERE EntertainmentID = ?',[EntertainmentID], (error, result) => {
                 if (!error)
                     if (result[0] != null)
                         resolve(result[0]);
