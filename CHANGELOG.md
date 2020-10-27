@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.12.1...v1.13.0) (2020-10-27)
+
+
+### Features
+
+* added admin list router ([0cc971f](https://github.com/AyberkCakar/Dailyathon-Serve/commit/0cc971f5a2c5810fa16f959807126af96a357cc7))
+* added admin update router ([eaa3c6e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/eaa3c6ee8a75fcc0ea273f6cc95527a4619764d6))
+* added standings find router ([fc4c145](https://github.com/AyberkCakar/Dailyathon-Serve/commit/fc4c1457167c283c8d62b24c68658c670e7b52fe))
+* added user delete router ([9b437eb](https://github.com/AyberkCakar/Dailyathon-Serve/commit/9b437eb9ed8b0a92ceda9460033aeb5b90b8694a))
+
+
+### Bug Fixes
+
+* admin update sql query ([aacdab8](https://github.com/AyberkCakar/Dailyathon-Serve/commit/aacdab82af21b78808a9b75745354f4160e530fa))
+* admin update transactions ([96a371a](https://github.com/AyberkCakar/Dailyathon-Serve/commit/96a371ab2b0883b77879b2bb716b0890d2bbd131))
+* category find transactions ([67686c3](https://github.com/AyberkCakar/Dailyathon-Serve/commit/67686c3c44328451da2d64fa8350da002b18def7))
+* category router ([4182cb8](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4182cb8d286892b9756f65349c81d7c7849a9007))
+* entertainment find transactions ([4e477e8](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4e477e8e7539a5451883bd21cb7d50b72655cc7b))
+* find routers and transactions ([17cce46](https://github.com/AyberkCakar/Dailyathon-Serve/commit/17cce46482b681a7513b6f97faabca140f1e8fbe))
+* league delete router ([9b1950e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/9b1950e5d9b35f6615f593d16427dba015e63b23))
+* league transactions standingslist ([2c69e25](https://github.com/AyberkCakar/Dailyathon-Serve/commit/2c69e25095a19fee3d801e97ae79c75bd553ab8d))
+* news find transaction ([03a5bd6](https://github.com/AyberkCakar/Dailyathon-Serve/commit/03a5bd6c90c529ef5a6877d40a37296686ca1abb))
+* standings find transaction ([a817fff](https://github.com/AyberkCakar/Dailyathon-Serve/commit/a817fff9612374842d47d3bc2535502717c98019))
+* standingsList transactions ([dc225fc](https://github.com/AyberkCakar/Dailyathon-Serve/commit/dc225fce10c5653a4f51e12ddd73e822939afb8a))
+* standingsList Transactions ([b8e857e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/b8e857ec638db6d5e91e65281d6a6fcd844904cd))
+
 ### [1.12.1](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.12.0...v1.12.1) (2020-10-22)
 
 
