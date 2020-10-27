@@ -64,8 +64,8 @@ module.exports = {
                 table = result[0];
                 mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[table.LeagueTableName,data.LeagueID], (error, result) => {
                     if (!error)
-                        if (result[0] != null)
-                            resolve(result[0]);
+                        if (result != null)
+                            resolve(result);
                         else
                             reject( leagueMessage.find.Not_Found );
                     else
