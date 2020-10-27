@@ -61,7 +61,7 @@ module.exports = {
         var table;
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('Select LeagueTableName From tblSport where SportID = ?',[data.SportID], (error, result) => {
-                table = result[0][0];
+                table = result;
                 mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[table,data.LeagueID], (error, result) => {
                     if (!error)
                         if (result[0] != null)
