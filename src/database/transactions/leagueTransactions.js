@@ -58,9 +58,11 @@ module.exports = {
         });
     },
     standingsList:(data) => {
+        var table;
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('Select LeagueTableName From tblSport where SportID = ?',[data.SportID], (error, result) => {
-                mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[result,data.LeagueID], (error, result) => {
+                table = result[0];
+                mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[table,data.LeagueID], (error, result) => {
                     if (!error)
                         if (result[0] != null)
                             resolve(result[0]);
