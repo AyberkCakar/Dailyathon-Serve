@@ -62,7 +62,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('Select LeagueTableName From tblSport where SportID = ?',[data.SportID], (error, result) => {
                 table = result[0];
-                mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[table.LeagueTableName,data.LeagueID], (error, result) => {
+                mysqlDataContext.query('Select * from ?? WHERE LeagueID = ? ORDER BY SequenceNo ASC',[table.LeagueTableName,data.LeagueID], (error, result) => {
                     if (!error)
                         if (result != null)
                             resolve(result);
