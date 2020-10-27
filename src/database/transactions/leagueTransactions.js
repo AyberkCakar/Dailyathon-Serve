@@ -58,19 +58,17 @@ module.exports = {
         });
     },
     standingsList:(data) => {
-        var tblName= "";
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('Select LeagueTableName From tblSport where SportID = ?',[data.SportID], (error, result) => {
-                tblName = result[0];
-            });
-            mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[tblName,data.LeagueID], (error, result) => {
-                if (!error)
-                    if (result[0] != null)
-                        resolve(result[0]);
+                mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[result[0],data.LeagueID], (error, result) => {
+                    if (!error)
+                        if (result[0] != null)
+                            resolve(result[0]);
+                        else
+                            reject( leagueMessage.find.Not_Found );
                     else
-                        reject( leagueMessage.find.Not_Found );
-                else
-                    reject({ status: 500, message: error.message });
+                        reject({ status: 500, message: error.message });
+                });
             });
         });
     },
