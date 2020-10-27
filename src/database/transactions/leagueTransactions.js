@@ -60,7 +60,7 @@ module.exports = {
     standingsList:(data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('Select LeagueTableName From tblSport where SportID = ?',[data.SportID], (error, result) => {
-                mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[result[0],data.LeagueID], (error, result) => {
+                mysqlDataContext.query('Select * from ?? WHERE LeagueID = ?',[result,data.LeagueID], (error, result) => {
                     if (!error)
                         if (result[0] != null)
                             resolve(result[0]);
