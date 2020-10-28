@@ -72,9 +72,10 @@ module.exports = {
         try {
             await joi.object({
                 LeagueID:joi.number().min(1).max(99999999999).required(),
-                LeagueName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')),
-                LeagueCountry:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')),
-                LeagueUrl:joi.string(),
+                LeagueName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                LeagueCountry:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
+                LeagueUrl:joi.string().required(),
+                SportID:joi.number().min(1).max(99999999999).required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
