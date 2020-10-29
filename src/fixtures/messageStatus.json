@@ -864,5 +864,13 @@
         }
       }
     }
+  },
+  "statisticMessage": {
+    "dashboard": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available for the dashboard!"
+      }
+    }
   }
 }
