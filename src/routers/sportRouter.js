@@ -6,7 +6,7 @@ const router = express();
 const sportTransactions = dbFactory('sportTransactions');
 const sportValidator = validators.sportValidator;
 
-router.get('/sport', async (req, res) => {
+router.get('/sport',verifyToken, async (req, res) => {
     try {
         const response = await sportTransactions.list();
         res.json(response);

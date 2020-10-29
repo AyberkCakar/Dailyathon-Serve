@@ -10,7 +10,7 @@ const adminTransactions = dbFactory('adminTransactions');
 
 const authValidator = validators.authValidator;
 
-router.get('/user', async (req, res) => {
+router.get('/user',verifyToken, async (req, res) => {
     try {
         const response = await userTransactions.list();
         res.json(response);
@@ -28,7 +28,7 @@ router.get('/admin',verifyToken, async (req, res) => {
     }
 });
 
-router.post('/find/:findType', authValidator.find, async (req, res) => {
+router.post('/find/:findType', verifyToken,authValidator.find, async (req, res) => {
     try {
         let result;
         switch (req.params.findType) {

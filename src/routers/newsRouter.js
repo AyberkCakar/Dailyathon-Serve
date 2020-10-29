@@ -6,7 +6,7 @@ const router = express();
 const newsTransactions = dbFactory('newsTransactions');
 const newsValidator = validators.newsValidator;
 
-router.get('/news', async (req, res) => {
+router.get('/news', verifyToken, async (req, res) => {
     try {
         const response = await newsTransactions.list();
         res.json(response);
@@ -15,7 +15,7 @@ router.get('/news', async (req, res) => {
     }
 });
 
-router.get('/user-news',verifyToken,newsValidator.userNews, async (req, res) => {
+router.post('/user-news',verifyToken,newsValidator.userNews, async (req, res) => {
     try {
         const response = await newsTransactions.userNewsList(req.body);
         res.json(response);

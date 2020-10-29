@@ -6,7 +6,7 @@ const router = express();
 const categoryTransactions = dbFactory('categoryTransactions');
 const categoryValidator = validators.categoryValidator;
 
-router.get('/category', async (req, res) => {
+router.get('/category',verifyToken, async (req, res) => {
     try {
         const response = await categoryTransactions.list();
         res.json(response);

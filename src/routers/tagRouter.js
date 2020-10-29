@@ -6,7 +6,7 @@ const router = express();
 const tagTransactions = dbFactory('tagTransactions');
 const tagValidator = validators.tagValidator;
 
-router.get('/tag', async (req, res) => {
+router.get('/tag',verifyToken, async (req, res) => {
     try {
         const response = await tagTransactions.list();
         res.json(response);
@@ -15,7 +15,7 @@ router.get('/tag', async (req, res) => {
     }
 });
 
-router.get('/category-tag', async (req, res) => {
+router.get('/category-tag',verifyToken, async (req, res) => {
     try {
         const response = await tagTransactions.categoryTagList();
         res.json(response);
@@ -24,7 +24,7 @@ router.get('/category-tag', async (req, res) => {
     }
 });
 
-router.get('/user-tag', verifyToken,tagValidator.userTag, async (req, res) => {
+router.post('/user-tag', verifyToken,tagValidator.userTag, async (req, res) => {
     try {
         const response = await tagTransactions.userTagList(req.body);
         res.json(response);
@@ -33,7 +33,7 @@ router.get('/user-tag', verifyToken,tagValidator.userTag, async (req, res) => {
     }
 });
 
-router.get('/tag-find', verifyToken,tagValidator.find , async (req, res) => {
+router.post('/tag-find', verifyToken,tagValidator.find , async (req, res) => {
     try {
         const response = await tagTransactions.find(req.body.TagID);
         res.json(response);

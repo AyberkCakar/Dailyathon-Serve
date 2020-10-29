@@ -15,7 +15,7 @@ router.get('/survey', async (req, res) => {
     }
 });
 
-router.get('/surveyUserList',verifyToken,surveyValidator.surveyUserList, async (req, res) => {
+router.post('/surveyUserList',verifyToken,surveyValidator.surveyUserList, async (req, res) => {
     try {
         const response = await surveyTransactions.surveyUserList(req.body.UserID);
         res.json(response);

@@ -6,7 +6,7 @@ const router = express();
 const entertainmentTransactions = dbFactory('entertainmentTransactions');
 const entertainmentValidator = validators.entertainmentValidator;
 
-router.get('/entertainment', async (req, res) => {
+router.get('/entertainment',verifyToken, async (req, res) => {
     try {
         const response = await entertainmentTransactions.list();
         res.json(response);
@@ -15,7 +15,7 @@ router.get('/entertainment', async (req, res) => {
     }
 });
 
-router.get('/city-entertainment',verifyToken,entertainmentValidator.cityEntertainmentList, async (req, res) => {
+router.post('/city-entertainment',verifyToken,entertainmentValidator.cityEntertainmentList, async (req, res) => {
     try {
         const response = await entertainmentTransactions.cityEntertainmentList(req.body.UserCity);
         res.json(response);
@@ -24,7 +24,7 @@ router.get('/city-entertainment',verifyToken,entertainmentValidator.cityEntertai
     }
 });
 
-router.get('/tag-entertainment',verifyToken,entertainmentValidator.tagEntertainmentList, async (req, res) => {
+router.post('/tag-entertainment',verifyToken,entertainmentValidator.tagEntertainmentList, async (req, res) => {
     try {
         const response = await entertainmentTransactions.tagEntertainmentList(req.body);
         res.json(response);

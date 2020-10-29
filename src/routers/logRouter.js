@@ -5,7 +5,7 @@ const dbFactory = require('../database');
 const router = express();
 const logTransactions = dbFactory('logTransactions');
 
-router.get('/adminlog', async (req, res) => {
+router.get('/adminlog', verifyToken,async (req, res) => {
     try {
         const response = await logTransactions.adminlogList();
         res.json(response);
@@ -32,7 +32,7 @@ router.delete('/adminlog',verifyToken, async (req, res) => {
     }
 });
 
-router.get('/servelog', async (req, res) => {
+router.get('/servelog',verifyToken, async (req, res) => {
     try {
         const response = await logTransactions.servelogList();
         res.json(response);
@@ -50,7 +50,7 @@ router.delete('/servelog',verifyToken, async (req, res) => {
     }
 });
 
-router.get('/databotlog', async (req, res) => {
+router.get('/databotlog',verifyToken, async (req, res) => {
     try {
         const response = await logTransactions.databotlogList();
         res.json(response);

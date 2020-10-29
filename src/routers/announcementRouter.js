@@ -6,7 +6,7 @@ const router = express();
 const announcementTransactions = dbFactory('announcementTransactions');
 const announcementValidator = validators.announcementValidator;
 
-router.get('/announcement', async (req, res) => {
+router.get('/announcement', verifyToken,async (req, res) => {
     try {
         const response = await announcementTransactions.list();
         res.json(response);
@@ -33,7 +33,7 @@ router.post('/announcement-statistic' ,verifyToken,announcementValidator.find , 
     }
 });
 
-router.get('/announcementUserList',verifyToken,announcementValidator.announcementUserList, async (req, res) => {
+router.post('/announcementUserList',verifyToken,announcementValidator.announcementUserList, async (req, res) => {
     try {
         const response = await announcementTransactions.announcementUserList(req.body.UserID);
         res.json(response);

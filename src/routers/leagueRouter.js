@@ -6,7 +6,7 @@ const router = express();
 const leagueTransactions = dbFactory('leagueTransactions');
 const leagueValidator = validators.leagueValidator;
 
-router.get('/league', async (req, res) => {
+router.get('/league', verifyToken, async (req, res) => {
     try {
         const response = await leagueTransactions.list();
         res.json(response);
@@ -15,7 +15,7 @@ router.get('/league', async (req, res) => {
     }
 });
 
-router.get('/league-table',verifyToken,leagueValidator.tableList, async (req, res) => {
+router.post('/league-table',verifyToken,leagueValidator.tableList, async (req, res) => {
     try {
         const response = await leagueTransactions.tableList(req.body.UserID);
         res.json(response);
@@ -24,7 +24,7 @@ router.get('/league-table',verifyToken,leagueValidator.tableList, async (req, re
     }
 });
 
-router.get('/user-league', verifyToken,leagueValidator.userLeagueList,async (req, res) => {
+router.post('/user-league', verifyToken,leagueValidator.userLeagueList,async (req, res) => {
     try {
         const response = await leagueTransactions.userLeagueList(req.body);
         res.json(response);
