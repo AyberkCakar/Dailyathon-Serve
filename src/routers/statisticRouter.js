@@ -14,4 +14,13 @@ router.get('/dashboard', verifyToken, async (req, res) => {
     }
 });
 
+router.get('/thisweektag', verifyToken, async (req, res) => {
+    try {
+        const response = await statisticTransactions.thisweektag();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;

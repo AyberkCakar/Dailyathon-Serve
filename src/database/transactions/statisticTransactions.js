@@ -14,5 +14,18 @@ module.exports = {
                     reject({status: 500, message: error.message});
             });
         });
+    },
+    thisweektag: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL ThisWeekTag()', (error, result) => {
+                if (!error)
+                    if (result[0][0] != null)
+                        resolve(result[0][0]);
+                    else
+                        reject(statisticMessage.thisweektag.Not_Found);
+                else
+                    reject({status: 500, message: error.message});
+            });
+        });
     }
 };
