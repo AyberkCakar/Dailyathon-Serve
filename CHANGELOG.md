@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.13.0...v1.14.0) (2020-10-29)
+
+
+### Features
+
+* added announcement statistic router ([2f5d41c](https://github.com/AyberkCakar/Dailyathon-Serve/commit/2f5d41c4b1bef510d8101c6a29876d89ecc176d7))
+* added statistic dashboard router ([6318f4d](https://github.com/AyberkCakar/Dailyathon-Serve/commit/6318f4dc1cb3ed5642606625fa7174b582047fb7))
+* added statistic thisweektag router ([a3da153](https://github.com/AyberkCakar/Dailyathon-Serve/commit/a3da1538167e15da0d769be66ddfb8ee7d69cc1e))
+* added survey statistic router ([732de3f](https://github.com/AyberkCakar/Dailyathon-Serve/commit/732de3f57521e0c6c2f07562919ebf0f55c6c299))
+
+
+### Bug Fixes
+
+* fix league update validator ([add68f5](https://github.com/AyberkCakar/Dailyathon-Serve/commit/add68f5a4600796ee56ff9e59b24530ce464dccf))
+* fix router informations ([588ac15](https://github.com/AyberkCakar/Dailyathon-Serve/commit/588ac157a439f0fdcc41eefa474a36ab7214fb6d))
+* fix statistic thisweektag transaction ([d59ec42](https://github.com/AyberkCakar/Dailyathon-Serve/commit/d59ec42b25358d202810c97f061883f46f93846c))
+
 ## [1.13.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.12.1...v1.13.0) (2020-10-27)
 
 
