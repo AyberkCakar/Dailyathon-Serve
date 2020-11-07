@@ -42,6 +42,15 @@ router.post('/announcementUserList',verifyToken,announcementValidator.announceme
     }
 });
 
+router.post('/announcement-read-user-list',verifyToken,announcementValidator.announcementUserList, async (req, res) => {
+    try {
+        const response = await announcementTransactions.announcementReadUserList(req.body.UserID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/announcement',verifyToken,announcementValidator.add, async (req, res) => {
     try {
         const response = await announcementTransactions.insert(req.body);

@@ -54,6 +54,19 @@ module.exports = {
             });
         });
     },
+    announcementReadUserList: (UserID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT  * FROM tblAnnouncement WHERE AnnouncementID IN (SELECT AnnouncementID FROM tblAnnouncementUser WHERE UserID= ?)', [(UserID)], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject(announcementMessage.AnnouncementUserList.Not_Found);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblAnnouncement SET ?', [data], (error, result) => {
