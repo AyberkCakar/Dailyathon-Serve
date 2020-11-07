@@ -54,6 +54,23 @@ module.exports = {
             });
         });
     },
+    surveyData: (SurveyListID) => {
+        var table;
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('Select SurveyTableName from tblSurvey where SurveyListID = ?',[SurveyListID], (error, result) => {
+                table = result[0];
+                mysqlDataContext.query('SELECT * from ??',[table.SurveyTableName], (error, result) => {
+                    if (!error)
+                        if (result != null)
+                            resolve(result);
+                        else
+                            reject( surveyMessage.find.Not_Found );
+                    else
+                        reject({ status: 500, message: error.message });
+                });
+            });
+        });
+    },
     insert: (data) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('INSERT INTO tblSurvey SET ?', [data], (error, result) => {
