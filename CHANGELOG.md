@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.14.0...v1.15.0) (2020-11-07)
+
+
+### Features
+
+* added age statistic router ([7247fb0](https://github.com/AyberkCakar/Dailyathon-Serve/commit/7247fb08c1e2524f2434cb24428c6eaa66b34af9))
+* added announcement read user list router ([16ba66b](https://github.com/AyberkCakar/Dailyathon-Serve/commit/16ba66b2be4d73f4fc592359d372693d8ded9708))
+* added category statistic router ([22befea](https://github.com/AyberkCakar/Dailyathon-Serve/commit/22befea7a0df3dffd5237e992bbb0d655bead8eb))
+* added survey data router ([1a46c8c](https://github.com/AyberkCakar/Dailyathon-Serve/commit/1a46c8c8fb3c4bd43ed70f59458cdf6fc96da55a))
+* added survey read user list router ([25efa9a](https://github.com/AyberkCakar/Dailyathon-Serve/commit/25efa9ac88dfdde68523570fa1c40159264669f1))
+
+
+### Bug Fixes
+
+* fix tag find transaction ([23e7135](https://github.com/AyberkCakar/Dailyathon-Serve/commit/23e7135e7ffa5a08f1c5499e12ebc0788ee2232d))
+* fix tag statistic router ([c8a3d71](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c8a3d713a98f19d7bba4fb2bc32be0c86e4dd7f0))
+* fix tag-statistic router ([d2a913c](https://github.com/AyberkCakar/Dailyathon-Serve/commit/d2a913c91506a59764f5dbca146b087a5619fb6e))
+
 ## [1.14.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.13.0...v1.14.0) (2020-10-29)
 
 
