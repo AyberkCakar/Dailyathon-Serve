@@ -24,6 +24,15 @@ router.post('/surveyUserList',verifyToken,surveyValidator.surveyUserList, async 
     }
 });
 
+router.post('/survey-read-user-list',verifyToken,surveyValidator.surveyUserList, async (req, res) => {
+    try {
+        const response = await surveyTransactions.surveyReadUserList(req.body.UserID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.post('/survey-find',verifyToken,surveyValidator.find, async (req, res) => {
     try {
         const response = await surveyTransactions.find(req.body.SurveyListID);

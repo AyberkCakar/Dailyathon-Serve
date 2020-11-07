@@ -28,6 +28,19 @@ module.exports = {
             });
         });
     },
+    surveyReadUserList: (UserID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT SurveyListID,SurveyName,SurveyStartDate,SurveyDueDate FROM tblSurvey WHERE SurveyListID IN (SELECT SurveyListID FROM tblSurveyUser WHERE UserID = ?)', [(UserID)], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject(surveyMessage.SurveyUserList.Not_Found);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     find: (SurveyListID) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('SELECT * FROM tblSurvey WHERE SurveyListID = ?',[SurveyListID], (error, result) => {
