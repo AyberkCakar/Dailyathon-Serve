@@ -15,14 +15,14 @@ module.exports = {
             });
         });
     },
-    thisweektag: () => {
+    tagStatistic: (selectID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL ThisWeekTag()', (error, result) => {
+            mysqlDataContext.query('CALL TagStatistic(?)',[selectID], (error, result) => {
                 if (!error)
                     if (result[0] != null)
                         resolve(result[0]);
                     else
-                        reject(statisticMessage.thisweektag.Not_Found);
+                        reject(statisticMessage.tagstatistic.Not_Found);
                 else
                     reject({status: 500, message: error.message});
             });

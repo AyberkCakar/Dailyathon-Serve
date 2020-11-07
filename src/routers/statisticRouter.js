@@ -14,9 +14,9 @@ router.get('/dashboard', verifyToken, async (req, res) => {
     }
 });
 
-router.get('/thisweektag', verifyToken, async (req, res) => {
+router.get('/tag-statistic', verifyToken, async (req, res) => {
     try {
-        const response = await statisticTransactions.thisweektag();
+        const response = await statisticTransactions.tagStatistic(req.body.selectID);
         res.json(response);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
