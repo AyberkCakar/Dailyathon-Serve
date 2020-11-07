@@ -22,7 +22,20 @@ module.exports = {
                     if (result[0] != null)
                         resolve(result[0]);
                     else
-                        reject(statisticMessage.tagstatistic.Not_Found);
+                        reject(statisticMessage.tagStatistic.Not_Found);
+                else
+                    reject({status: 500, message: error.message});
+            });
+        });
+    },
+    tagStatistic: (CategoryID) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL CategoryStatistic(?)',[CategoryID], (error, result) => {
+                if (!error)
+                    if (result[0] != null)
+                        resolve(result[0]);
+                    else
+                        reject(statisticMessage.categoryStatistic.Not_Found);
                 else
                     reject({status: 500, message: error.message});
             });

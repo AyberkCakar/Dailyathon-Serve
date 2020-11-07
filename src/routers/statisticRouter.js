@@ -23,4 +23,13 @@ router.post('/tag-statistic', verifyToken, async (req, res) => {
     }
 });
 
+router.post('/category-statistic', verifyToken, async (req, res) => {
+    try {
+        const response = await statisticTransactions.categoryStatistic(req.body.CategoryID);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
