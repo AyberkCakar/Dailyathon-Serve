@@ -28,7 +28,7 @@ module.exports = {
             });
         });
     },
-    tagStatistic: (CategoryID) => {
+    categoryStatistic: (CategoryID) => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('CALL CategoryStatistic(?)',[CategoryID], (error, result) => {
                 if (!error)
@@ -36,6 +36,19 @@ module.exports = {
                         resolve(result[0]);
                     else
                         reject(statisticMessage.categoryStatistic.Not_Found);
+                else
+                    reject({status: 500, message: error.message});
+            });
+        });
+    },
+    ageStatistic: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('CALL GetAgeStatistic()', (error, result) => {
+                if (!error)
+                    if (result[0] != null)
+                        resolve(result[0]);
+                    else
+                        reject(statisticMessage.ageStatistic.Not_Found);
                 else
                     reject({status: 500, message: error.message});
             });

@@ -32,4 +32,13 @@ router.post('/category-statistic', verifyToken, async (req, res) => {
     }
 });
 
+router.get('/age-statistic', verifyToken, async (req, res) => {
+    try {
+        const response = await statisticTransactions.ageStatistic();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
