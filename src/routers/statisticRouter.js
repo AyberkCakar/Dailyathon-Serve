@@ -14,7 +14,7 @@ router.get('/dashboard', verifyToken, async (req, res) => {
     }
 });
 
-router.get('/tag-statistic', verifyToken, async (req, res) => {
+router.post('/tag-statistic', verifyToken, async (req, res) => {
     try {
         const response = await statisticTransactions.tagStatistic(req.body.selectID);
         res.json(response);
