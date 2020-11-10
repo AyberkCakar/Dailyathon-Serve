@@ -30,7 +30,7 @@ module.exports = {
     },
     surveyReadUserList: (UserID) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT SurveyListID,SurveyName,SurveyStartDate,SurveyDueDate FROM tblSurvey WHERE SurveyListID IN (SELECT SurveyListID FROM tblSurveyUser WHERE UserID = ?)', [(UserID)], (error, result) => {
+            mysqlDataContext.query('SELECT SurveyListID,SurveyName,Visible,SurveyStartDate,SurveyDueDate FROM tblSurvey WHERE SurveyListID IN (SELECT SurveyListID FROM tblSurveyUser WHERE UserID = ?)', [(UserID)], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);

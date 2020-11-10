@@ -33,7 +33,7 @@ router.post('/announcement-statistic' ,verifyToken,announcementValidator.find , 
     }
 });
 
-router.post('/announcementUserList',verifyToken,announcementValidator.announcementUserList, async (req, res) => {
+router.post('/announcement-user-list',verifyToken,announcementValidator.announcementUserList, async (req, res) => {
     try {
         const response = await announcementTransactions.announcementUserList(req.body.UserID);
         res.json(response);
