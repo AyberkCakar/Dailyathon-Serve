@@ -17,7 +17,7 @@ module.exports = {
     },
     adminlogInsert: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT tblAdminLog tbl SET ?', [data], (error, result) => {
+            mysqlDataContext.query('INSERT INTO tblAdminLog SET ?', [data], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( logMessage.AdminLog.insert.Ok );
@@ -56,7 +56,7 @@ module.exports = {
     },
     servelogInsert: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT tblServeLog tbl SET ?', [data], (error, result) => {
+            mysqlDataContext.query('INSERT INTO tblServeLog SET ?', [data], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( logMessage.ServeLog.insert.Ok );
