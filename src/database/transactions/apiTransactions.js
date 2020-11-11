@@ -35,7 +35,20 @@ module.exports = {
                     if (result != null)
                         resolve(result);
                     else
-                        reject( apiMessage.cripto.Not_Found );
+                        reject( apiMessage.stock.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    stockInsert: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('Insert INTO tblStock SET ?',[data], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.stock.insert );
                 else
                     reject({ status: 500, message: error.message });
             });

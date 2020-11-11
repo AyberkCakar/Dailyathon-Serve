@@ -917,7 +917,21 @@
     "Not_Found": {
       "status": 404,
       "message": "No content available for the stock!"
-    }
+    },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Stock added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Stock !"
+        },
+        "Proxy_Authentication_Required": {
+          "status": 407,
+          "message": "You are not authorized to do this !"
+        }
+      }
   },
     "currency": {
       "Not_Found": {

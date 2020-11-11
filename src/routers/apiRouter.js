@@ -14,7 +14,7 @@ router.get('/cripto', verifyToken,async (req, res) => {
     }
 });
 
-router.post('/cripto', verifyToken,async (req, res) => {
+router.post('/cripto',async (req, res) => {
     try {
         const response = await apiTransactions.criptoInsert(req.body);
         res.json(response);
@@ -26,6 +26,15 @@ router.post('/cripto', verifyToken,async (req, res) => {
 router.get('/stock', verifyToken,async (req, res) => {
     try {
         const response = await apiTransactions.stockList();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
+router.post('/stock',async (req, res) => {
+    try {
+        const response = await apiTransactions.stockInsert();
         res.json(response);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
