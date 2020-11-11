@@ -986,14 +986,14 @@
           "message": "There was an error adding Pharmacy !"
         }
       },
-      "update": {
+      "delete": {
         "Ok": {
           "status": 200,
-          "message": "The Pharmacy has been updated."
+          "message": "Pharmacy deletion has occurred."
         },
         "Internal_Server_Error": {
           "status": 500,
-          "message": "An error occurred updating Pharmacy !"
+          "message": "An error occurred during Pharmacy deletion !"
         }
       }
     }

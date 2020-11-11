@@ -144,5 +144,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    pharmacyDelete: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('TRUNCATE TABLE tblPharmacy', (error, result) => {
+                if (!error)
+                    if (result.affectedRows != 0)
+                        resolve(apiMessage.pharmacy.delete.Ok);
+                    else
+                        resolve(apiMessage.pharmacy.delete.Internal_Server_Error);
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };

@@ -104,5 +104,14 @@ router.post('/pharmacy',async (req, res) => {
     }
 });
 
+router.delete('/pharmacy',async (req, res) => {
+    try {
+        const response = await apiTransactions.pharmacyDelete();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 
 module.exports = router;
