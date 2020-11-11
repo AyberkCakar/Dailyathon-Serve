@@ -904,6 +904,12 @@
       "status": 404,
       "message": "No content available for the stock!"
     }
-  }
+  },
+    "currency": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available for the currency!"
+      }
+    }
   }
 }

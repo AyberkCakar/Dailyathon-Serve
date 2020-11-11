@@ -27,5 +27,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    currencyList: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblCurrency order by CurrencyID asc', (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.currency.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };

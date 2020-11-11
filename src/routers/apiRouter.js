@@ -23,4 +23,13 @@ router.get('/stock', verifyToken,async (req, res) => {
     }
 });
 
+router.get('/currency', verifyToken,async (req, res) => {
+    try {
+        const response = await apiTransactions.currencyList();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
