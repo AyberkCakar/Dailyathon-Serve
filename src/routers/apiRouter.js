@@ -50,4 +50,13 @@ router.get('/currency', verifyToken,async (req, res) => {
     }
 });
 
+router.post('/currency',async (req, res) => {
+    try {
+        const response = await apiTransactions.currencyInsert();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;

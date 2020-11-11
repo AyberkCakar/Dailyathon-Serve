@@ -66,5 +66,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    currencyInsert: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('Insert INTO tblCurrency SET ?',[data], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.currency.insert );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
