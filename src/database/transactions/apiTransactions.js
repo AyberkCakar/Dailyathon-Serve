@@ -67,6 +67,19 @@ module.exports = {
             });
         });
     },
+    stockUpdate: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE tblStock SET ? WHERE Code = ?',[data,data.Code], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.stock.update );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     currencyList: () => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('SELECT * FROM tblCurrency order by CurrencyID asc', (error, result) => {

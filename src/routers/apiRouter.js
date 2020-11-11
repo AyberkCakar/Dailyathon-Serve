@@ -50,6 +50,15 @@ router.post('/stock',async (req, res) => {
     }
 });
 
+router.put('/stock',async (req, res) => {
+    try {
+        const response = await apiTransactions.stockUpdate(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.get('/currency', verifyToken,async (req, res) => {
     try {
         const response = await apiTransactions.currencyList();
