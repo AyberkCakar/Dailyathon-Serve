@@ -23,6 +23,15 @@ router.post('/cripto',async (req, res) => {
     }
 });
 
+router.put('/cripto',async (req, res) => {
+    try {
+        const response = await apiTransactions.criptoUpdate(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 router.get('/stock', verifyToken,async (req, res) => {
     try {
         const response = await apiTransactions.stockList();

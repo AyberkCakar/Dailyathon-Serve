@@ -28,6 +28,19 @@ module.exports = {
             });
         });
     },
+    criptoUpdate: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE tblCripto SET ? WHERE Code = ?',[data,data.Code], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.cripto.update );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
     stockList: () => {
         return new Promise((resolve, reject) => {
             mysqlDataContext.query('SELECT * FROM tblStock order by StockID asc', (error, result) => {
