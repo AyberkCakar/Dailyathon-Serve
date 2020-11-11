@@ -121,12 +121,25 @@ module.exports = {
     },
     pharmacyList: () => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblStock order by Pharmacy asc', (error, result) => {
+            mysqlDataContext.query('SELECT * FROM tblPharmacy order by PharmacyID asc', (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
                     else
                         reject( apiMessage.pharmacy.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
+    },
+    pharmacyInsert: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('INSERT INTO tblPharmacy SET ? ',[data], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.pharmacy.insert );
                 else
                     reject({ status: 500, message: error.message });
             });
