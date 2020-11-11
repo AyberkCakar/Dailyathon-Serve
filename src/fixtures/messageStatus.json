@@ -891,5 +891,111 @@
         "message": "No content available for the Age Statistic !"
       }
     }
+  },
+  "apiMessage": {
+    "cripto": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available for the cripto!"
+      },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Cripto added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Cripto !"
+        }
+      },
+      "update": {
+        "Ok": {
+          "status": 200,
+          "message": "The Cripto has been updated."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred updating Cripto !"
+        }
+      }
+    },
+    "stock": {
+    "Not_Found": {
+      "status": 404,
+      "message": "No content available for the stock!"
+    },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Stock added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Stock !"
+        }
+      },
+      "update": {
+        "Ok": {
+          "status": 200,
+          "message": "The Stock has been updated."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred updating Stock !"
+        }
+      }
+  },
+    "currency": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available for the Currency!"
+      },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Currency added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Currency !"
+        }
+      },
+      "update": {
+        "Ok": {
+          "status": 200,
+          "message": "The Currency has been updated."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred updating Currency !"
+        }
+      }
+    },
+    "pharmacy": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available for the Pharmacy!"
+      },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Pharmacy added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Pharmacy !"
+        }
+      },
+      "delete": {
+        "Ok": {
+          "status": 200,
+          "message": "Pharmacy deletion has occurred."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred during Pharmacy deletion !"
+        }
+      }
+    }
   }
 }
