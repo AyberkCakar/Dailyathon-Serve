@@ -958,10 +958,16 @@
         "Internal_Server_Error": {
           "status": 500,
           "message": "There was an error adding Currency !"
+        }
+      },
+      "update": {
+        "Ok": {
+          "status": 200,
+          "message": "The Currency has been updated."
         },
-        "Proxy_Authentication_Required": {
-          "status": 407,
-          "message": "You are not authorized to do this !"
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred updating Currency !"
         }
       }
     }

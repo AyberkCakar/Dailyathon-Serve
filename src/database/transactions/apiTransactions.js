@@ -105,5 +105,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    currencyUpdate: (data) => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('UPDATE tblCurrency SET ? WHERE Code = ?',[data,data.Code], (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.currency.update );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };

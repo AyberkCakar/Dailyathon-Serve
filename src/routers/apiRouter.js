@@ -77,4 +77,13 @@ router.post('/currency',async (req, res) => {
     }
 });
 
+router.put('/currency',async (req, res) => {
+    try {
+        const response = await apiTransactions.currencyUpdate(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;
