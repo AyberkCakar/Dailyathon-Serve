@@ -118,5 +118,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    pharmacyList: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblStock order by Pharmacy asc', (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.pharmacy.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };

@@ -970,6 +970,32 @@
           "message": "An error occurred updating Currency !"
         }
       }
+    },
+    "pharmacy": {
+      "Not_Found": {
+        "status": 404,
+        "message": "No content available for the Pharmacy!"
+      },
+      "insert": {
+        "Ok": {
+          "status": 200,
+          "message": "Pharmacy added."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "There was an error adding Pharmacy !"
+        }
+      },
+      "update": {
+        "Ok": {
+          "status": 200,
+          "message": "The Pharmacy has been updated."
+        },
+        "Internal_Server_Error": {
+          "status": 500,
+          "message": "An error occurred updating Pharmacy !"
+        }
+      }
     }
   }
 }

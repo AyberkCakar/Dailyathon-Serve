@@ -86,4 +86,14 @@ router.put('/currency',async (req, res) => {
     }
 });
 
+router.post('/pharmacy',async (req, res) => {
+    try {
+        const response = await apiTransactions.pharmacyList(req.body);
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
+
 module.exports = router;
