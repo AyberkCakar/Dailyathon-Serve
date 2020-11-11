@@ -14,4 +14,13 @@ router.get('/cripto', verifyToken,async (req, res) => {
     }
 });
 
+router.get('/stock', verifyToken,async (req, res) => {
+    try {
+        const response = await apiTransactions.stockList();
+        res.json(response);
+    } catch (error) {
+        res.status(error.status).json({ message: error.message });
+    }
+});
+
 module.exports = router;

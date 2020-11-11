@@ -14,5 +14,18 @@ module.exports = {
                     reject({ status: 500, message: error.message });
             });
         });
+    },
+    stockList: () => {
+        return new Promise((resolve, reject) => {
+            mysqlDataContext.query('SELECT * FROM tblStock order by StockID asc', (error, result) => {
+                if (!error)
+                    if (result != null)
+                        resolve(result);
+                    else
+                        reject( apiMessage.cripto.Not_Found );
+                else
+                    reject({ status: 500, message: error.message });
+            });
+        });
     }
 };
