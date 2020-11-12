@@ -28,9 +28,9 @@ module.exports = {
             });
         });
     },
-    criptoUpdate: (data) => {
+    criptoUpdate: (query) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('UPDATE tblCripto SET ? WHERE Code = ?',[data,data.Code], (error, result) => {
+            mysqlDataContext.query(query['query'],(error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -54,9 +54,9 @@ module.exports = {
             });
         });
     },
-    stockInsert: (data) => {
+    stockInsert: (query) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('Insert INTO tblStock SET ?',[data], (error, result) => {
+            mysqlDataContext.query(query['query'], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -67,9 +67,9 @@ module.exports = {
             });
         });
     },
-    stockUpdate: (data) => {
+    stockUpdate: (query) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('UPDATE tblStock SET ? WHERE Code = ?',[data,data.Code], (error, result) => {
+            mysqlDataContext.query(query['query'], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -93,9 +93,9 @@ module.exports = {
             });
         });
     },
-    currencyInsert: (data) => {
+    currencyInsert: (query) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('Insert INTO tblCurrency SET ?',[data], (error, result) => {
+            mysqlDataContext.query(query['query'], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -106,9 +106,9 @@ module.exports = {
             });
         });
     },
-    currencyUpdate: (data) => {
+    currencyUpdate: (query) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('UPDATE tblCurrency SET ? WHERE Code = ?',[data,data.Code], (error, result) => {
+            mysqlDataContext.query(query['query'], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
@@ -132,9 +132,9 @@ module.exports = {
             });
         });
     },
-    pharmacyInsert: (data) => {
+    pharmacyInsert: (query) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT INTO tblPharmacy SET ? ',[data], (error, result) => {
+            mysqlDataContext.query(query['query'], (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
