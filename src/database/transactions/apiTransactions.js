@@ -119,9 +119,9 @@ module.exports = {
             });
         });
     },
-    pharmacyList: () => {
+    pharmacyList: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT * FROM tblPharmacy order by PharmacyID asc', (error, result) => {
+            mysqlDataContext.query('SELECT * FROM tblPharmacy WHERE City = ? or Dist = ? order by PharmacyID asc',[data.city,data.dist] ,(error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
