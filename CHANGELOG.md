@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.15.0...v1.16.0) (2020-11-12)
+
+
+### Features
+
+* added cripto insert router ([c57f16f](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c57f16f4c55ee0911d56c2e4158790d6f25f6bc8))
+* added cripto list router ([8a8b5e2](https://github.com/AyberkCakar/Dailyathon-Serve/commit/8a8b5e2107d3b392f9d25acaa6a9b43571f3574d))
+* added cripto update router ([d3cef52](https://github.com/AyberkCakar/Dailyathon-Serve/commit/d3cef52c5c5bfa7a05dc478540c8d400fa5e2358))
+* added currency insert router ([5a6eeeb](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5a6eeebb6cc9c93445fe92f4b246c7629c1cab01))
+* added currency list router ([afc7c39](https://github.com/AyberkCakar/Dailyathon-Serve/commit/afc7c399f505376916e5aa737e7a1e400b2d2cdf))
+* added currency update router ([34922e9](https://github.com/AyberkCakar/Dailyathon-Serve/commit/34922e952bd9f504d59817daa133c8e44427b29c))
+* added pharmacy delete router ([12229bb](https://github.com/AyberkCakar/Dailyathon-Serve/commit/12229bb0df4a649036d624ae23d7e2b70346d9fd))
+* added pharmacy insert router ([c327879](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c327879ec0a6edacff4d045e9afdca995a7c81a9))
+* added pharmacy list router ([dc62b28](https://github.com/AyberkCakar/Dailyathon-Serve/commit/dc62b288765ef7b7d3b5a6befb409bd8a3976e60))
+* added stock insert router ([4410982](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4410982bc8a24fcafc741350d691e14b0d35cc5e))
+* added stock list router ([2ae36fc](https://github.com/AyberkCakar/Dailyathon-Serve/commit/2ae36fc55ef09d522835e7ffeb70560532a90759))
+* added stock update router ([63983ba](https://github.com/AyberkCakar/Dailyathon-Serve/commit/63983ba846fc26805f4a0212a1e137129576e2f9))
+
+
+### Bug Fixes
+
+* fix api transaction sqlQuery ([8b7f8ba](https://github.com/AyberkCakar/Dailyathon-Serve/commit/8b7f8baec95cc1c498f615725149e766c70f1263))
+* fix cripto insert sql query ([db46e97](https://github.com/AyberkCakar/Dailyathon-Serve/commit/db46e976684fedff08a5e476ec7edee5cf410427))
+* fix cripto insert sql query ([28ad332](https://github.com/AyberkCakar/Dailyathon-Serve/commit/28ad3328a18261f0e0f52477ce1d4590b3eb6767))
+* fix cripto insert transaction ([74ccb9d](https://github.com/AyberkCakar/Dailyathon-Serve/commit/74ccb9ddb6049e90ba75c02ac2a643b2ddcc74fb))
+* fix log  transactions ([ea69abb](https://github.com/AyberkCakar/Dailyathon-Serve/commit/ea69abb6ee3833fd8ef5f77808803013029f3bfe))
+* fix pharmacy list query ([b18994f](https://github.com/AyberkCakar/Dailyathon-Serve/commit/b18994fa015994dc17e095d7efc89d6d1a32a223))
+* fix stock router ([0c21a6d](https://github.com/AyberkCakar/Dailyathon-Serve/commit/0c21a6d39c4635765b5468a8aa0133f664befbab))
+
 ## [1.15.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.14.0...v1.15.0) (2020-11-07)
 
 
