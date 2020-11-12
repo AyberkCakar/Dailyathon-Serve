@@ -17,7 +17,8 @@ module.exports = {
     },
     criptoInsert: (query) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query(query['query'], (error, result) => {
+            const querys =query['query'];
+            mysqlDataContext.query(querys, (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
