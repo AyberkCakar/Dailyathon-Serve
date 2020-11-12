@@ -15,9 +15,9 @@ module.exports = {
             });
         });
     },
-    criptoInsert: (data) => {
+    criptoInsert: (query) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('Insert INTO tblCripto SET ?',[data], (error, result) => {
+            mysqlDataContext.query(query, (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
