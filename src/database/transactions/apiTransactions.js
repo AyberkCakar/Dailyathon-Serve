@@ -15,10 +15,13 @@ module.exports = {
             });
         });
     },
-    criptoInsert: (query) => {
+    criptoInsert: (data) => {
         return new Promise((resolve, reject) => {
-            const querys =query['query'];
-            mysqlDataContext.query(querys, (error, result) => {
+            var datas  = {Currency:data.currency, ChangeWeek: data.changeWeek,ChangeDay:data.changeDay,Price:data.price,Code:data.code,Name:data.name};
+
+            var sql = mysql.format('INSERT INTO tblcripto SET ?', [datas]);
+            data += sql+'; ';
+            mysqlDataContext.query(data, (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);
