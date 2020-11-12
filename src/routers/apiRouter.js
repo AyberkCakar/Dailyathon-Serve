@@ -43,7 +43,7 @@ router.get('/stock', verifyToken,async (req, res) => {
 
 router.post('/stock',async (req, res) => {
     try {
-        const response = await apiTransactions.stockInsert();
+        const response = await apiTransactions.stockInsert(req.body);
         res.json(response);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
