@@ -88,7 +88,6 @@ module.exports = {
         });
     },
     standingsInsert: (query) => {
-        delete data['LeagueTableName'];
         return new Promise((resolve, reject) => {
             mysqlDataContext.query(query['query'], (error, result) => {
                 if (!error)
