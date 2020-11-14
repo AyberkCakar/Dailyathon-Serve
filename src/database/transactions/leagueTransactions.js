@@ -87,10 +87,10 @@ module.exports = {
             });
         });
     },
-    standingsInsert: (LeagueTableName,data) => {
+    standingsInsert: (query) => {
         delete data['LeagueTableName'];
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT INTO ?? SET ?', [LeagueTableName,data], (error, result) => {
+            mysqlDataContext.query(query['query'], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( leagueMessage.standingsInsert.Ok );
@@ -114,10 +114,10 @@ module.exports = {
             });
         });
     },
-    standingsUpdate: (LeagueTableName,data) => {
+    standingsUpdate: (query) => {
         delete data['LeagueTableName'];
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('UPDATE ?? SET ? WHERE LeagueID = ? and SequenceNo = ?', [LeagueTableName, data,data.LeagueID,data.SequenceNo], (error, result) => {
+            mysqlDataContext.query(query['query'], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve(leagueMessage.standingsUpdate.Ok);
