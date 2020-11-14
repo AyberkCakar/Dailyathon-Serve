@@ -30,7 +30,7 @@ module.exports = {
                 NewsImage:joi.string().min(2).required(),
                 Content:joi.string().min(2).required(),
                 date:joi.date().required(),
-                NewsCategoryID:joi.number().min(1).max(99999999999).required(),
+                TagID:joi.number().min(1).max(99999999999).required(),
             }).validateAsync(req.body);
             next();
         } catch (error) {
