@@ -33,7 +33,7 @@ router.post('/news-find',verifyToken,newsValidator.find, async (req, res) => {
     }
 });
 
-router.post('/news',newsValidator.add, async (req, res) => {
+router.post('/news', async (req, res) => {
     try {
         const response = await newsTransactions.insert(req.body);
         res.json({message:response.message});
