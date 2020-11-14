@@ -6,7 +6,7 @@ const router = express();
 const leagueTransactions = dbFactory('leagueTransactions');
 const leagueValidator = validators.leagueValidator;
 
-router.get('/league', verifyToken, async (req, res) => {
+router.get('/league', async (req, res) => {
     try {
         const response = await leagueTransactions.list();
         res.json(response);
