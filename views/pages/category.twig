@@ -10,7 +10,7 @@
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">category</url>
+GET <url id="path">category</url>
 
 Result Example:
 [
@@ -24,7 +24,7 @@ Result Example:
     }
 ]
         </code></pre>
-            <p>For the Category List, you need to make a Get call to the URL below :
+            <p>For the Category List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">category</code>
             </p>
@@ -40,6 +40,9 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
@@ -49,7 +52,7 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-GET <url id="path">category-find</url>
+POST <url id="path">category-find</url>
 {
     "CategoryID": 1
 }
@@ -66,7 +69,7 @@ Result Example:
     }
 ]
         </code></pre>
-            <p>For the category find, you need to make a GET call to the URL below :
+            <p>For the category find, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">category-find</code>
             </p>

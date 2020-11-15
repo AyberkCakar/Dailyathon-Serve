@@ -10,7 +10,7 @@
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">entertainment</url>
+GET <url id="path">entertainment</url>
 
 Result Example:
 [
@@ -31,7 +31,7 @@ Result Example:
     }
 ]
         </code></pre>
-            <p>For the Entertainment List, you need to make a Get call to the URL below :
+            <p>For the Entertainment List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">entertainment</code>
             </p>
@@ -46,7 +46,9 @@ Result Example:
                 </tr>
                 </thead>
                 <tbody>
-                <tr></tr>
+                <tr>                    <td>token</td>
+                    <td>String</td>               
+                    <td></td></tr>
                 </tbody>
             </table>
         </div>
@@ -55,8 +57,10 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">city-entertainment</url>
-
+POST <url id="path">city-entertainment</url>
+{
+    "UserCity": "İzmir"
+}
 Result Example:
 [
     {
@@ -77,7 +81,7 @@ Result Example:
     }
 ]
         </code></pre>
-            <p>For the City Entertainment List, you need to make a Get call to the URL below :
+            <p>For the City Entertainment List, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">city-entertainment</code>
             </p>
@@ -108,7 +112,10 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-Get <url id="path">tag-entertainment</url>
+POST <url id="path">tag-entertainment</url>
+{
+    "UserID": 71
+}
 
 Result Example:
 [
@@ -130,7 +137,7 @@ Result Example:
     }
 ]
         </code></pre>
-            <p>For the Tag Entertainment List, you need to make a Get call to the URL below :
+            <p>For the Tag Entertainment List, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">tag-entertainment</code>
             </p>
@@ -161,7 +168,7 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-GET <url id="path">entertainment-find</url>
+POST <url id="path">entertainment-find</url>
 {
     "EntertainmentID": 71
 }
@@ -185,7 +192,7 @@ Result Example:
     }
 ]
         </code></pre>
-            <p>For the Entertainment Find, you need to make a GET call to the URL below :
+            <p>For the Entertainment Find, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">entertainment-find</code>
             </p>

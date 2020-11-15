@@ -22,7 +22,7 @@ Result Example:
         "UserDate": "1236-01-03T00:00:00.000Z",
         "UserProfession": "Yazılım Mühendisi",
         "UserCity": "İzmir",
-		"RegDate": 2020-10-18
+	"RegDate": 2020-10-18
     }
 ]
         </code></pre>
@@ -42,6 +42,9 @@ Result Example:
 				</thead>
 				<tbody>
 				<tr>
+				<td>token</td>
+				<td>String</td>
+				<td>token</td>
 				</tr>
 				</tbody>
 			</table>
@@ -51,7 +54,7 @@ Result Example:
 			<pre><code class="json">
 #Request Example
 
-GET <url id="path">find/user</url>
+POST <url id="path">find/user</url>
 {
     "UserID": 1
 }
@@ -66,11 +69,11 @@ Result Example:
         "UserDate": "1236-01-03T00:00:00.000Z",
         "UserProfession": "Yazılım Mühendisi",
         "UserCity": "İzmir",
-		"RegDate": 2020-10-18
+	"RegDate": 2020-10-18
     }
 ]
         </code></pre>
-			<p>For the user find, you need to make a GET call to the URL below :
+			<p>For the user find, you need to make a POST call to the URL below :
 				<br>
 				<code class="higlighted" id="path">find/user</code>
 			</p>
@@ -98,12 +101,53 @@ Result Example:
 				</tbody>
 			</table>
 		</div>
+				<div class="overflow-hidden content-section">
+			<h2>Admin List</h2>
+			<pre><code class="json">
+#Request Example
+
+GET <url id="path">admin</url>
+
+Result Example:
+[
+    {
+        "AdminID": 1,
+        "AdminName": "Cenk",
+        "AdminAuth": "Sub Admin",
+	"AdminPosition": "Genel Müdür",
+	"RegDate": 2020-10-18
+    }
+]
+        </code></pre>
+			<p>For the admin list, you need to make a GET call to the URL below :
+				<br>
+				<code class="higlighted" id="path">admin</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				<td>token</td>
+				<td>String</td>
+				<td>token</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 		<div class="overflow-hidden content-section">
 			<h2>Admin Find</h2>
 			<pre><code class="json">
 #Request Example
 
-GET <url id="path">find/admin</url>
+POST <url id="path">find/admin</url>
 {
     "AdminID": 1
 }
@@ -114,12 +158,12 @@ Result Example:
         "AdminID": 1,
         "AdminName": "Cenk",
         "AdminAuth": "Sub Admin",
-		"AdminPosition": "Genel Müdür",
-		"RegDate": 2020-10-18
+	"AdminPosition": "Genel Müdür",
+	"RegDate": 2020-10-18
     }
 ]
         </code></pre>
-			<p>For the admin find, you need to make a GET call to the URL below :
+			<p>For the admin find, you need to make a POST call to the URL below :
 				<br>
 				<code class="higlighted" id="path">admin/find</code>
 			</p>
@@ -168,7 +212,7 @@ Result Example:
         "UserDate": "1236-01-03T00:00:00.000Z",
         "UserProfession": "Yazılım Mühendisi",
         "UserCity": "İzmir",
-		"RegDate": 2020-10-18
+	"RegDate": 2020-10-18
     },
     "token": "secretToken"
 }
@@ -207,7 +251,7 @@ Result Example:
 			<pre><code class="json">
     #Request Example
 
-    POST <url id="path">login/user</url>
+    POST <url id="path">login/admin</url>
     {
         "Username": admin,
         "Password": "password"
@@ -216,16 +260,16 @@ Result Example:
     Result Example:
     {
         "result": {
-            "AdminID": 1,
-			"AdminName": "Cenk",
-			"AdminAuth": "Sub Admin",
-			"AdminPosition": "Genel Müdür",
-			"RegDate": 2020-10-18
+        	"AdminID": 1,
+		"AdminName": "Cenk",
+		"AdminAuth": "Sub Admin",
+		"AdminPosition": "Genel Müdür",
+		"RegDate": 2020-10-18
         },
         "token": "secretToken"
     }
             </code></pre>
-			<p> For the user login, you need to make a POST call to the URL below :
+			<p> For the admin login, you need to make a POST call to the URL below :
 				<br>
 				<code class="higlighted" id="path">login/admin</code>
 			</p>
@@ -261,13 +305,13 @@ Result Example:
 POST <url id="path">sign-up/user</url>
 {
     "UserName": "Dailyathon",
- 	"UserSurname": "Dailyathon",
+    "UserSurname": "Dailyathon",
     "UserMail": "dailyathon@gmail.com",
     "UserPassword": "password",
     "UserDate": "1236-01-03T00:00:00.000Z",
     "UserProfession": "Yazılım Mühendisi",
     "UserCity": "İzmir",
-	"RegDate": 2020-10-18
+    "RegDate": 2020-10-18
 }
         
 Reusult Example:
@@ -342,8 +386,8 @@ Reusult Example:
 POST <url id="path">sign-up/admin</url>
 {
     "Username": "Dailyathon",
-	"Password": "Dailyathon",
-	"RegDate": 2020-10-18
+    "Password": "Dailyathon",
+    "RegDate": 2020-10-18
 }
 
 Reusult Example:
@@ -390,11 +434,11 @@ Reusult Example:
 #Request Example
 POST <url id="path">forgotpassword</url>
 {
-	"UserName": "Dailyathon",
+    "UserName": "Dailyathon",
     "UserSurname": "Dailyathon",
     "UserMail": "dailyathon@gmail.com",
     "UserDate": "1236-01-03",
-	"NewPassword": "newpassword"
+    "NewPassword": "newpassword"
 }
 
 Reusult Example:
@@ -478,6 +522,48 @@ Reusult Example:
 				<tbody>
 				<tr>
 					<td>UserEmail</td>
+					<td>String</td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="overflow-hidden content-section">
+			<h2>User Delete</h2>
+			<pre><code>
+#Request Example
+DELETE <url id="path">user-delete</url>
+{
+    "UserID": "2"
+}
+        
+Reusult Example:
+{
+    "message": "User deletion has occurred."
+}
+        </code></pre>
+			<p>For the user delete transaction, you need to make a DELETE call to the URL below :
+				<br>
+				<code class="higlighted" id="path">user-delete</code>
+			</p>
+			</code></pre>
+			<h4>QUERY PARAMETERS</h4>
+			<table>
+				<thead>
+				<tr>
+					<th>Field</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>UserID</td>
+					<td>Int</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Token</td>
 					<td>String</td>
 					<td></td>
 				</tr>

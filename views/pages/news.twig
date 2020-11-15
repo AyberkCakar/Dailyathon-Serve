@@ -5,41 +5,7 @@
             <h1>News Transacsions</h1>
             <p>The user performs News operations will be with the examples below.</p>
         </div>
-        <div class="overflow-hidden content-section">
-            <h2>News Category List</h2>
-            <pre><code class="json">
-#Request Example
-
-GET <url id="path">news-category</url>
-
-Result Example:
-[
-    {
-        "NewsCategoryID": 1,
-        "NewsCategoryName": "E-Spor"
-    }
-]
-        </code></pre>
-            <p>For the News Category List, you need to make a GET call to the URL below :
-                <br>
-                <code class="higlighted" id="path">news-category</code>
-            </p>
-            </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+      
         <div class="overflow-hidden content-section">
             <h2>List</h2>
             <pre><code class="json">
@@ -50,12 +16,12 @@ GET <url id="path">news</url>
 Result Example:
 [
     {
-        "NewsID": 61,
-        "NewsTitle": "newstitle5",
-        "NewsDescription": "newsdesc5",
-        "NewsImage": "newsimage5",
-        "NewsCategoryID": 4,
-        "NewsCategoryName": "Siyaset"
+        "NewsID": 1271,
+        "NewsTitle": "TBMM enerji alanında düzenlemeler için mesai yapac",
+        "NewsDescription": "TBMM Genel Kurulu, enerji alanında düzenlemeler içeren Elektrik Piyasası Kanunu ile Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun Teklifi için çalışacak.",
+        "NewsImage": "https://cdn1.ntv.com.tr/gorsel/7Y8LZ8Ixo0uIzikNhqMC0Q.jpg?width=1200&mode=crop&scale=both",
+        "TagID": 3,
+        "TagName": "Ekonomi"
     }
 ]
         </code></pre>
@@ -74,7 +40,11 @@ Result Example:
                 </tr>
                 </thead>
                 <tbody>
-                <tr></tr>
+                <tr>
+                                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -83,7 +53,7 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-GET <url id="path">news-find</url>
+POST <url id="path">news-find</url>
 {
     "NewsID": 61
 }
@@ -91,16 +61,19 @@ GET <url id="path">news-find</url>
 Result Example:
 [
     {
-        "NewsID": 61,
-        "NewsTitle": "newstitle5",
-        "NewsDescription": "newsdesc5",
-        "NewsImage": "newsimage5",
-        "NewsCategoryID": 4,
-        "NewsCategoryName": "Siyaset"
+        "NewsID": 1271,
+        "NewsTitle": "TBMM enerji alanında düzenlemeler için mesai yapac",
+        "NewsDescription": "TBMM Genel Kurulu, enerji alanında düzenlemeler içeren Elektrik Piyasası Kanunu ile Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun Teklifi için çalışacak.",
+        "NewsImage": "https://cdn1.ntv.com.tr/gorsel/7Y8LZ8Ixo0uIzikNhqMC0Q.jpg?width=1200&mode=crop&scale=both",
+        "Content": "TBMM Genel Kurulu, enerji alanında düzenlemeler içeren Elektrik Piyasası Kanunu ile Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun Teklifi için çalışacak.",
+        "date": "2020-11-15",
+        "TagID": 3,
+        "TagName": "Ekonomi",
+        "CategoryID": 1
     }
 ]
         </code></pre>
-            <p>For the News Find, you need to make a GET call to the URL below :
+            <p>For the News Find, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">news-find</code>
             </p>
@@ -138,12 +111,14 @@ Get <url id="path">user-news</url>
 Result Example:
 {
     "result": {
-        "NewsID": 41,
-        "NewsTitle": "newstitle3",
-        "NewsDescription": "newsdesc3",
-        "NewsImage": "newsimage3",
-        "NewsCategoryID": 2,
-        "NewsCategoryName": "Spor"
+        "NewsID": 1061,
+        "NewsTitle": "Yeşil enerji kömürün tahtını yıkıyor - Sözcü",
+        "NewsDescription": "Uluslararası Enerji Ajansı’nın raporuna göre, salgın krizine rağmen yenilenebilir enerjiye talep artışı devam ediyor. 2025’te de yenilenebilir enerji kömürün önüne geçecek.",
+        "NewsImage": "https://i.sozcu.com.tr/wp-content/uploads/2020/11/15/iecrop/hs-9-fosil_16_9_1605415455-670x371.jpg",
+        "Content": "Uluslararas Enerji Ajans (IEA) Yenilenebilir 2020 raporunu yaynlad. 2025 ylna yönelik analiz ve tahminleri barndran rapora göre 2020'de küresel enerji talebi yüzde 5 düerken, yenilenebilir kaynaklard… [+2510 chars]",
+        "date": "2020-11-15T00:00:00.000Z",
+        "TagID": 4,
+        "TagName": "Teknoloji"
     }
 }
         </code></pre>
@@ -163,6 +138,17 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
+                 <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                    <td></td>
+
+                </tr>
+                 <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
                 </tr>
                 </tbody>
             </table>
@@ -174,10 +160,12 @@ Result Example:
 
 POST <url id="path">news</url>
 {
-    "NewsTitle": "Newsdenemetitle",
-    "NewsDescription":"Newsdenemedescription",
-    "NewsImage":"Newsdenemeimage",
-    "NewsCategoryID": 1
+    "NewsTitle": "TBMM enerji alanında düzenlemeler için mesai yapac",
+    "NewsDescription": "TBMM Genel Kurulu, enerji alanında düzenlemeler içeren Elektrik Piyasası Kanunu ile Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun Teklifi için çalışacak.",
+    "NewsImage": "https://cdn1.ntv.com.tr/gorsel/7Y8LZ8Ixo0uIzikNhqMC0Q.jpg?width=1200&mode=crop&scale=both",
+    "Content": "TBMM Genel Kurulu, enerji alanında düzenlemeler içeren Elektrik Piyasası Kanunu ile Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun Teklifi için çalışacak.",
+    "date": "2020-11-15",
+    "TagID": 3
 }
 
 Result Example:
@@ -211,13 +199,16 @@ Result Example:
                     <td>NewsImage</td>
                     <td>String</td>
                 </tr>
-                <tr>
-                    <td>NewsCategoryID</td>
-                    <td>Int</td>
+                                <tr>
+                    <td>Content</td>
+                    <td>String</td>
+                </tr>                <tr>
+                    <td>date</td>
+                    <td>Date</td>
                 </tr>
                 <tr>
-                    <td>token</td>
-                    <td>String</td>
+                    <td>TagID</td>
+                    <td>Int</td>
                 </tr>
                 </tbody>
             </table>

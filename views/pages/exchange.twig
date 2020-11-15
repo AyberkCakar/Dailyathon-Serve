@@ -1,29 +1,33 @@
-<div class="content-page tabcontent" id="tabLeague">
+<div class="content-page tabcontent" id="tabExchange">
     <div class="content-code"></div>
     <div class="content">
         <div class="overflow-hidden content-section">
-            <h1>League Transacsions</h1>
+            <h1>Exchange Transacsions</h1>
             <p>The user performs News operations will be with the examples below.</p>
         </div>
         <div class="overflow-hidden content-section">
-            <h2>List</h2>
+            <h2>Cripto List</h2>
             <pre><code class="json">
 #Request Example
 
-GET <url id="path">league</url>
+GET <url id="path">cripto</url>
 
 Result Example:
 [
     {
-        "LeagueID": 1,
-        "LeagueName": "Süper Lig",
-        "SportID": 1
+        "CriptoID": 1,
+        "Currency": "USD",
+        "ChangeWeek": "6.49",
+        "ChangeDay": "0.89",
+        "Price": "15,980.07",
+        "Code": "BTC",
+        "Name": "Bitcoin"
     }
 ]
         </code></pre>
-            <p>For the League List, you need to make a GET call to the URL below :
+            <p>For the Cripto List, you need to make a GET call to the URL below :
                 <br>
-                <code class="higlighted" id="path">league</code>
+                <code class="higlighted" id="path">cripto</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -42,347 +46,14 @@ Result Example:
                 </tbody>
             </table>
         </div>
-        <div class="overflow-hidden content-section">
-            <h2>League TableName List</h2>
-            <pre><code class="json">
-#Request Example
 
-POST <url id="path">league-table</url>
-{
-    "UserID": 1,
-}
 
-Result Example:
-[
-    {
-        "LeagueTableName":"tblFootball"
-    }
-]
-        </code></pre>
-            <p>For the League TableName List, you need to make a POST call to the URL below :
-                <br>
-                <code class="higlighted" id="path">league-table</code>
-            </p>
-            </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>UserID</td>
-                    <td>Int</td>
-                </tr>
-                <tr>
-                    <td>token</td>
-                    <td>String</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="overflow-hidden content-section">
-            <h2>User League List</h2>
-            <pre><code class="json">
-#Request Example
-
-POST <url id="path">user-league</url>
-{
-    "UserID": 1,
-    "LeagueTableName":"tblBasketball",
-}
-
-Result Example:
-[
-    {
-        "BasketballID": 1,
-        "SequenceNo": 1,
-        "TeamName": "GS",
-        "TeamLogoUrl": "asdadsa",
-        "O": 1,
-        "G": 4,
-        "M": 7,
-        "A": 12,
-        "Y": 323,
-        "AV": "2123",
-        "P": 123,
-        "LeagueID": 21
-    }
-]
-        </code></pre>
-            <p>For the User League List, you need to make a POST call to the URL below :
-                <br>
-                <code class="higlighted" id="path">user-league</code>
-            </p>
-            </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>UserID</td>
-                    <td>Int</td>
-                </tr>
-                <tr>
-                    <td>LeagueTableName</td>
-                    <td>String</td>
-                </tr>
-                <tr>
-                    <td>token</td>
-                    <td>String</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-         <div class="overflow-hidden content-section">
-            <h2>League Standings List</h2>
-            <pre><code class="json">
-#Request Example
-
-POST <url id="path">standings-find</url>
-{
-    "LeagueID": 21,
-    "SportID":"11",
-}
-
-Result Example:
-[
-    {
-        "BasketballID": 1,
-        "SequenceNo": 1,
-        "TeamName": " Fenerbahçe ",
-        "TeamLogoUrl": "https://secure.cache.images.core.optasports.com/basketball/teams/30x30/uuid_ed2r3ymxmshlhiq6nzjrawsb2.png?v=1.74.4&gis=mk",
-        "O": 8,
-        "G": 8,
-        "M": 0,
-        "A": 735,
-        "Y": 612,
-        "AV": " 123 ",
-        "P": 16,
-        "LeagueID": 21
-    }
-]
-        </code></pre>
-            <p>For the Standings Find, you need to make a POST call to the URL below :
-                <br>
-                <code class="higlighted" id="path">standings-find</code>
-            </p>
-            </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>LeagueID</td>
-                    <td>Int</td>
-                </tr>
-                <tr>
-                    <td>SportID</td>
-                    <td>Int</td>
-                </tr>
-                <tr>
-                    <td>token</td>
-                    <td>String</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="overflow-hidden content-section">
-            <h2>League Find</h2>
-            <pre><code class="json">
-#Request Example
-
-POST <url id="path">league-find</url>
-{
-    "LeagueID": 1
-}
-
-Result Example:
-[
-    {
-        "LeagueID": 1,
-        "LeagueName": "Süper Lig",
-        "SportID": 1
-    }
-]
-        </code></pre>
-            <p>For the League Find, you need to make a POST call to the URL below :
-                <br>
-                <code class="higlighted" id="path">league-find</code>
-            </p>
-            </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>LeagueID</td>
-                    <td>Int</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>token</td>
-                    <td>String</td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="overflow-hidden content-section">
-            <h2>Insert</h2>
-            <pre><code class="json">
-#Request Example
-
-POST <url id="path">league</url>
-{
-    "LeagueName": "Süper Lig",
-    "SportID":"1"
-}
-
-Result Example:
-{
-    "message": "League added."
-}
-        </code></pre>
-            <p>For the League Insert, you need to make a POST call to the URL below :
-                <br>
-                <code class="higlighted" id="path">league</code>
-            </p>
-            </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>LeagueName</td>
-                    <td>String</td>
-                </tr>
-                <tr>
-                    <td>SportID</td>
-                    <td>Int</td>
-                </tr>
-                <tr>
-                    <td>token</td>
-                    <td>String</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="overflow-hidden content-section">
-            <h2>Delete</h2>
-            <pre><code class="json">
-#Request Example
-
-DELETE <url id="path">league</url>
-{
-    "LeagueID": 2,
-}
-Result Example:
-{
-    "message": "League deletion has occurred."
-}
-        </code></pre>
-            <p>For the League Delete, you need to make a DELETE call to the URL below :
-                <br>
-                <code class="higlighted" id="path">league</code>
-            </p>
-            </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>LeagueID</td>
-                    <td>Int</td>
-                </tr>
-                <tr>
-                    <td>token</td>
-                    <td>String</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-    <div class="overflow-hidden content-section">
-            <h2>Standings Insert</h2>
-            <pre><code class="json">
-#Request Example
-
-POST <url id="path">league-standings</url>
-{
-    "query": query,
-}
-
-Result Example:
-[
-    {
-        "message": "League standings added."
-    }
-]
-        </code></pre>
-            <p>For the Standings Insert, you need to make a POST call to the URL below :
-                <br>
-                <code class="higlighted" id="path">league-standings</code>
-            </p>
-            </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                     <td>query</td>
-                    <td>String</td>
-                                        <td></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
             <div class="overflow-hidden content-section">
-            <h2>Standings Update</h2>
+            <h2>Cripto Insert</h2>
             <pre><code class="json">
 #Request Example
 
-PUT <url id="path">league-standings</url>
+POST <url id="path">cripto</url>
 {
     "query": query,
 }
@@ -390,13 +61,13 @@ PUT <url id="path">league-standings</url>
 Result Example:
 [
     {
-        "message": "League standings updated."
+        "message": "Cripto Added."
     }
 ]
         </code></pre>
-            <p>For the Standings Update, you need to make a PUT call to the URL below :
+            <p>For the Cripto Add, you need to make a POST call to the URL below :
                 <br>
-                <code class="higlighted" id="path">league-standings</code>
+                <code class="higlighted" id="path">cripto</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -416,6 +87,296 @@ Result Example:
                 </tbody>
             </table>
         </div>
+
+            <div class="overflow-hidden content-section">
+            <h2>Cripto Update</h2>
+            <pre><code class="json">
+#Request Example
+
+PUT <url id="path">cripto</url>
+{
+    "query": query,
+}
+
+Result Example:
+[
+    {
+        "message": "Cripto Updated."
+    }
+]
+        </code></pre>
+            <p>For the Cripto Update, you need to make a PUT call to the URL below :
+                <br>
+                <code class="higlighted" id="path">cripto</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                     <td>query</td>
+                    <td>String</td>
+                                        <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+                <div class="overflow-hidden content-section">
+            <h2>Stock List</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">stock</url>
+
+Result Example:
+[
+    {
+        "StockID": 1,
+        "LastPrice": "8,86",
+        "Min": "8,59",
+        "Max": "8,87",
+        "Time": "18:09",
+        "Text": "GARAN - GARANTİ BANKASI",
+        "Code": "GARAN"
+    }
+]
+        </code></pre>
+            <p>For the Stock List, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">stock</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>     <td>token</td>
+                    <td>String</td>
+                    <td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+
+            <div class="overflow-hidden content-section">
+            <h2>Stock Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">stock</url>
+{
+    "query": query,
+}
+
+Result Example:
+[
+    {
+        "message": "Stock Added."
+    }
+]
+        </code></pre>
+            <p>For the Stock Add, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">stock</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                     <td>query</td>
+                    <td>String</td>
+                                        <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+            <div class="overflow-hidden content-section">
+            <h2>Stock Update</h2>
+            <pre><code class="json">
+#Request Example
+
+PUT <url id="path">stock</url>
+{
+    "query": query,
+}
+
+Result Example:
+[
+    {
+        "message": "Stock Updated."
+    }
+]
+        </code></pre>
+            <p>For the Stock Update, you need to make a PUT call to the URL below :
+                <br>
+                <code class="higlighted" id="path">stock</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                     <td>query</td>
+                    <td>String</td>
+                                        <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+                <div class="overflow-hidden content-section">
+            <h2>Currency List</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">currency</url>
+
+Result Example:
+[
+    {
+        "CurrencyID": 1,
+        "Name": "Dolar",
+        "Code": "USD",
+        "Buying": "7,6765",
+        "Selling": "7,6845",
+        "Rate": "-0.06",
+        "Datetime": "2020-11-15T20:59:00."
+    }
+]
+        </code></pre>
+            <p>For the Currency List, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">currency</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>     <td>token</td>
+                    <td>String</td>
+                    <td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+
+            <div class="overflow-hidden content-section">
+            <h2>Currency Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">currency</url>
+{
+    "query": query,
+}
+
+Result Example:
+[
+    {
+        "message": "Currency Added."
+    }
+]
+        </code></pre>
+            <p>For the Currency Add, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">currency</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                     <td>query</td>
+                    <td>String</td>
+                                        <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+            <div class="overflow-hidden content-section">
+            <h2>Currency Update</h2>
+            <pre><code class="json">
+#Request Example
+
+PUT <url id="path">currency</url>
+{
+    "query": query,
+}
+
+Result Example:
+[
+    {
+        "message": "Currency Updated."
+    }
+]
+        </code></pre>
+            <p>For the Currency Update, you need to make a PUT call to the URL below :
+                <br>
+                <code class="higlighted" id="path">currency</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                     <td>query</td>
+                    <td>String</td>
+                                        <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
     </div>
 
     <div class="content-code"></div>

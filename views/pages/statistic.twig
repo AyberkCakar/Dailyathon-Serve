@@ -1,29 +1,40 @@
-<div class="content-page tabcontent" id="tabSport">
+<div class="content-page tabcontent" id="tabStatistic">
     <div class="content-code"></div>
     <div class="content">
         <div class="overflow-hidden content-section">
-            <h1>Sport Transacsions</h1>
-            <p>The user performs sport operations will be with the examples below.</p>
+            <h1>Exchange Transacsions</h1>
+            <p>The user performs News operations will be with the examples below.</p>
         </div>
         <div class="overflow-hidden content-section">
-            <h2>List</h2>
+            <h2>Dashboard Statistic</h2>
             <pre><code class="json">
 #Request Example
 
-GET <url id="path">sport</url>
+GET <url id="path">dashboard</url>
 
 Result Example:
 [
     {
-        "SportID": 1,
-        "SportName": "Futbol",
-        "LeagueTableName": "tblFootball"
+        "thisweekUser": 0,
+        "totalUser": 6,
+        "totalAdmin": 9,
+        "totalCategory": 8,
+        "totalTag": 23,
+        "totalSurvey": 6,
+        "totalActiveSurvey": 5,
+        "totalAnnouncement": 9,
+        "totalActiveAnnouncement": 7,
+        "totalEvent": 5,
+        "totalActiveEvent": 0,
+        "TotalNews": 128,
+        "totalSport": 2,
+        "totalLeague": 4
     }
 ]
         </code></pre>
-            <p>For the Sport List, you need to make a GET call to the URL below :
+            <p>For the Dashboard Statistic, you need to make a GET call to the URL below :
                 <br>
-                <code class="higlighted" id="path">sport</code>
+                <code class="higlighted" id="path">dashboard</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -36,36 +47,34 @@ Result Example:
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                                                    <td>token</td>
+                <tr>     <td>token</td>
                     <td>String</td>
-                    <td></td>
-                </tr>
+                    <td></td></tr>
                 </tbody>
             </table>
         </div>
+
         <div class="overflow-hidden content-section">
-            <h2>Sport Find</h2>
+            <h2>Age Statistic</h2>
             <pre><code class="json">
 #Request Example
 
-POST <url id="path">sport-find</url>
-{
-    "SportID": 1
-}
+GET <url id="path">age-statistic</url>
 
 Result Example:
 [
     {
-        "SportID": 1,
-        "SportName": "Futbol",
-        "LeagueTableName": "tblFootball"
+        "age1": 1,
+        "age2": 1,
+        "age3": 0,
+        "age4": 0,
+        "age5": 4
     }
 ]
         </code></pre>
-            <p>For the Sport Find, you need to make a POST call to the URL below :
+            <p>For the Age Statistic, you need to make a GET call to the URL below :
                 <br>
-                <code class="higlighted" id="path">sport-find</code>
+                <code class="higlighted" id="path">age-statistic</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -78,38 +87,35 @@ Result Example:
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>SportID</td>
-                    <td>Int</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>token</td>
+                <tr>     <td>token</td>
                     <td>String</td>
-                    <td></td>
-                </tr>
+                    <td></td></tr>
                 </tbody>
             </table>
         </div>
-        <div class="overflow-hidden content-section">
-            <h2>Insert</h2>
+
+                <div class="overflow-hidden content-section">
+            <h2>Category Statistic</h2>
             <pre><code class="json">
 #Request Example
 
-POST <url id="path">sport</url>
-{
-    "SportName": "Futbol",
-    "LeagueTableName": "tblFootball"
-}
+POST <url id="path">category-statistic</url>
 
 Result Example:
-{
-    "message": "Sport added."
-}
+[
+    {
+        "value": 5,
+        "name": "Spor"
+    },
+    {
+        "value": 1,
+        "name": "Ekonomi"
+    }
+]
         </code></pre>
-            <p>For the Sport Insert, you need to make a POST call to the URL below :
+            <p>For the Category Statistic, you need to make a POST call to the URL below :
                 <br>
-                <code class="higlighted" id="path">sport</code>
+                <code class="higlighted" id="path">category-statistic</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -122,39 +128,39 @@ Result Example:
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>SportName</td>
+                              <tr>     <td>CategoryID</td>
                     <td>String</td>
-                </tr>
-                <tr>
-                    <td>LeagueTableName</td>
+                    <td></td></tr>
+                <tr>     <td>token</td>
                     <td>String</td>
-                </tr>
-                <tr>
-                    <td>token</td>
-                    <td>String</td>
-                </tr>
+                    <td></td></tr>
                 </tbody>
             </table>
         </div>
-        <div class="overflow-hidden content-section">
-            <h2>Delete</h2>
+
+
+                <div class="overflow-hidden content-section">
+            <h2>Tag Statistic</h2>
             <pre><code class="json">
 #Request Example
 
-DELETE <url id="path">sport</url>
-{
-    "SportID": 2,
-}
+POST <url id="path">tag-statistic</url>
 
 Result Example:
+[
 {
-    "message": "Sport deletion has occurred."
-}
+        "name": "Spor",
+        "value": 5
+    },
+    {
+        "name": "Teknoloji",
+        "value": 2
+    },
+]
         </code></pre>
-            <p>For the Sport Delete, you need to make a DELETE call to the URL below :
+            <p>For the Tag Statistic, you need to make a POST call to the URL below :
                 <br>
-                <code class="higlighted" id="path">sport</code>
+                <code class="higlighted" id="path">tag-statistic</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -167,18 +173,17 @@ Result Example:
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>SportID</td>
-                    <td>Int</td>
-                </tr>
-                <tr>
-                    <td>token</td>
+                              <tr>     <td>selectID</td>
                     <td>String</td>
-                </tr>
+                    <td></td></tr>
+                <tr>     <td>token</td>
+                    <td>String</td>
+                    <td></td></tr>
                 </tbody>
             </table>
         </div>
 
     </div>
+
     <div class="content-code"></div>
 </div>

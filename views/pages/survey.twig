@@ -20,11 +20,12 @@ Result Example:
         "SurveyTableName": "tblanket5",
         "SurveyStartDate": "2020-10-02T00:00:00.000Z",
         "SurveyDueDate": "2020-10-02T00:00:00.000Z",
-        "SurveyUrl": ""
+        "SurveyUrl": "",
+        "Visible": 1
     }
 ]
         </code></pre>
-            <p>For the Tag List, you need to make a GET call to the URL below :
+            <p>For the Survey List, you need to make a GET call to the URL below :
                 <br>
                 <code class="higlighted" id="path">survey</code>
             </p>
@@ -40,6 +41,9 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
@@ -49,7 +53,7 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-GET <url id="path">surveyUserList</url>
+POST <url id="path">survey-user-list</url>
 
 Result Example:
 [
@@ -59,13 +63,58 @@ Result Example:
         "SurveyTableName": "tblanket3",
         "SurveyStartDate": "2020-10-02T00:00:00.000Z",
         "SurveyDueDate": "2020-10-02T00:00:00.000Z",
-        "SurveyUrl": ""
+        "SurveyUrl": "",
+        "Visible": 1
     }
 ]
         </code></pre>
-            <p>For the User Survey List, you need to make a GET call to the URL below :
+            <p>For the User Survey List, you need to make a POST call to the URL below :
                 <br>
-                <code class="higlighted" id="path">surveyUserList</code>
+                <code class="higlighted" id="path">survey-user-list</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+                <div class="overflow-hidden content-section">
+            <h2>User Survey List</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">survey-read-user-list</url>
+
+Result Example:
+[
+    {
+        "SurveyListID": 1,
+        "SurveyName": "anket1",
+        "Visible": 1,
+        "SurveyStartDate": "2020-10-02T00:00:00.000Z",
+        "SurveyDueDate": "2020-10-02T00:00:00.000Z"
+    }
+]
+        </code></pre>
+            <p>For the User Survey List, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">survey-read-user-list</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -94,9 +143,9 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-GET <url id="path">survey-find</url>
+POST <url id="path">survey-find</url>
 {
-    "SurveyID": 1
+    "SurveyListID": 1
 }
 
 Result Example:
@@ -107,11 +156,12 @@ Result Example:
         "SurveyTableName": "tblanketdeneme",
         "SurveyStartDate": "2020-10-02T00:00:00.000Z",
         "SurveyDueDate": "2020-10-03T00:00:00.000Z",
-        "SurveyUrl": "anketdeneme.com/&%?"
+        "SurveyUrl": "anketdeneme.com/&%?",
+        "Visible": 1
     }
 ]
         </code></pre>
-            <p>For the survey find, you need to make a GET call to the URL below :
+            <p>For the survey find, you need to make a POST call to the URL below :
                 <br>
                 <code class="higlighted" id="path">survey-find</code>
             </p>
@@ -127,7 +177,108 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
-                    <td>SurveyID</td>
+                    <td>SurveyListID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Survey Statistic</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">survey-statistic</url>
+{
+    "SurveyListID": 1
+}
+
+Result Example:
+[
+    {
+        "UserID": 1,
+        "UserName": "Ayberk",
+        "UserSurname": "Çakar",
+        "UserMail": "ayberk@gmail.com",
+        "UserPassword": "ayberk",
+        "UserDate": "1236-01-03T00:00:00.000Z",
+        "UserProfession": "Yazılım Mühendisi",
+        "UserCity": "İzmir",
+        "RegDate": "0000-00-00"
+    }
+]
+        </code></pre>
+            <p>For the survey statistic, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">survey-statistic</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>SurveyListID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+                <div class="overflow-hidden content-section">
+            <h2>Survey Data</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">survey-data</url>
+{
+    "SurveyListID": 21
+}
+
+Result Example:
+[
+    {
+        "ID": 21,
+        "soru1": "evet",
+        "soru2": "hayır",
+        "soruRenk": "Mor"
+    }
+]
+        </code></pre>
+            <p>For the survey data, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">survey-data</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>SurveyListID</td>
                     <td>Int</td>
                     <td></td>
                 </tr>
@@ -206,7 +357,7 @@ Result Example:
 
 PUT <url id="path">survey</url>
 {
-    "SurveyID": 1,
+    "SurveyListID": 1,
     "SurveyName": "Survey Test",
     "SurveyTableName": "tblsurveytest",
     "SurveyStartDate": "2020-10-02",
@@ -235,7 +386,7 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
-                    <td>SurveyID</td>
+                    <td>SurveyListID</td>
                     <td>Int</td>
                 </tr>
                 <tr>
@@ -276,7 +427,7 @@ Result Example:
 
 DELETE <url id="path">survey</url>
 {
-    "SurveyID": 2,
+    "SurveyListID": 2,
 }
 Result Example:
 {
@@ -299,7 +450,7 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
-                    <td>SurveyID</td>
+                    <td>SurveyListID</td>
                     <td>Int</td>
                 </tr>
                 <tr>

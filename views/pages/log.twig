@@ -1,0 +1,385 @@
+<div class="content-page tabcontent" id="tabLog">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>Log Transacsions</h1>
+            <p>The user performs Log operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>Admin Log List</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">adminlog</url>
+
+Result Example:
+[
+    {
+        "LogID": 911,
+        "AdminName": "Ayberk",
+        "AdminAuth": "Owner",
+        "AdminPosition": "CEO",
+        "message": null,
+        "Operation": "Announcement List",
+        "isSuccess": 1,
+        "RegDate": "2020-11-10T18:14:09.000Z"
+    }
+]
+        </code></pre>
+            <p>For the Admin Log List, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">adminlog</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>     
+                <td>token</td>
+                    <td>String</td>
+                    <td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+ <div class="overflow-hidden content-section">
+            <h2>Databot Log List</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">databotlog</url>
+
+Result Example:
+[
+    {
+        "LogID": 521,
+        "BotName": "News Bot",
+        "Url": " ",
+        "Message": " News information added successfully.",
+        "Exception": "News added.",
+        "RegDate": "2020-11-15T10:42:41.000Z"
+    }
+]
+        </code></pre>
+            <p>For the Databot Log List, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">databotlog</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>     
+                <td>token</td>
+                    <td>String</td>
+                    <td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+ <div class="overflow-hidden content-section">
+            <h2>Serve Log List</h2>
+            <pre><code class="json">
+#Request Example
+
+GET <url id="path">servelog</url>
+
+Result Example:
+[
+    {
+        "LogID": 1,
+        "RouterName": "News",
+        "RouterType": "GET",
+        "Message": "GET FAILED.",
+        "Exception": "EXCEPTION",
+        "RegDate": "2020-10-20T16:12:00.000Z",
+        "Level": null
+    }
+]
+        </code></pre>
+            <p>For the Serve Log List, you need to make a GET call to the URL below :
+                <br>
+                <code class="higlighted" id="path">servelog</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>     
+                <td>token</td>
+                    <td>String</td>
+                    <td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="overflow-hidden content-section">
+            <h2>Admin Log Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">adminlog</url>
+{
+    "AdminID": 1,
+    "Operation": "League List",
+    "Message": "News deletion has occurred.",
+    "isSuccess": 1,
+    "RegDate": "2020-10-20T16:12:00.000Z"
+}
+
+Result Example:
+[
+    {
+        "message": "Admin Log added."
+    }
+]
+        </code></pre>
+            <p>For the Admin Log Insert, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">adminlog</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>AdminID</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Operation</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                                <tr>
+                    <td>Message</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                                <tr>
+                    <td>isSuccess</td>
+                    <td>Int</td>
+                    <td></td>
+                </tr>
+                                <tr>
+                    <td>RegDate</td>
+                    <td>Date</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
+        <div class="overflow-hidden content-section">
+            <h2>Databot Log Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">databotlog</url>
+{
+    "BotName": "Pharmacy Bot",
+    "Url": " ",
+    "Message": "Pharmacy information deleted successfully.	",
+    "Exception": "An error occurred during Pharmacy deletion !",
+    "RegDate": "2020-10-20T16:12:00.000Z"
+}
+
+Result Example:
+[
+    {
+        "message": "Databot Log added."
+    }
+]
+        </code></pre>
+            <p>For the Databot Log Insert, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">databotlog</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>BotName</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Url</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                                <tr>
+                    <td>Message</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                                <tr>
+                    <td>Exception</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                                <tr>
+                    <td>RegDate</td>
+                    <td>Date</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+                </div>
+
+               <div class="overflow-hidden content-section">
+            <h2>Admin Log Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">adminlog</url>
+
+Result Example:
+[
+    {
+        "message": "Admin Log deleted."
+    }
+]
+        </code></pre>
+            <p>For the Admin Log Delete, you need to make a DELETE call to the URL below :
+                <br>
+                <code class="higlighted" id="path">adminlog</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+               <div class="overflow-hidden content-section">
+            <h2>Databot Log Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">databotlog</url>
+
+Result Example:
+[
+    {
+        "message": "Databot Log deleted."
+    }
+]
+        </code></pre>
+            <p>For the Databot Log Delete, you need to make a DELETE call to the URL below :
+                <br>
+                <code class="higlighted" id="path">databotlog</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+             <div class="overflow-hidden content-section">
+            <h2>Serve Log Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">servelog</url>
+
+Result Example:
+[
+    {
+        "message": "Serve Log deleted."
+    }
+]
+        </code></pre>
+            <p>For the Databot Log Delete, you need to make a DELETE call to the URL below :
+                <br>
+                <code class="higlighted" id="path">servelog</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>token</td>
+                    <td>String</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+    <div class="content-code"></div>
+</div>

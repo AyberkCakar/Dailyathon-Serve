@@ -18,7 +18,8 @@ Result Example:
         "AnnouncementID": 21,
         "AnnouncementContent": "test anket3",
         "AnnouncementDate": "2020-10-03T00:00:00.000Z",
-        "AnnouncementTitle": "title3"
+        "AnnouncementTitle": "title3",
+        "Visible": 0
     }
 ]
         </code></pre>
@@ -38,6 +39,8 @@ Result Example:
                 </thead>
                 <tbody>
                 <tr>
+                                    <td>token</td>
+                    <td>String</td>
                 </tr>
                 </tbody>
             </table>
@@ -47,7 +50,10 @@ Result Example:
             <pre><code class="json">
 #Request Example
 
-GET <url id="path">announcementUserList</url>
+POST <url id="path">announcement-user-list</url>
+{
+    "UserID": 1
+}
 
 Result Example:
 [
@@ -55,13 +61,14 @@ Result Example:
         "AnnouncementID": 21,
         "AnnouncementContent": "test anket3",
         "AnnouncementDate": "2020-10-03T00:00:00.000Z",
-        "AnnouncementTitle": "title3"
+        "AnnouncementTitle": "title3",
+        "Visible": 0
     }
 ]
         </code></pre>
-            <p>For the User Announcement List, you need to make a GET call to the URL below :
+            <p>For the User Announcement List, you need to make a POST call to the URL below :
                 <br>
-                <code class="higlighted" id="path">announcementUserList</code>
+                <code class="higlighted" id="path">announcement-user-list</code>
             </p>
             </code></pre>
             <h4>QUERY PARAMETERS</h4>
@@ -76,6 +83,104 @@ Result Example:
                 <tbody>
                 <tr>
                     <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+         <div class="overflow-hidden content-section">
+            <h2>Announcement Read User List</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">announcement-read-user-list</url>
+{
+    "UserID": 1
+}
+
+Result Example:
+[
+    {
+        "AnnouncementID": 21,
+        "AnnouncementContent": "test anket3",
+        "AnnouncementDate": "2020-10-03T00:00:00.000Z",
+        "AnnouncementTitle": "title3",
+        "Visible": 0
+    }
+]
+        </code></pre>
+            <p>For the Announcement Read User List, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcement-read-user-list</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UserID</td>
+                    <td>Int</td>
+                </tr>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+                <div class="overflow-hidden content-section">
+            <h2>User Announcement Statistic</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">announcement-statistic</url>
+{
+    "AnnouncementID": 1
+}
+
+Result Example:
+[
+    {
+        "UserID": 1,
+        "UserName": "Ayberk",
+        "UserSurname": "Çakar",
+        "UserMail": "ayberk@gmail.com",
+        "UserPassword": "ayberk",
+        "UserDate": "1236-01-03T00:00:00.000Z",
+        "UserProfession": "Yazılım Mühendisi",
+        "UserCity": "İzmir",
+        "RegDate": "0000-00-00"
+    }
+]
+        </code></pre>
+            <p>For the Announcement Statistic, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">announcement-statistic</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>AnnouncementID</td>
                     <td>Int</td>
                 </tr>
                 <tr>
@@ -101,7 +206,8 @@ Result Example:
         "AnnouncementID": 21,
         "AnnouncementContent": "test anket3",
         "AnnouncementDate": "2020-10-03T00:00:00.000Z",
-        "AnnouncementTitle": "title3"
+        "AnnouncementTitle": "title3",
+        "Visible": 0
     }
 ]
         </code></pre>

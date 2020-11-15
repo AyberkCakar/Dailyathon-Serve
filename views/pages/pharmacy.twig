@@ -1,0 +1,139 @@
+<div class="content-page tabcontent" id="tabPharmacy">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section">
+            <h1>Pharmacy Transacsions</h1>
+            <p>The user performs News operations will be with the examples below.</p>
+        </div>
+        <div class="overflow-hidden content-section">
+            <h2>List</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">pharmacy-list</url>
+{
+    "city": "İzmir",
+        or
+    "dist": "Karşıyaka",
+}
+
+Result Example:
+[
+    {
+        "PharmacyID": 1381,
+        "Name": "ORAN",
+        "City": "izmir",
+        "Address": "ISLAM MAH. HÜRRIYET MEYDANI NO:22/2 ÇANDARLI-IZMIR",
+        "Phone": "2326731088",
+        "Location": "38.935683,26.93461284",
+        "Dist": "DİKİLİ"
+    }
+]
+        </code></pre>
+            <p>For the Pharmacy List, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">pharmacy-list</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr>     <td>city</td>
+                    <td>String</td>
+                    <td></td></tr> <tr>     <td>dist</td>
+                    <td>String</td>
+                    <td></td></tr>
+                <tr>     <td>token</td>
+                    <td>String</td>
+                    <td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+
+            <div class="overflow-hidden content-section">
+            <h2>Pharmacy Insert</h2>
+            <pre><code class="json">
+#Request Example
+
+POST <url id="path">pharmacy</url>
+{
+    "query": query,
+}
+
+Result Example:
+[
+    {
+        "message": "Pharmacy Added."
+    }
+]
+        </code></pre>
+            <p>For the Pharmacy Add, you need to make a POST call to the URL below :
+                <br>
+                <code class="higlighted" id="path">pharmacy</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                     <td>query</td>
+                    <td>String</td>
+                                        <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="overflow-hidden content-section">
+            <h2>Delete</h2>
+            <pre><code class="json">
+#Request Example
+
+DELETE <url id="path">pharmacy</url>
+
+Result Example:
+{
+    "message": "Pharmacy deletion has occurred."
+}
+        </code></pre>
+            <p>For the Pharmacy Delete, you need to make a DELETE call to the URL below :
+                <br>
+                <code class="higlighted" id="path">pharmacy</code>
+            </p>
+            </code></pre>
+            <h4>QUERY PARAMETERS</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>token</td>
+                    <td>String</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="content-code"></div>
+</div>
