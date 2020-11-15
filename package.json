@@ -1,6 +1,6 @@
 {
   "name": "dailyathon-serve",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "./build/app.js",
   "scripts": {
     "start": "node src/app.js",

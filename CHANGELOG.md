@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.16.0...v2.0.1) (2020-11-15)
+
+
+### Bug Fixes
+
+* fix Dailyathon_DatabaseSqlScript ([ce07f64](https://github.com/AyberkCakar/Dailyathon-Serve/commit/ce07f6469f9cda37d3c7803b0cab5a20308f0100))
+* fix databotlog transaction ([5a7b750](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5a7b7502e77ebeeb1d4ee705f4746754b5b1bc67))
+* fix league router ([8921baa](https://github.com/AyberkCakar/Dailyathon-Serve/commit/8921baacbdb388e1d0449ecf49240ed693789d37))
+* fix league standings transactions ([1da3c76](https://github.com/AyberkCakar/Dailyathon-Serve/commit/1da3c76e64bdfcc026f7da6c3dfc51d6f41b6fea))
+* fix league stansings transactions ([cfb4d4e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/cfb4d4e0a5624c433e86bb22d18808ae42c326f2))
+* fix news add transactions ([61fbe97](https://github.com/AyberkCakar/Dailyathon-Serve/commit/61fbe977661f810123324b268acac3fa13313fb5))
+* fix news router ([30171d0](https://github.com/AyberkCakar/Dailyathon-Serve/commit/30171d0c4b58a43b067b45f9508353c71c79d2a6))
+* fix news validator ([54006d7](https://github.com/AyberkCakar/Dailyathon-Serve/commit/54006d7286d6134b1e456a402e1ff7894e3f3af9))
+* fix survey user list transactions ([7f2c174](https://github.com/AyberkCakar/Dailyathon-Serve/commit/7f2c1744b58edadfc850e5242d637fa786a75cfe))
+* fix tag validators ([30adb36](https://github.com/AyberkCakar/Dailyathon-Serve/commit/30adb36ba819bdc607daeab1446e62322f26fe0e))
+
 ## [2.0.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.15.0...v2.0.0) (2020-11-12)
 
 
