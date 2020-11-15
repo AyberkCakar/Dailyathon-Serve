@@ -95,7 +95,7 @@ module.exports = {
     },
     databotlogInsert: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT tblDatabotLog tbl SET ?', [data], (error, result) => {
+            mysqlDataContext.query('INSERT tblDatabotLog SET ?', [data], (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( logMessage.DatabotLog.insert.Ok );
