@@ -24,7 +24,7 @@ router.get('/category-tag',verifyToken, async (req, res) => {
     }
 });
 
-router.post('/user-tag', verifyToken,tagValidator.userTag, async (req, res) => {
+router.post('/user-tag-list', verifyToken,tagValidator.userTag, async (req, res) => {
     try {
         const response = await tagTransactions.userTagList(req.body);
         res.json(response);
@@ -51,7 +51,7 @@ router.post('/tag', verifyToken,tagValidator.add, async (req, res) => {
     }
 });
 
-router.post('/user-tag', verifyToken, async (req, res) => {
+router.post('/user-tag', verifyToken,tagValidator.tagSelect, async (req, res) => {
     try {
         const response = await tagTransactions.tagSelect(req.body);
         res.json({message:response.message});
