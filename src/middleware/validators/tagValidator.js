@@ -36,9 +36,9 @@ module.exports = {
     tagSelect: async (req, res, next) => {
         try {
             await joi.object({
-                UserID:joi.number().min(1).max(99999999999).required(),
-                TagName:joi.string().min(2).required(),
-                RegDate: joi.date().required()
+                UserID:joi.number().required(),
+                TagName:joi.string().required(),
+                RegDate: joi.required()
             }).validateAsync(req.body);
             next();
         } catch (error) {
