@@ -43,9 +43,9 @@ module.exports = {
     },
     signup: (data) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('CALL UserSignUp(?,?,?,?,?,?,?,?)', [data.UserName, data.UserSurname, data.UserEmail, data.UserPassword, data.UserDate, data.UserProfession, data.UserCity,data.RegDate], (error, result) => {
+            mysqlDataContext.query('INSERT INTO tblUser SET ?', [data], (error, result) => {
                 if (!error)
-                    if (result[0][0] != null)
+                    if (result.affectedRows != 0)
                         resolve(userMessage.signUp.Ok);
                     else
                         reject(userMessage.signUp.Internal_Server_Error);

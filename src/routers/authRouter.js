@@ -74,8 +74,10 @@ router.post('/login/:loginType', authValidator.login, async (req, res) => {
 router.post('/sign-up/:Type', authValidator.signUp, async (req, res) => {
     try {
         let result;
+        req.body.RegDate =req.body.RegDate.replace(/T/, ' ').replace(/\..+/, '');
         switch (req.params.Type) {
             case 'user':
+                req.body.UserCity=req.body.UserCity.toLowerCase();
                 result = await userTransactions.signup(req.body);
                 break;
             case 'admin':

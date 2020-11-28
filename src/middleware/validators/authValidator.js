@@ -58,7 +58,7 @@ module.exports = {
                     await joi.object({
                         UserName:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                         UserSurname:joi.string().min(3).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                        UserEmail: joi.string().email().required(),
+                        UserMail: joi.string().email().required(),
                         UserPassword: joi.string().max(99).required(),
                         UserDate: joi.date().required(),
                         UserProfession: joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
