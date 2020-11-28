@@ -16,7 +16,8 @@ router.get('/adminlog', verifyToken,async (req, res) => {
 
 router.post('/adminlog', async (req, res) => {
     try {
-        const response = await logTransactions.adminlogInsert(req.body);
+        req.body.RegDate =req.body.RegDate.replace(/T/, ' ').replace(/\..+/, '');
+       const response = await logTransactions.adminlogInsert(req.body);
         res.json({message:response.message});
     } catch (error) {
         res.status(error.status).json({ message: error.message });
@@ -34,6 +35,7 @@ router.delete('/adminlog',verifyToken, async (req, res) => {
 
 router.get('/servelog',verifyToken, async (req, res) => {
     try {
+        
         const response = await logTransactions.servelogList();
         res.json(response);
     } catch (error) {
@@ -61,6 +63,7 @@ router.get('/databotlog',verifyToken, async (req, res) => {
 
 router.post('/databotlog', async (req, res) => {
     try {
+        req.body.RegDate =req.body.RegDate.replace(/T/, ' ').replace(/\..+/, '');
         const response = await logTransactions.databotlogInsert(req.body);
         res.json({message:response.message});
     } catch (error) {

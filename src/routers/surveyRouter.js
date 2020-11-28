@@ -71,6 +71,7 @@ router.post('/survey', verifyToken,surveyValidator.add,async (req, res) => {
 
 router.post('/survey-read', verifyToken,surveyValidator.surveyAsRead,async (req, res) => {
     try {
+        req.body.RegDate=req.body.RegDate.replace(/T/, ' ').replace(/\..+/, '');
         const response = await surveyTransactions.surveyAsRead(req.body);
         res.json(response);
     } catch (error) {

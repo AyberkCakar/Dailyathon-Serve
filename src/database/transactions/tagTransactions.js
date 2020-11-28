@@ -17,7 +17,7 @@ module.exports = {
     },
     categoryTagList: () => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('SELECT T.TagID,T.TagName,C.CategoryName FROM tbltag T inner join tblcategory C on T.CategoryID = C.CategoryID ORDER BY T.TagID ASC', (error, result) => {
+            mysqlDataContext.query('SELECT T.TagID,T.TagName,C.CategoryName FROM tblTag T inner join tblCategory C on T.CategoryID = C.CategoryID ORDER BY T.TagID ASC', (error, result) => {
                 if (!error)
                     if (result != null)
                         resolve(result);

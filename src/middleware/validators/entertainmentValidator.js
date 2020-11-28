@@ -37,8 +37,8 @@ module.exports = {
             await joi.object({
                 EntertainmentName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 EntertainmentContent:joi.string().min(2).required(),
-                EntertainmentStartDate:joi.date().required(),
-                EntertainmentDueDate:joi.date().required(),
+                EntertainmentStartDate:joi.required(),
+                EntertainmentDueDate:joi.required(),
                 EntertainmentPosterUrl:joi.string().min(2).required(),
                 EntertainmentTicketUrl:joi.string().min(2).required(),
                 EntertainmentisFree:joi.required(),
@@ -46,7 +46,7 @@ module.exports = {
                 EntertainmentDistrict:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 EntertainmentVenue:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
                 EntertainmentPerformer:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                EntertainmentCategoryID:joi.number().min(0).max(99999999999).required()
+                TagID:joi.number().min(0).max(99999999999).required()
             }).validateAsync(req.body);
             next();
         } catch (error) {

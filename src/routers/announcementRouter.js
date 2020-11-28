@@ -53,6 +53,7 @@ router.post('/announcement-read-user-list',verifyToken,announcementValidator.ann
 
 router.post('/announcement',verifyToken,announcementValidator.add, async (req, res) => {
     try {
+
         const response = await announcementTransactions.insert(req.body);
         res.json(response);
     } catch (error) {
@@ -62,6 +63,7 @@ router.post('/announcement',verifyToken,announcementValidator.add, async (req, r
 
 router.post('/announcement-user',verifyToken,announcementValidator.announcementAsRead, async (req, res) => {
     try {
+        req.body.RegDate=req.body.RegDate.replace(/T/, ' ').replace(/\..+/, '');
         const response = await announcementTransactions.announcementAsRead(req.body);
         res.json(response);
     } catch (error) {
