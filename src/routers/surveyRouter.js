@@ -62,6 +62,8 @@ router.post('/survey-data',verifyToken,surveyValidator.find, async (req, res) =>
 
 router.post('/survey', verifyToken,surveyValidator.add,async (req, res) => {
     try {
+        req.body.SurveyStartDate =req.body.SurveyStartDate.replace(/T/, ' ').replace(/\..+/, '');
+        req.body.SurveyDueDate =req.body.SurveyDueDate.replace(/T/, ' ').replace(/\..+/, '');
         const response = await surveyTransactions.insert(req.body);
         res.json(response);
     } catch (error) {
@@ -81,6 +83,8 @@ router.post('/survey-read', verifyToken,surveyValidator.surveyAsRead,async (req,
 
 router.put('/survey', verifyToken,surveyValidator.update,async (req, res) => {
     try {
+        req.body.SurveyStartDate =req.body.SurveyStartDate.replace(/T/, ' ').replace(/\..+/, '');
+        req.body.SurveyDueDate =req.body.SurveyDueDate.replace(/T/, ' ').replace(/\..+/, '');
         const response = await surveyTransactions.update(req.body);
         res.json(response);
     } catch (error) {
