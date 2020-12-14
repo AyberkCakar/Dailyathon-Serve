@@ -42,7 +42,7 @@ router.post('/entertainment-find',verifyToken,entertainmentValidator.find, async
     }
 });
 
-router.post('/entertainment', verifyToken,entertainmentValidator.add, async (req, res) => {
+router.post('/entertainment',  async (req, res) => {
     try {
         const response = await entertainmentTransactions.insert(req.body);
         res.json({message:response.message});

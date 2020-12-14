@@ -32,27 +32,6 @@ module.exports = {
             res.status(validateMessage.status).send({ message: validateMessage.message });
         }
     },
-    add: async (req, res, next) => {
-        try {
-            await joi.object({
-                EntertainmentName:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                EntertainmentContent:joi.string().min(2).required(),
-                EntertainmentStartDate:joi.required(),
-                EntertainmentDueDate:joi.required(),
-                EntertainmentPosterUrl:joi.string().min(2).required(),
-                EntertainmentTicketUrl:joi.string().min(2).required(),
-                EntertainmentisFree:joi.required(),
-                EntertainmentCity:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                EntertainmentDistrict:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                EntertainmentVenue:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                EntertainmentPerformer:joi.string().min(2).pattern(new RegExp('^[A-Za-zÇçÖöŞşÜüĞğİı ]+$')).required(),
-                TagID:joi.number().min(0).max(99999999999).required()
-            }).validateAsync(req.body);
-            next();
-        } catch (error) {
-            res.status(validateMessage.status).send({ message: validateMessage.message });
-        }
-    },
     delete: async (req, res, next) => {
         try {
             await joi.object({
