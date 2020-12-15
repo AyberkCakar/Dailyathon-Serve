@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v2.0.1...v2.1.0) (2020-12-15)
+
+
+### Features
+
+* added announcement log ([4146c23](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4146c232cc4a71dfabe6f42506d1f87622ac42cf))
+* added api router logger ([058d9ea](https://github.com/AyberkCakar/Dailyathon-Serve/commit/058d9ead5075234c7fbb4cec4ba66b4ce212b6dc))
+* added auth router logger ([4ecf021](https://github.com/AyberkCakar/Dailyathon-Serve/commit/4ecf021cdf92788e8c87185d389d68cdc56cf6d9))
+* added category router logger ([ab654b8](https://github.com/AyberkCakar/Dailyathon-Serve/commit/ab654b865b1186580cf75e9d1ad43b14af60b3d3))
+* added docker ([2a77976](https://github.com/AyberkCakar/Dailyathon-Serve/commit/2a77976517c93a1f38f421d957062cbb9166ad1e))
+* added entertainment router logger ([c47e97c](https://github.com/AyberkCakar/Dailyathon-Serve/commit/c47e97c6f1b9ce5fc4fb40938350e0125be90d92))
+* added league router logger ([945c553](https://github.com/AyberkCakar/Dailyathon-Serve/commit/945c553a8a430ca781f101d6f929d30792937000))
+* added news router logger ([4127273](https://github.com/AyberkCakar/Dailyathon-Serve/commit/41272735c171b7ae70b1d2b43982af03791e30d7))
+* added sport router logger ([240bc4a](https://github.com/AyberkCakar/Dailyathon-Serve/commit/240bc4ac981b5fa6652c710062a8e7105062298e))
+* added statistic router logger ([625a145](https://github.com/AyberkCakar/Dailyathon-Serve/commit/625a145b68f546a1156c002fdd7775189a083c04))
+* added survey router logger ([b1c4860](https://github.com/AyberkCakar/Dailyathon-Serve/commit/b1c48604a884627eace482944b34a5d1f8d43dd6))
+* added tag router logger ([b46ee3c](https://github.com/AyberkCakar/Dailyathon-Serve/commit/b46ee3c23c13fe8c0e22974d6a4299e9124b9f9d))
+
+
+### Bug Fixes
+
+* fix auth transactions ([9bb2a7e](https://github.com/AyberkCakar/Dailyathon-Serve/commit/9bb2a7ef75b891636089d353631962a3de7f1db8))
+* fix Dailyathon_Database_SqlScript ([461ed17](https://github.com/AyberkCakar/Dailyathon-Serve/commit/461ed1755d5aa8d664ab59d52699551acbe54f8d))
+* fix date format bug ([8e6da02](https://github.com/AyberkCakar/Dailyathon-Serve/commit/8e6da02adf893e92759563fbed30b5297e98db79))
+* fix entertainment add ([3db5673](https://github.com/AyberkCakar/Dailyathon-Serve/commit/3db56733c68af4da5b4e4f77e750db4aea529bfd))
+* fix league standings list transactions ([5bc282d](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5bc282d86977c9af9de817189db72bd4347589ed))
+* fix mysql syntax bug ([e0ebf82](https://github.com/AyberkCakar/Dailyathon-Serve/commit/e0ebf829fb4d28061cd00ab51be4ebaae9e27fce))
+* fix tag router bug ([b9b93d6](https://github.com/AyberkCakar/Dailyathon-Serve/commit/b9b93d6ab04f0643091d7e2cb953b7950bf26975))
+* fix tag select validator bug ([5bec95d](https://github.com/AyberkCakar/Dailyathon-Serve/commit/5bec95df51f372e6d20454e21e057c4cc00a4dca))
+* fix tag validators bug ([348df30](https://github.com/AyberkCakar/Dailyathon-Serve/commit/348df300f863291a64601115ceb5c957c1b0003b))
+
 ### [2.0.1](https://github.com/AyberkCakar/Dailyathon-Serve/compare/v1.16.0...v2.0.1) (2020-11-15)
 
 
