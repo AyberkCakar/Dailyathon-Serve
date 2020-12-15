@@ -7,15 +7,19 @@ const { authMessage ,userMessage} = require('../fixtures/messageStatus.json');
 const router = express();
 const userTransactions = dbFactory('userTransactions');
 const adminTransactions = dbFactory('adminTransactions');
+const logTransactions = dbFactory('logTransactions');
 
+const date = new Date();
 const authValidator = validators.authValidator;
 
 router.get('/user',verifyToken, async (req, res) => {
     try {
         const response = await userTransactions.list();
         res.json(response);
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,null,response.message,date);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,error.message,response.message,date);
     }
 });
 
@@ -23,8 +27,10 @@ router.get('/admin',verifyToken, async (req, res) => {
     try {
         const response = await adminTransactions.list();
         res.json(response);
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,null,response.message,date);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,error.message,response.message,date);
     }
 });
 
@@ -68,6 +74,7 @@ router.post('/login/:loginType', authValidator.login, async (req, res) => {
         res.json({ userInformation: result, token });
     } catch (err) {
         res.status(err.status).json({ message: err.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,error.message,response.message,date);
     }
 });
 
@@ -88,8 +95,10 @@ router.post('/sign-up/:Type', authValidator.signUp, async (req, res) => {
                 return;
         }
         res.json({ message: result.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,null,result.message,date);
     } catch (err) {
         res.status(err.status).json({ message: err.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,error.message,response.message,date);
     }
 });
 
@@ -97,8 +106,10 @@ router.post('/forgotpassword', authValidator.forgotpassword, async (req, res) =>
     try {
         const response = await userTransactions.forgotpassword(req.body);
         res.json({message:response.message});
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,null,response.message,date);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,error.message,response.message,date);
     }
 });
 
@@ -106,8 +117,10 @@ router.put('/admin',verifyToken,authValidator.adminUpdate, async (req, res) => {
     try {
         const response = await adminTransactions.update(req.body);
         res.json({message:response.message});
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,null,response.message,date);
     } catch (error) {
         res.status(error.status).json({ message: error.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,error.message,response.message,date);
     }
 });
 
@@ -121,6 +134,7 @@ router.delete('/delete-my-account',verifyToken,authValidator.deleteMyAccount, as
         }
     } catch (err) {
         res.status(err.status).json({ message: err.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,error.message,response.message,date);
     }
 });
 
@@ -128,8 +142,10 @@ router.delete('/user-delete',verifyToken,authValidator.deleteMyAccount, async (r
     try {
         const result = await userTransactions.delete(req.body.UserID);
         res.status(result.status).json({ message: result.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,null,result.message,date);
     } catch (err) {
         res.status(err.status).json({ message: err.message });
+        await logTransactions.servelogInsert(req.originalUrl,req.method,res.statusCode,res.statusMessage,error.message,result.message,date);
     }
 });
 
