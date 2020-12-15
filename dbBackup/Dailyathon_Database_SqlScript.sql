@@ -113,7 +113,6 @@ create table tblentertainment
 (
     EntertainmentID        int auto_increment primary key,
     EntertainmentName      varchar(50)  null,
-    EntertainmentContent   text         null,
     EntertainmentStartDate date         not null,
     EntertainmentDueDate   date         not null,
     EntertainmentisFree    tinyint(1)   not null,
@@ -123,7 +122,6 @@ create table tblentertainment
     EntertainmentDistrict  varchar(30)  null,
     EntertainmentVenue     varchar(200) null,
     TagID                  int          not null,
-    EntertainmentPerformer varchar(50)  not null,
     constraint EntertainmentID
         unique (EntertainmentID)
 );
@@ -189,10 +187,11 @@ create table tblservelog
         primary key,
     RouterName varchar(50)   not null,
     RouterType varchar(30)   not null,
+    StatusCode int,
+    StatusMessage varchar(200)
     Message    varchar(300)  not null,
     Exception  varchar(2000) null,
     RegDate    datetime      not null,
-    Level      varchar(30)   null
 );
 
 create table tblsport
@@ -415,7 +414,6 @@ create procedure EntertainmentCityList(IN CityName varchar(20))
 BEGIN
     SELECT E.EntertainmentID,
            E.EntertainmentName,
-           E.EntertainmentContent,
            EntertainmentStartDate,
            E.EntertainmentDueDate,
            E.EntertainmentisFree,
@@ -424,7 +422,6 @@ BEGIN
            E.EntertainmentCity,
            E.EntertainmentDistrict,
            E.EntertainmentVenue,
-           E.EntertainmentPerformer,
            T.TagID,
            T.TagName
     FROM tblEntertainment E
@@ -437,7 +434,6 @@ create procedure EntertainmentList()
 BEGIN
     SELECT E.EntertainmentID,
            E.EntertainmentName,
-           E.EntertainmentContent,
            EntertainmentStartDate,
            E.EntertainmentDueDate,
            E.EntertainmentisFree,
@@ -446,7 +442,6 @@ BEGIN
            E.EntertainmentCity,
            E.EntertainmentDistrict,
            E.EntertainmentVenue,
-           E.EntertainmentPerformer,
            T.TagID,
            T.TagName
     FROM tblEntertainment E
