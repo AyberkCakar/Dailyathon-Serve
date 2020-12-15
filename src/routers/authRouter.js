@@ -7,7 +7,9 @@ const { authMessage ,userMessage} = require('../fixtures/messageStatus.json');
 const router = express();
 const userTransactions = dbFactory('userTransactions');
 const adminTransactions = dbFactory('adminTransactions');
+const logTransactions = dbFactory('logTransactions');
 
+const date = new Date();
 const authValidator = validators.authValidator;
 
 router.get('/user',verifyToken, async (req, res) => {
