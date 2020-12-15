@@ -1,5 +1,6 @@
 const { mysqlDataContext } = require('../dataContexts');
 const { logMessage }  = require('../../fixtures/messageStatus.json');
+const mysql = require('mysql');
 
 module.exports = {
     adminlogList: () => {
@@ -54,9 +55,11 @@ module.exports = {
             });
         });
     },
-    servelogInsert: (data) => {
+    servelogInsert: (name,type,sCode,sMessage,excp,message,regDate) => {
         return new Promise((resolve, reject) => {
-            mysqlDataContext.query('INSERT INTO tblServeLog SET ?', [data], (error, result) => {
+            const sql = mysql.format("INSERT INTO tblServeLog SET RouterName=" + mysql.escape(name) + ", RouterType=" + mysql.escape(type) + ", StatusCode=" + mysql.escape(sCode) 
+            + ", StatusMessage=" + mysql.escape(sMessage) + ", Exception=" + mysql.escape(excp) + ", Message=" + mysql.escape(message) + ", RegDate=" + mysql.escape(regDate));
+            mysqlDataContext.query(sql,  (error, result) => {
                 if (!error)
                     if (result.affectedRows != 0)
                         resolve( logMessage.ServeLog.insert.Ok );
