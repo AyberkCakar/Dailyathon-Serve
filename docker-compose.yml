@@ -13,10 +13,10 @@ services:
     environment:
       PORT: 5000
       API_KEY: 3a4a1f3ec062b8726dcb1472af6f1f8621e8247f0ec4ce49943c1fbdf45fc6e56fdc492c54fef7ff6d35a38d87ddd43351c5a6619e0371425b6f5e53ce24516c
-      DB_HOST: database
-      DB_USER: root
-      DB_PASS: ayberk123
-      DB_DATABASE: dailyathon_db
+      DB_HOST: 
+      DB_USER: 
+      DB_PASS: 
+      DB_DATABASE: 
     links:
       - database
   database:
@@ -25,7 +25,7 @@ services:
     ports:
       - 3305:3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: dailyathon_db
-      MYSQL_USER: root@localhost
-      MYSQL_PASSWORD: ayberk123
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: 
+      MYSQL_USER:
+      MYSQL_PASSWORD:
